@@ -47,7 +47,7 @@ export const heroTechBadges = [
 export type AboutStat = { label: string; value: number; suffix?: string };
 
 export const aboutStats: AboutStat[] = [
-  { label: 'Projects Completed', value: 15, suffix: '+' },
+  { label: 'Projects Completed', value: 3, suffix: '+' },
   { label: 'Technologies Learned', value: 30, suffix: '+' },
   { label: 'Certifications', value: 5, suffix: '+' },
   { label: 'Years of Learning', value: 3, suffix: '' },
