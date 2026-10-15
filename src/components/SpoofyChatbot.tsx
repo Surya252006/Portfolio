@@ -41,11 +41,11 @@ export function SpoofyChatbot() {
     {
       id: 'welcome-1',
       sender: 'spoofy',
-      text: "👋 **Hi! I am Spoofy**, Surya Suresh's dedicated **24/7 AI Representative**.\n\nI can assist you with details about Surya's **Artificial Intelligence engineering**, **live systems** (MedPulse AI, KisanConnect, PosterKadai, SMARTATHON'26), **technical skills**, or help you **download his verified resume**.\n\nHow can I help you today?",
+      text: "👋 **Hi! I am Spoofy**, Surya S.'s dedicated **24/7 AI Representative**.\n\nI can assist you with details about Surya's **software engineering background**, **live platforms** (PosterKadai, KisanConnect, TN Scheme AI), **technical skills**, or help you **download his verified resume**.\n\nHow can I help you today?",
       timestamp: 'Just now',
       actions: [
-        { label: 'Explore AI Projects', actionType: 'scroll', targetId: 'projects' },
-        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+        { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
+        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
         { label: 'What is his Tech Stack?', actionType: 'scroll', targetId: 'skills' },
       ],
     },
@@ -160,11 +160,11 @@ export function SpoofyChatbot() {
       {
         id: `reset-${Date.now()}`,
         sender: 'spoofy',
-        text: "🧹 Conversation history cleared. Ask me anything about Surya's **AI engineering experience**, **projects**, or **tech stack**!",
+        text: "🧹 Conversation history cleared. Ask me anything about Surya's **software engineering experience**, **projects**, or **tech stack**!",
         timestamp: 'Just now',
         actions: [
-          { label: 'Explore AI Projects', actionType: 'scroll', targetId: 'projects' },
-          { label: 'Download Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+          { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
+          { label: 'Download Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
         ],
       },
     ]);

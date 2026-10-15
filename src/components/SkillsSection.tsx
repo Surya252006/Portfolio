@@ -44,24 +44,27 @@ export function SkillsSection() {
                     </h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-2.5">
                     {category.items.map((skill) => (
-                      <div key={skill.name} className="space-y-1.5">
-                        <div className="flex items-center justify-between text-xs sm:text-sm">
-                          <span className="font-medium text-foreground">{skill.name}</span>
-                          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground">
-                            {skill.badge}
+                      <div
+                        key={skill.name}
+                        className="flex items-center justify-between p-2.5 rounded-xl bg-secondary/30 hover:bg-secondary/50 border border-border/50 transition-colors gap-3"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          <span className="text-xs sm:text-sm font-medium text-foreground truncate">
+                            {skill.name}
                           </span>
                         </div>
-                        <div className="h-1.5 w-full rounded-full bg-secondary/80 overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
-                            className="h-full rounded-full bg-primary"
-                          />
-                        </div>
+                        <span
+                          className={`text-[10px] font-mono tracking-wider uppercase px-2 py-0.5 rounded-md border font-semibold shrink-0 ${
+                            skill.level === 'Advanced'
+                              ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                              : 'bg-primary/10 text-primary border-primary/20'
+                          }`}
+                        >
+                          {skill.level}
+                        </span>
                       </div>
                     ))}
                   </div>

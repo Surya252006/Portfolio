@@ -1,6 +1,6 @@
 /**
  * Spoofy AI Engine - 24/7 Intelligent Knowledge & Response System
- * Designed for Surya Suresh's Portfolio
+ * Tailored for Surya S.'s Software Engineering Portfolio
  */
 
 export interface ChatMessage {
@@ -17,14 +17,14 @@ export interface ChatMessage {
 }
 
 export const initialSuggestions = [
-  "What are Surya's AI projects?",
-  "How does MedPulse AI work?",
+  "What are Surya's main projects?",
+  "Tell me about PosterKadai",
   "Tell me about KisanConnect",
   "What is SMARTATHON'26?",
   "Download Surya's Resume",
   "What is his tech stack?",
-  "How can I contact Surya?",
-  "Tell me about his education",
+  "Tell me about his internships",
+  "Tell me about his college & education",
 ];
 
 export function getSpoofyResponse(userQuery: string): {
@@ -33,17 +33,17 @@ export function getSpoofyResponse(userQuery: string): {
 } {
   const q = userQuery.toLowerCase().trim();
 
-  // 1. Greetings & Salutations (English, Tamil, Tanglish)
+  // 1. Greetings & Salutations
   if (
     q.match(/^(hi|hello|hey|vanakkam|namaste|hola|sup|good morning|good afternoon|good evening|who are you|what is your name)/i) ||
     q === 'spoofy' ||
     q === 'suryabot'
   ) {
     return {
-      text: "👋 **Hello there! I am Spoofy**, Surya Suresh's dedicated 24/7 AI Portfolio Assistant.\n\nI can tell you all about Surya's **Artificial Intelligence systems**, **machine learning research**, **live production platforms** (MedPulse AI, KisanConnect, PosterKadai), his **tech stack**, **education**, or provide his **official resume**.\n\nWhat would you like to explore?",
+      text: "👋 **Hello there! I am Spoofy**, Surya S.'s 24/7 interactive portfolio representative.\n\nI can tell you all about Surya's **software engineering projects** (PosterKadai, KisanConnect, TN Scheme AI), **technical stack**, **internships at Skypark ITech and Cognifyz**, **education at Dhanalakshmi Srinivasan College of Engineering**, or provide his **official ATS resume**.\n\nWhat would you like to explore?",
       actions: [
-        { label: 'Explore AI Projects', actionType: 'scroll', targetId: 'projects' },
-        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+        { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
+        { label: 'Download Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
         { label: 'Contact Surya', actionType: 'scroll', targetId: 'contact' },
       ],
     };
@@ -57,21 +57,21 @@ export function getSpoofyResponse(userQuery: string): {
     q.includes('biodata')
   ) {
     return {
-      text: "📄 **Surya's ATS-Compliant Resume** is ready for download!\n\nIt features his credentials as an **Artificial Intelligence Engineer** (B.E. 2024 – 2028), detailing **PyTorch, TensorFlow, Scikit-Learn, FastAPI, React, Node.js, MongoDB Atlas**, and verified GitHub projects with live links.",
+      text: "📄 **Surya S.'s ATS-Compliant Resume** is ready for download!\n\nIt features his credentials as a **Software Developer & Full-Stack Engineer** (Third-Year CSE at Dhanalakshmi Srinivasan College of Engineering, Coimbatore), detailing **Java, Python, React, Node.js, Express, MongoDB Atlas, Firebase**, verified internships, and production projects.",
       actions: [
-        { label: 'Download AI Engineer Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+        { label: 'Download Developer Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
         { label: 'View GitHub Repositories', actionType: 'link', url: 'https://github.com/Surya252006' },
       ],
     };
   }
 
-  // 3. MedPulse AI Queries
-  if (q.includes('medplus') || q.includes('medpulse') || q.includes('health') || q.includes('medical') || q.includes('triage') || q.includes('hospital')) {
+  // 3. PosterKadai Queries
+  if (q.includes('posterkadai') || q.includes('poster') || q.includes('ecommerce') || q.includes('shop') || q.includes('store') || q.includes('art') || q.includes('whatsapp')) {
     return {
-      text: "🩺 **MedPulse AI — Healthcare Symptom Triage System**\n\n• **Core Purpose**: Applied clinical diagnostic engine that ingests multi-symptom input vectors to categorize patient triage urgency levels and calculate priority metrics.\n• **Tech Stack**: Python, PyTorch, TensorFlow, Scikit-Learn, FastAPI, REST APIs.\n• **Performance**: Asynchronous microservices achieving inference latency **< 150ms** with structured JSON output for hospital reception integration.\n• **Status**: Open-source repository with active triage classification benchmarks.",
+      text: "🎨 **PosterKadai — Production Commercial E-Commerce Storefront**\n\n• **Product**: Live wall art and custom poster e-commerce storefront engineered by Surya.\n• **Performance**: Sub-1.2s page load speeds with responsive shopping cart, dynamic catalog filtering, and zero-friction direct WhatsApp order checkout integration.\n• **Tech Stack**: React 18, Firebase Cloud Firestore, Tailwind CSS, WhatsApp Business API.\n• **Live Deployment**: Active in production at `posterkadai-e364b.web.app`.",
       actions: [
-        { label: 'View MedPulse AI on GitHub', actionType: 'link', url: 'https://github.com/Surya252006/medplus-ai' },
-        { label: 'View in Portfolio', actionType: 'scroll', targetId: 'projects' },
+        { label: 'Visit PosterKadai Storefront', actionType: 'link', url: 'https://posterkadai-e364b.web.app/' },
+        { label: 'View Source on GitHub', actionType: 'link', url: 'https://github.com/Surya252006/Posterkadai' },
       ],
     };
   }
@@ -79,7 +79,7 @@ export function getSpoofyResponse(userQuery: string): {
   // 4. KisanConnect Queries
   if (q.includes('kisan') || q.includes('kissan') || q.includes('farm') || q.includes('agri') || q.includes('market') || q.includes('mandi')) {
     return {
-      text: "🌾 **KisanConnect AgriTech Marketplace** (Live Production)\n\n• **Impact**: Connects farmers directly to retail and bulk buyers to eliminate middleman margins.\n• **Key Features**: Real-time APMC Mandi market price benchmarking with trend indicators (UP/DOWN/STABLE) and race-condition-free inventory decrementing via MongoDB atomic operators (`$gte`, `$inc`).\n• **Tech Stack**: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting.\n• **Live Deployment**: Active at `kisanconnect-2267e.web.app`.",
+      text: "🌾 **KisanConnect AgriTech Marketplace** (Live Production)\n\n• **Impact**: Full-stack agricultural trading platform developed during MongoDB Tech-Odyssey to eliminate exploitative intermediaries, connecting farmers directly with retail consumers and wholesale buyers.\n• **Key Features**: Real-time APMC Mandi market price benchmarking with trend indicators (UP/DOWN/STABLE) and race-condition-free inventory decrementing via MongoDB atomic operators (`$gte`, `$inc`).\n• **Tech Stack**: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting, JWT RBAC.\n• **Live Deployment**: Active at `kisanconnect-2267e.web.app`.",
       actions: [
         { label: 'Open KisanConnect Live App', actionType: 'link', url: 'https://kisanconnect-2267e.web.app' },
         { label: 'View GitHub Code', actionType: 'link', url: 'https://github.com/Surya252006/kissanconnect' },
@@ -90,7 +90,7 @@ export function getSpoofyResponse(userQuery: string): {
   // 5. SMARTATHON'26 Queries
   if (q.includes('smartathon') || q.includes('scholarship') || q.includes('scheme') || q.includes('welfare') || q.includes('dsu') || q.includes('oneyes') || q.includes('hackathon')) {
     return {
-      text: "🏆 **SMARTATHON'26 — AI Scheme & Scholarship Eligibility Matcher**\n\n• **Event**: DSU × ONEYES Engineering Hackathon (Problem Statement #6: Tamil Nadu Higher Education & Central Student Welfare Optimization).\n• **Engine**: Deterministic AI rule-matching analyzing student academic records, family income, and demographics against government catalogs with an automated **96% match confidence score**.\n• **Tech Stack**: FastAPI, Python 3.13, React 18, MongoDB Atlas, Tailwind CSS.",
+      text: "🏆 **TN Scheme AI — SMARTATHON'26 Government Welfare Discovery**\n\n• **Event**: DSU × ONEYES Engineering Hackathon (9–10 Sept 2026, Problem Statement #6: Tamil Nadu Higher Education & Central Student Welfare Optimization).\n• **Engine**: Multi-parameter eligibility rule-matching evaluating student academic records, family income, and demographic criteria against state and central scholarship catalogs.\n• **Tech Stack**: FastAPI, Python 3.13, React 18, Tailwind CSS, MongoDB Atlas.",
       actions: [
         { label: 'View Smartathon Repo', actionType: 'link', url: 'https://github.com/Surya252006/smartathon26dsu' },
         { label: 'Explore Hackathons', actionType: 'scroll', targetId: 'achievements' },
@@ -98,10 +98,10 @@ export function getSpoofyResponse(userQuery: string): {
     };
   }
 
-  // 6. Soil Telemetry Queries
-  if (q.includes('soil') || q.includes('telemetry') || q.includes('sensor') || q.includes('npk') || q.includes('iot') || q.includes('fertiliz')) {
+  // 6. Soil Telemetry / Barnstromz 2K26 Queries
+  if (q.includes('soil') || q.includes('telemetry') || q.includes('sensor') || q.includes('npk') || q.includes('iot') || q.includes('fertiliz') || q.includes('barnstromz')) {
     return {
-      text: "🌱 **Smart Precision Soil Telemetry System**\n\n• **Architecture**: Physical IoT telemetry streaming nitrogen, phosphorus, potassium, moisture, and pH sensor metrics via ESP32 microcontrollers.\n• **Machine Learning**: Scikit-Learn & PyTorch classification pipelines predicting optimal crop varieties and bio-fertilizer dosages with **91.4% accuracy**.\n• **Impact**: Mitigates chemical runoff and soil degradation through continuous algorithmic telemetry monitoring.",
+      text: "🌱 **Smart Precision Fertilization System** (Barnstromz 2K26 Expo)\n\n• **Hardware**: Physical IoT telemetry streaming nitrogen, phosphorus, potassium (NPK), moisture, and pH sensor metrics via ESP32 microcontrollers.\n• **Software**: Python data pipelines evaluating soil nutrient benchmarks to predict optimal crop varieties and precise fertilizer dosage, preventing chemical runoff.\n• **Presentation**: Exhibited at the Barnstromz 2K26 technical project expo on 11 September 2026.",
       actions: [
         { label: 'Explore Surya’s GitHub', actionType: 'link', url: 'https://github.com/Surya252006' },
         { label: 'View in Projects', actionType: 'scroll', targetId: 'projects' },
@@ -109,53 +109,42 @@ export function getSpoofyResponse(userQuery: string): {
     };
   }
 
-  // 7. PosterKadai Queries
-  if (q.includes('posterkadai') || q.includes('poster') || q.includes('ecommerce') || q.includes('shop') || q.includes('store') || q.includes('whatsapp')) {
+  // 7. Banking / Java Queries
+  if (q.includes('bank') || q.includes('java') || q.includes('ledger') || q.includes('oop')) {
     return {
-      text: "🎨 **PosterKadai — Production Commercial E-Commerce Storefront**\n\n• **Product**: Custom art and wall decor e-commerce platform founded and engineered by Surya.\n• **Performance**: Sub-1.2s page load speeds with responsive shopping cart and zero-friction direct WhatsApp checkout integration.\n• **Tech Stack**: React 18, Firebase Cloud Firestore, Tailwind CSS, WhatsApp Business API.\n• **Live Deployment**: Active in production at `posterkadai-e364b.web.app`.",
-      actions: [
-        { label: 'Visit PosterKadai Storefront', actionType: 'link', url: 'https://posterkadai-e364b.web.app/' },
-        { label: 'View Source on GitHub', actionType: 'link', url: 'https://github.com/Surya252006/Posterkadai' },
-      ],
-    };
-  }
-
-  // 8. Banking / Java / Personal Finance Queries
-  if (q.includes('bank') || q.includes('finance') || q.includes('java') || q.includes('ledger') || q.includes('bot')) {
-    return {
-      text: "💼 **Financial Systems & AI Assistants by Surya**:\n\n1. **Console Banking & Ledger Engine**: Enterprise banking application in Core Java implementing strict OOP encapsulation, atomic transaction validation, and permanent audit file persistence.\n2. **Personal Finance AI Bot**: Conversational personal budgeting assistant with NLP query parsing, automated spending categorization, and responsive visual distribution charts.",
+      text: "💼 **Java Banking Management System & Ledger Engine**\n\n• **Core Engineering**: Console-based software system demonstrating strict Object-Oriented Programming (OOP) in Java, PIN-based authentication, balance state integrity, and permanent transaction audit logging.\n• **Data Integrity**: Double-entry transaction journal with defensive input validation preventing account underflows and data corruption.",
       actions: [
         { label: 'Banking System GitHub', actionType: 'link', url: 'https://github.com/Surya252006/BANK-MANAGEMENT-SYSTEM-' },
-        { label: 'Personal Finance Bot GitHub', actionType: 'link', url: 'https://github.com/Surya252006/Personal-Finance-chat-bot' },
+        { label: 'View in Projects', actionType: 'scroll', targetId: 'projects' },
       ],
     };
   }
 
-  // 9. Tech Stack / Skills / Languages
+  // 8. Tech Stack / Skills / Languages
   if (
     q.includes('tech stack') ||
     q.includes('skill') ||
     q.includes('languages') ||
     q.includes('python') ||
-    q.includes('pytorch') ||
-    q.includes('tensorflow') ||
+    q.includes('java') ||
+    q.includes('javascript') ||
     q.includes('react') ||
     q.includes('mongodb') ||
     q.includes('tools')
   ) {
     return {
-      text: "⚡ **Surya Suresh's Technical Stack**:\n\n• **AI & Machine Learning**: Python, PyTorch, TensorFlow, Scikit-Learn, NumPy, Pandas, NLP Intent Classification, Supervised Learning, Model Evaluation.\n• **Programming Languages**: Python, Java (Core OOP, Collections), C, C++, JavaScript (ES6+), TypeScript, SQL.\n• **Web & Full-Stack**: React 18, Vite, FastAPI (Async Microservices), Node.js, Express.js, HTML5, CSS3, Tailwind CSS.\n• **Databases & Cloud**: MongoDB Atlas, Firebase (Hosting, Firestore, Auth), SQLite, Git, GitHub, Postman.\n• **Hardware & IoT**: ESP32, Arduino, Physical Soil Telemetry Sensors (NPK, pH, Moisture).",
+      text: "⚡ **Surya S.'s Technical Stack**:\n\n• **Programming Languages**: Java (Core OOP, Collections, Multithreading), Python, JavaScript (ES6+), TypeScript, C/C++, SQL.\n• **Frontend & Web**: React 18, Vite, Tailwind CSS, HTML5, Modern CSS3, Responsive Design Systems.\n• **Backend & APIs**: Node.js, Express.js (REST APIs, Middleware, JWT RBAC), FastAPI (Async Python), Postman.\n• **Databases & Cloud**: MongoDB Atlas, Firebase (Firestore, Hosting, Realtime DB), SQLite, Supabase.\n• **Developer Tools**: Git, GitHub, Linux Bash, VS Code, ESP32 IoT Microcontrollers.",
       actions: [
-        { label: 'View Interactive Skills Section', actionType: 'scroll', targetId: 'skills' },
-        { label: 'Download Full Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+        { label: 'View Technical Skills Section', actionType: 'scroll', targetId: 'skills' },
+        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
       ],
     };
   }
 
-  // 10. Education / College / Degree
+  // 9. Education / College / Degree
   if (q.includes('education') || q.includes('college') || q.includes('university') || q.includes('degree') || q.includes('b.e') || q.includes('graduation') || q.includes('study') || q.includes('school')) {
     return {
-      text: "🎓 **Surya's Education Background**:\n\n• **Degree**: Bachelor of Engineering (B.E.) in **Computer Science and Engineering**\n• **Institution**: Anna University Affiliated Institution, Coimbatore, Tamil Nadu, India\n• **Graduation Timeline**: **2024 – 2028** (Undergraduate)\n• **Core Coursework**: Data Structures & Algorithms, Object-Oriented Programming (Java/C++), Artificial Intelligence Fundamentals, Database Systems, Computer Networks, Operating Systems.",
+      text: "🎓 **Surya's Education Background**:\n\n• **Degree**: Bachelor of Engineering (B.E.) in **Computer Science and Engineering**\n• **Institution**: **Dhanalakshmi Srinivasan College of Engineering, Coimbatore** (Anna University affiliated)\n• **Current Status**: **Third-Year Undergraduate (2024 – 2028)**\n• **Core Coursework**: Data Structures & Algorithms, Object-Oriented Programming (Java/C++), Database Management Systems, Operating Systems, Computer Networks, Software Engineering.",
       actions: [
         { label: 'View About Section', actionType: 'scroll', targetId: 'about' },
         { label: 'View Experience Timeline', actionType: 'scroll', targetId: 'experience' },
@@ -163,30 +152,30 @@ export function getSpoofyResponse(userQuery: string): {
     };
   }
 
-  // 11. Internships, Achievements & Certifications
-  if (q.includes('intern') || q.includes('achievement') || q.includes('certif') || q.includes('cognifyz') || q.includes('iit') || q.includes('guwahati') || q.includes('experience')) {
+  // 10. Internships & Experience
+  if (q.includes('intern') || q.includes('experience') || q.includes('skypark') || q.includes('cognifyz') || q.includes('work')) {
     return {
-      text: "🌟 **Internships & Verified Credentials**:\n\n1. **IIT Guwahati AI & ML Qualification**: Completed rigorous foundational machine learning & neural network training from IIT Guwahati E&ICT Academy.\n2. **Cognifyz Technologies**: Full-Stack Development Intern (Remote, 2024) — built 5 production web modules with Node.js, Express, and REST APIs.\n3. **SMARTATHON'26 Finalist**: DSU × ONEYES Hackathon (Problem Statement #6) — AI Scholarship & Welfare Scheme Matcher.\n4. **PosterKadai Platform**: Founder & Tech Lead (2025 – Present) — shipped live e-commerce platform on Firebase.\n5. **Image Color Lab**: Program Organizer & Technical Curriculum Lead (2025 – 2026).",
+      text: "💼 **Surya's Internships & Experience**:\n\n1. **Skypark ITech** (11 – 27 August 2025): Digital Marketing & Web Operations Intern in Coimbatore — on-page web optimization, search engine indexing workflows, and audience engagement analysis.\n2. **Cognifyz Technologies** (2024): Full-Stack Development Intern — delivered 5 production web modules utilizing Node.js, Express, EJS, and RESTful architectures.\n3. **PosterKadai** (2025 – Present): Founder & Full-Stack Developer — live commercial storefront with active WhatsApp checkout.\n4. **Image Color Lab** (2025 – 2026): Program Organizer & Technical Curriculum Lead.",
       actions: [
-        { label: 'View Achievements Section', actionType: 'scroll', targetId: 'achievements' },
         { label: 'View Experience Timeline', actionType: 'scroll', targetId: 'experience' },
+        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
       ],
     };
   }
 
-  // 12. Contact / Hiring / Email / Socials
+  // 11. Contact / Hiring / Email / Socials
   if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('phone') || q.includes('linkedin') || q.includes('github') || q.includes('reach') || q.includes('message')) {
     return {
-      text: "📬 **Get in Touch with Surya Suresh**:\n\n• **Email**: [surya25suresh2006@gmail.com](mailto:surya25suresh2006@gmail.com)\n• **LinkedIn**: [linkedin.com/in/surya-suresh](https://www.linkedin.com/in/surya-suresh-755937267/)\n• **GitHub**: [github.com/Surya252006](https://github.com/Surya252006)\n• **Location**: Coimbatore / Mannargudi, Tamil Nadu, India\n\nSurya is actively available for **AI Engineering roles, internships, and high-impact machine learning projects**!",
+      text: "📬 **Get in Touch with Surya S.**:\n\n• **Email**: [surya25suresh2006@gmail.com](mailto:surya25suresh2006@gmail.com)\n• **LinkedIn**: [linkedin.com/in/surya-s-755937267](https://www.linkedin.com/in/surya-s-755937267/)\n• **GitHub**: [github.com/Surya252006](https://github.com/Surya252006)\n• **Location**: Coimbatore, Tamil Nadu, India\n\nSurya is actively available for **Software Engineering internships, developer opportunities, and campus placements**!",
       actions: [
         { label: 'Open Contact Form', actionType: 'scroll', targetId: 'contact' },
         { label: 'Send Direct Email', actionType: 'link', url: 'mailto:surya25suresh2006@gmail.com' },
-        { label: 'View LinkedIn Profile', actionType: 'link', url: 'https://www.linkedin.com/in/surya-suresh-755937267/' },
+        { label: 'View LinkedIn Profile', actionType: 'link', url: 'https://www.linkedin.com/in/surya-s-755937267/' },
       ],
     };
   }
 
-  // 13. Tamil / Tanglish Queries
+  // 12. Tamil / Tanglish Queries
   if (
     q.includes('epdi') ||
     q.includes('pathi') ||
@@ -197,21 +186,21 @@ export function getSpoofyResponse(userQuery: string): {
     q.includes('project enna')
   ) {
     return {
-      text: "வணக்கம்! சூர்யா சுரேஷ் ஒரு **Artificial Intelligence Engineer** மற்றும் B.E. (2024 – 2028) கணினி அறிவியல் மாணவர்.\n\nஅவர் **MedPulse AI** (மருத்துவ triage சிஸ்டம்), **KisanConnect** (விவசாயிகளுக்கான நேரடி அங்காடி தளம்), மற்றும் **SMARTATHON'26** AI உதவித்தொகை மேட்ச்சர் போன்ற நிஜ உலக திட்டங்களை உருவாக்கியுள்ளார்.\n\nநீங்கள் அவரது திட்டங்களை பார்க்க விரும்புகிறீர்களா அல்லது ரெஸ்யூமை டவுன்லோட் செய்ய விரும்புகிறீர்களா?",
+      text: "வணக்கம்! சூர்யா S. கோயம்புத்தூரில் உள்ள **தனலட்சுமி சீனிவாசன் பொறியியல் கல்லூரியின்** மூன்றாம் ஆண்டு கணினி அறிவியல் மாணவர் மற்றும் **Software Developer**.\n\nஅவர் **PosterKadai** (லைவ் e-commerce தளம்), **KisanConnect** (விவசாயிகளுக்கான நேரடி அங்காடி தளம்), மற்றும் **TN Scheme AI** (Smartathon '26) போன்ற நிஜ உலக திட்டங்களை உருவாக்கியுள்ளார்.\n\nநீங்கள் அவரது திட்டங்களை பார்க்க விரும்புகிறீர்களா அல்லது ரெஸ்யூமை டவுன்லோட் செய்ய விரும்புகிறீர்களா?",
       actions: [
-        { label: 'ப்ராஜெக்ட்களை காண்க', actionType: 'scroll', targetId: 'projects' },
-        { label: 'ரெஸ்யூம் டவுன்லோட் செய்க', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+        { label: 'திட்டங்களை காண்க', actionType: 'scroll', targetId: 'projects' },
+        { label: 'ரெஸ்யூம் டவுன்லோட் செய்க', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
         { label: 'தொடர்பு கொள்ள', actionType: 'scroll', targetId: 'contact' },
       ],
     };
   }
 
-  // 14. Fallback Intelligent Response
+  // 13. Fallback Response
   return {
-    text: `I'd love to help you with that! Surya specializes in **Artificial Intelligence Engineering**, **applied Machine Learning** (PyTorch, TensorFlow, Scikit-Learn), and **Full-Stack software** (React, FastAPI, Node.js, MongoDB Atlas).\n\nYou can ask me specific questions about his **projects** (MedPulse AI, KisanConnect, PosterKadai, SMARTATHON'26), his **technical skills**, or his **education and resume**.`,
+    text: `I'd love to help you with that! Surya specializes in **Software Development**, **Full-Stack Web Engineering** (React 18, Node.js, Express, MongoDB Atlas, Firebase), and **Core Object-Oriented Programming** (Java, Python).\n\nYou can ask me specific questions about his **projects** (PosterKadai, KisanConnect, TN Scheme AI), his **technical skills**, or his **education and internships**.`,
     actions: [
       { label: 'View All Projects', actionType: 'scroll', targetId: 'projects' },
-      { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
+      { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
       { label: 'Contact Surya', actionType: 'scroll', targetId: 'contact' },
     ],
   };

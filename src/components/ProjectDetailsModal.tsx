@@ -101,7 +101,7 @@ export function ProjectDetailsModal({
           <div className="p-5 sm:p-7 overflow-y-auto space-y-6">
             {/* Tagline & Overview */}
             <div className="space-y-2">
-              <h3 className="text-sm font-mono text-primary uppercase tracking-wider">
+              <h3 className="text-xs font-mono text-primary uppercase tracking-wider">
                 System Overview
               </h3>
               <p className="text-sm sm:text-base text-foreground/90 font-body leading-relaxed">
@@ -109,10 +109,30 @@ export function ProjectDetailsModal({
               </p>
             </div>
 
+            {/* Problem Statement */}
+            <div className="p-4 rounded-xl border border-amber-500/20 bg-amber-500/5 space-y-1.5">
+              <div className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold">
+                Problem Statement
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {project.problemStatement}
+              </p>
+            </div>
+
+            {/* My Specific Contribution */}
+            <div className="p-4 rounded-xl border border-primary/20 bg-primary/5 space-y-1.5">
+              <div className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+                Surya's Engineering Contribution
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {project.contribution}
+              </p>
+            </div>
+
             {/* Technical Architecture & Highlights */}
             <div className="space-y-3">
-              <h3 className="text-sm font-mono text-primary uppercase tracking-wider flex items-center gap-2">
-                <Layers className="w-4 h-4" /> Architecture & Key Features
+              <h3 className="text-xs font-mono text-primary uppercase tracking-wider flex items-center gap-2">
+                <Layers className="w-4 h-4" /> Implemented Features & Architecture
               </h3>
               <div className="space-y-2">
                 {project.architecture.map((item, idx) => (

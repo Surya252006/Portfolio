@@ -7,29 +7,29 @@ import img3 from '@/assets/images/3.jpeg';
 
 const posts = [
   {
-    title: 'Architecting MedPulse AI: Healthcare Triage & Severity Classification',
+    title: 'Building KisanConnect: AgriTech Marketplace with Atomic MongoDB Pipelines',
     description:
-      'Designing Python feature vectorization pipelines and clinical decision trees to calculate patient urgency scores and route emergency resources in rural areas.',
+      'Engineering multi-tier role-based access control (RBAC), APMC mandi price trend benchmarking, and race-condition-free inventory decrementing using atomic MongoDB operators ($gte, $inc).',
     readingTime: '5 min read',
-    tags: ['Artificial Intelligence', 'Python', 'Healthcare AI', 'FastAPI'],
+    tags: ['Full Stack', 'MongoDB Atlas', 'Node.js', 'React 18'],
     image: img2,
-    href: 'https://github.com/Surya252006/medplus-ai',
+    href: 'https://kisanconnect-2267e.web.app',
   },
   {
-    title: 'Engineering Machine Learning Telemetry for Soil Health & Crop Yields',
+    title: 'Engineering Sensor Telemetry for Precision Agriculture at Barnstromz 2K26',
     description:
-      'How we ingested real-time IoT sensor telemetry (NPK, moisture, pH) through Scikit-Learn multi-parameter models to hit 91.4% predictive crop recommendations.',
+      'Ingesting physical IoT soil telemetry (NPK, moisture, pH) via ESP32 microcontrollers through Python data processing pipelines to optimize crop variety selection and nutrient dosage.',
     readingTime: '6 min read',
-    tags: ['Machine Learning', 'IoT Telemetry', 'Python', 'TensorFlow'],
+    tags: ['IoT Hardware', 'ESP32', 'Python', 'Sensors'],
     image: img1,
-    href: 'https://github.com/Surya252006/smartathon26dsu',
+    href: 'https://github.com/Surya252006',
   },
   {
     title: 'Deploying PosterKadai: E-Commerce Architecture on Firebase & WhatsApp',
     description:
-      'From design to active production launch: optimizing client-side render loops, Firestore real-time catalogs, and direct WhatsApp checkout integration.',
+      'From design to active production launch: optimizing client-side render loops, Firestore real-time catalogs, and direct WhatsApp checkout integration for frictionless customer orders.',
     readingTime: '4 min read',
-    tags: ['Production Web', 'Firebase', 'React', 'Live Platform'],
+    tags: ['E-Commerce', 'Firebase Firestore', 'React 18', 'Production'],
     image: img3,
     href: 'https://posterkadai-e364b.web.app/',
   },

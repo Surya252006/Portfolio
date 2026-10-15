@@ -6,24 +6,24 @@ import { aboutStats } from '@/lib/portfolioData';
 
 const corePrinciples = [
   {
-    icon: Bot,
-    title: 'Applied AI & Neural Models',
-    desc: 'Engineering predictive models, classification algorithms, and NLP triage systems designed for practical real-world impact.',
+    icon: Code2,
+    title: 'Full-Stack Web Architecture',
+    desc: 'Engineering responsive web applications using React 18, Node.js, Express, MongoDB Atlas, and Firebase with clean component hierarchies.',
   },
   {
     icon: Terminal,
-    title: 'IoT Telemetry & Edge Inference',
-    desc: 'Ingesting physical sensor streams (NPK, moisture, pH) and processing data through low-latency FastAPI endpoints.',
-  },
-  {
-    icon: Code2,
-    title: 'Clean Architecture & DX',
-    desc: 'Writing modular, maintainable Python, TypeScript, and modern component systems adhering to robust software standards.',
+    title: 'Clean Code & OOP Foundations',
+    desc: 'Applying strict Object-Oriented principles, modular design, and robust data structures across Java, Python, and TypeScript.',
   },
   {
     icon: Rocket,
     title: 'Production Product Delivery',
-    desc: 'Connecting intelligent backend models with fast, responsive web applications like the live PosterKadai platform.',
+    desc: 'Architecting and deploying end-to-end commercial solutions like PosterKadai and KisanConnect with active transaction capabilities.',
+  },
+  {
+    icon: Layers,
+    title: 'IoT & Systems Engineering',
+    desc: 'Interfacing microcontrollers (ESP32) and environmental sensors with backend API services for automated telemetry ingestion.',
   },
 ];
 
@@ -37,13 +37,13 @@ export function AboutSection() {
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Background & Focus
+            Background & Engineering Focus
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
-            Engineering with <span className="text-primary">Intelligence</span> & Purpose
+            Building Useful Software. <span className="text-primary">Turning Ideas</span> into Products.
           </h2>
           <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
-            Theoretical foundations in Computer Science combined with hands-on development in Machine Learning and full-stack software.
+            Strong theoretical computer science foundations paired with hands-on development in full-stack web platforms and practical software systems.
           </p>
         </div>
 
@@ -59,27 +59,27 @@ export function AboutSection() {
             <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 sm:p-8 space-y-6 shadow-sm">
               <div className="flex items-center gap-4 border-b border-border/70 pb-6">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-border shrink-0">
-                  <img src={profileAvatar} alt="Surya Suresh" className="w-full h-full object-cover" />
+                  <img src={profileAvatar} alt="Surya S." className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-                    Surya Suresh
+                    Surya S.
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground font-mono flex items-center gap-1.5 mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-primary" /> Tamil Nadu, India • Artificial Intelligence Engineer
+                    <MapPin className="w-3.5 h-3.5 text-primary" /> Coimbatore, Tamil Nadu • Software Developer & Engineer
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
                 <p>
-                  I am a Computer Science & Engineering student specializing in <strong className="text-foreground">Artificial Intelligence and Applied Machine Learning</strong>. Over the past three years, I have engineered and deployed complete systems ranging from AI-powered healthcare triage to live production e-commerce platforms.
+                  I'm a <strong className="text-foreground">Third-Year Computer Science and Engineering student</strong> at <strong className="text-foreground">Dhanalakshmi Srinivasan College of Engineering, Coimbatore</strong> (Anna University affiliated). I am passionate about software engineering, full-stack development, and creating practical digital experiences that solve real-world problems.
                 </p>
                 <p>
-                  My engineering work concentrates on building <strong className="text-foreground">Python machine learning pipelines, IoT telemetry ingestion, and neural classification models</strong> using TensorFlow, Scikit-Learn, and FastAPI. Key projects include <strong className="text-foreground">MedPulse AI</strong> (triage severity navigation for rural healthcare) and <strong className="text-foreground">Smart Precision Soil Telemetry</strong> (91.4% predictive crop compatibility).
+                  My engineering journey is driven by practical execution. I have independently architected and shipped <strong className="text-foreground">PosterKadai</strong> (a live commercial e-commerce platform with automated WhatsApp checkout) and developed <strong className="text-foreground">KisanConnect</strong> (a full-stack farmer-to-buyer agricultural marketplace with APMC mandi pricing during MongoDB Tech-Odyssey).
                 </p>
                 <p>
-                  Beyond models in Jupyter notebooks, I believe an AI Engineer must ship software that real people can use. That is why I connect models to resilient backends, responsive web interfaces, and automated workflows.
+                  Whether writing clean Object-Oriented code in Java, developing modular REST APIs in Node.js and FastAPI, or designing intuitive user interfaces in React and Tailwind CSS, I focus on writing reliable, maintainable, and recruiter-ready software.
                 </p>
               </div>
 
@@ -141,7 +141,7 @@ export function AboutSection() {
             {/* Quick Education & Credentials */}
             <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 sm:p-8 shadow-sm space-y-4">
               <h3 className="font-display text-lg font-bold text-foreground">
-                Education & Qualifications
+                Education & Verification
               </h3>
 
               <div className="space-y-3.5">
@@ -153,8 +153,11 @@ export function AboutSection() {
                     <div className="font-display font-semibold text-sm text-foreground">
                       B.E. in Computer Science & Engineering
                     </div>
+                    <div className="text-xs text-primary font-medium mt-0.5">
+                      Dhanalakshmi Srinivasan College of Engineering, Coimbatore
+                    </div>
                     <div className="text-xs text-muted-foreground font-mono mt-0.5">
-                      2024 — 2028 (Undergraduate)
+                      2024 — 2028 • Third-Year Undergraduate
                     </div>
                   </div>
                 </div>
@@ -165,10 +168,13 @@ export function AboutSection() {
                   </div>
                   <div>
                     <div className="font-display font-semibold text-sm text-foreground">
-                      IIT Guwahati AI & ML Certification
+                      Technical Internships & Expos
+                    </div>
+                    <div className="text-xs text-primary font-medium mt-0.5">
+                      Skypark ITech & Cognifyz Technologies
                     </div>
                     <div className="text-xs text-muted-foreground font-mono mt-0.5">
-                      Applied Machine Learning & Statistical Systems
+                      Smartathon '26 & Barnstromz 2K26 Exhibitions
                     </div>
                   </div>
                 </div>

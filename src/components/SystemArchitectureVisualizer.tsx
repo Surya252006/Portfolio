@@ -56,39 +56,38 @@ float readSoilMoisture() {
     title: 'Asynchronous API Gateway & Ingestion',
     category: 'Backend Microservices',
     icon: Server,
-    badge: 'Async REST',
+    badge: 'FastAPI & Python',
     summary:
-      'High-throughput asynchronous FastAPI gateway validating request payloads with strict Pydantic schemas and non-blocking I/O event loops.',
-    technologies: ['FastAPI 2.0', 'Python 3.13', 'Pydantic v2', 'Uvicorn ASGI'],
+      'High-throughput asynchronous FastAPI gateway validating request payloads with strict Pydantic schemas and non-blocking I/O event loops for TN Scheme AI.',
+    technologies: ['FastAPI', 'Python 3.13', 'Pydantic v2', 'Uvicorn ASGI'],
     bottleneckSolved:
-      'Prevented thread exhaustion during concurrent telemetry streams using async coroutines and connection pooling.',
-    metric: '< 150ms End-to-End Latency',
-    codeSnippet: `@app.post("/api/v1/triage/infer")
-async def evaluate_patient_vector(payload: PatientTriageSchema):
-    # Non-blocking async inference pipeline
-    vector = preprocess_symptom_vector(payload.symptoms)
-    prediction = await model_pool.async_predict(vector)
-    return {"urgency": prediction.urgency, "confidence": prediction.score}`,
+      'Prevented thread exhaustion during complex rule evaluations across 50+ government welfare eligibility criteria.',
+    metric: '< 150ms End-to-End Evaluation',
+    codeSnippet: `@app.post("/api/v1/schemes/evaluate")
+async def evaluate_student_eligibility(profile: StudentProfileSchema):
+    # Asynchronous rule-matching against state criteria
+    eligibility_scores = await evaluate_criteria_rules(profile)
+    return {"matches": eligibility_scores, "status": "verified"}`,
   },
   {
     id: 'ml-inference',
     step: '03',
-    title: 'Neural Inference & Classification Pipeline',
-    category: 'Applied AI & ML Engine',
+    title: 'Agricultural Crop & Fertilizer Recommendation',
+    category: 'Applied AI & Telemetry',
     icon: Cpu,
-    badge: 'PyTorch & Scikit-Learn',
+    badge: 'Python & Scikit-Learn',
     summary:
-      'Multi-class supervised models and clinical triage classification rubrics evaluating multi-dimensional symptom vectors and agricultural matrices.',
-    technologies: ['PyTorch', 'TensorFlow', 'Scikit-Learn', 'NumPy', 'Pandas'],
+      'Supervised classification models evaluating multi-dimensional physical soil telemetry (NPK, moisture, pH) to recommend optimal crop rotation and nutrient dosage.',
+    technologies: ['Python', 'Scikit-Learn', 'NumPy', 'Pandas', 'ESP32 Telemetry'],
     bottleneckSolved:
-      'Trained lightweight quantized classifiers to maximize inference speed without sacrificing diagnostic precision.',
-    metric: '91.4% Accuracy & 94.2% Triage Confidence',
-    codeSnippet: `# Scikit-Learn Multi-Class Crop & Triage Pipeline
+      'Trained calibrated classifiers to prevent chemical over-fertilization and environmental runoff.',
+    metric: 'Demonstrated at Barnstromz 2K26 Expo',
+    codeSnippet: `# Scikit-Learn Multi-Parameter Crop Suitability Pipeline
 pipeline = Pipeline([
     ('scaler', StandardScaler()),
-    ('classifier', RandomForestClassifier(n_estimators=100, max_depth=12))
+    ('classifier', RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42))
 ])
-prediction = pipeline.predict(features_matrix)`,
+recommended_crop = pipeline.predict(soil_features_matrix)`,
   },
   {
     id: 'data-persistence',

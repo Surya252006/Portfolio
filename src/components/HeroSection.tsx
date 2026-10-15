@@ -13,6 +13,7 @@ import {
   Sparkles,
   CheckCircle2,
   GraduationCap,
+  Code2,
 } from 'lucide-react';
 import profileAvatar from '@/assets/profile-avatar.png';
 import { heroRoles, heroTechBadges } from '@/lib/portfolioData';
@@ -59,7 +60,7 @@ export function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
               <span className="text-xs font-mono font-medium text-slate-300">
-                Available for AI Engineering Roles & Projects
+                Third-Year CSE • Dhanalakshmi Srinivasan College of Engineering
               </span>
             </div>
 
@@ -69,11 +70,11 @@ export function HeroSection() {
                 Hello, I am
               </p>
               <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-foreground tracking-tight leading-[1.08]">
-                Surya Suresh.
+                Surya S.
               </h1>
               <div className="min-h-[44px] sm:min-h-[52px] flex items-center">
                 <span className="text-lg sm:text-2xl lg:text-3xl font-display font-semibold text-slate-300">
-                  Aiming & Building as{' '}
+                  Focused on{' '}
                 </span>
                 <motion.span
                   key={roles[roleIndex]}
@@ -88,10 +89,15 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Bio Description */}
-            <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed max-w-2xl">
-              Artificial Intelligence Engineer and Machine Learning builder focused on applied deep learning, clinical triage systems, IoT sensor telemetry, and high-performance production backends. Engineered with clean architecture, verifiable metrics, and human-centric utility.
-            </p>
+            {/* Authentic Headline & Bio */}
+            <div className="space-y-2 max-w-3xl">
+              <p className="text-base sm:text-lg text-foreground font-display font-semibold text-slate-100">
+                Building useful software. Turning ideas into real products.
+              </p>
+              <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
+                I'm Surya S., a Computer Science Engineering student passionate about software development, product building, and creating practical digital experiences with clean architecture, verifiable code, and human utility.
+              </p>
+            </div>
 
             {/* Quick Tech Stack Pills */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
@@ -106,7 +112,7 @@ export function HeroSection() {
               ))}
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: View Projects, Download Resume, Connect on LinkedIn, Talk to Spoofy */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
               <Button
                 variant="default"
@@ -114,10 +120,29 @@ export function HeroSection() {
                 onClick={() => scrollTo('projects')}
                 className="font-medium text-xs sm:text-sm shadow-md shadow-primary/20"
               >
-                <Bot className="w-4 h-4 mr-1.5" />
-                Explore Projects
+                <Code2 className="w-4 h-4 mr-1.5" />
+                View Projects
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
+
+              <a
+                href="/resume/Surya_S_Software_Developer_Resume.pdf"
+                download="Surya_S_Software_Developer_Resume.pdf"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/80 px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition-colors shadow-sm"
+              >
+                <Download className="w-4 h-4 text-muted-foreground" />
+                Download Resume
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/surya-s-755937267/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-primary hover:bg-primary/20 transition-colors shadow-sm"
+              >
+                <Linkedin className="w-4 h-4" />
+                Connect on LinkedIn
+              </a>
 
               <Button
                 variant="outline"
@@ -134,24 +159,6 @@ export function HeroSection() {
                 <Sparkles className="w-4 h-4 mr-1.5 text-cyan-400" />
                 Talk to Spoofy AI
               </Button>
-
-              <a
-                href="/resume/Surya_S_AI_Engineer_Resume.pdf"
-                download="Surya_S_AI_Engineer_Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/80 px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition-colors shadow-sm"
-              >
-                <Download className="w-4 h-4 text-muted-foreground" />
-                Download Resume
-              </a>
-
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={() => scrollTo('contact')}
-                className="font-medium text-xs sm:text-sm text-slate-400 hover:text-white"
-              >
-                Get in Touch
-              </Button>
             </div>
 
             {/* Social Channels */}
@@ -161,7 +168,7 @@ export function HeroSection() {
                 { Icon: Github, href: 'https://github.com/Surya252006', label: 'GitHub' },
                 {
                   Icon: Linkedin,
-                  href: 'https://www.linkedin.com/in/surya-suresh-755937267/',
+                  href: 'https://www.linkedin.com/in/surya-s-755937267/',
                   label: 'LinkedIn',
                 },
                 { Icon: Mail, href: 'mailto:surya25suresh2006@gmail.com', label: 'Email' },
@@ -224,15 +231,15 @@ export function HeroSection() {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                       </span>
                       <span className="text-[11px] font-mono font-medium text-emerald-300">
-                        Inference Ready
+                        Open to Internships
                       </span>
                     </div>
 
                     {/* Top Right Floating Role Badge */}
                     <div className="absolute top-3.5 right-3.5 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/85 backdrop-blur-md border border-primary/40 shadow-lg shadow-black/40">
-                      <Bot className="w-3.5 h-3.5 text-primary" />
+                      <Code2 className="w-3.5 h-3.5 text-primary" />
                       <span className="text-[11px] font-mono font-semibold text-primary">
-                        AI Engineer
+                        Software Engineer
                       </span>
                     </div>
 
@@ -241,41 +248,43 @@ export function HeroSection() {
                       <div>
                         <div className="flex items-center gap-2">
                           <h3 className="font-display font-bold text-2xl text-white tracking-tight drop-shadow-md">
-                            Surya Suresh
+                            Surya S.
                           </h3>
                           <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm">
-                            AI & ML
+                            B.E. CSE
                           </span>
                         </div>
                         <p className="text-xs text-slate-300 font-mono mt-0.5">
-                          Artificial Intelligence & Systems Builder
+                          Software Engineering &amp; Product Builder
                         </p>
                       </div>
 
-                      {/* Mini Live System Telemetry */}
+                      {/* Education Callout */}
                       <div className="rounded-xl border border-white/10 bg-slate-900/80 backdrop-blur-md p-2.5 font-mono text-[11px] space-y-1">
                         <div className="flex items-center justify-between text-slate-300">
                           <span className="flex items-center gap-1.5 text-primary">
-                            <Cpu className="w-3 h-3" />
-                            Primary Focus
+                            <GraduationCap className="w-3.5 h-3.5" />
+                            College
                           </span>
-                          <span className="text-emerald-400 font-medium">Applied ML & IoT</span>
+                          <span className="text-cyan-300 font-medium truncate max-w-[200px]" title="Dhanalakshmi Srinivasan College of Engineering">
+                            DSCE Coimbatore
+                          </span>
                         </div>
                       </div>
 
                       {/* Key Verified Stats Grid */}
                       <div className="grid grid-cols-3 gap-2 pt-1 border-t border-white/10 text-center">
                         <div className="py-1.5 px-2 rounded-lg bg-slate-900/70 backdrop-blur-sm border border-white/5">
-                          <div className="text-base font-display font-bold text-white">9+</div>
+                          <div className="text-base font-display font-bold text-white">9</div>
                           <div className="text-[9px] text-slate-400 font-mono">Real Repos</div>
                         </div>
                         <div className="py-1.5 px-2 rounded-lg bg-slate-900/70 backdrop-blur-sm border border-white/5">
                           <div className="text-base font-display font-bold text-white">450+</div>
-                          <div className="text-[9px] text-slate-400 font-mono">Commits</div>
+                          <div className="text-[9px] text-slate-400 font-mono">Git Commits</div>
                         </div>
                         <div className="py-1.5 px-2 rounded-lg bg-slate-900/70 backdrop-blur-sm border border-white/5">
-                          <div className="text-base font-display font-bold text-emerald-400">Live</div>
-                          <div className="text-[9px] text-slate-400 font-mono">Production</div>
+                          <div className="text-base font-display font-bold text-emerald-400">2</div>
+                          <div className="text-[9px] text-slate-400 font-mono">Live Web Apps</div>
                         </div>
                       </div>
                     </div>

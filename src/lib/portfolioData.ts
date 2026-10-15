@@ -20,7 +20,8 @@ import {
   Server,
   Network,
   Binary,
-  GraduationCap as ScholarIcon,
+  FolderGit2,
+  CheckCircle2,
 } from 'lucide-react';
 
 import kisanconnectImg from '@/assets/kisanconnect.png';
@@ -38,9 +39,8 @@ export const navItems: NavItem[] = [
   { label: 'About', href: '#about', sectionId: 'about' },
   { label: 'Experience', href: '#experience', sectionId: 'experience' },
   { label: 'Projects', href: '#projects', sectionId: 'projects' },
-  { label: 'AI Sandbox', href: '#model-playground', sectionId: 'model-playground' },
-  { label: 'Architecture', href: '#system-architecture', sectionId: 'system-architecture' },
   { label: 'Skills', href: '#skills', sectionId: 'skills' },
+  { label: 'Achievements', href: '#achievements', sectionId: 'achievements' },
   { label: 'Articles', href: '#blog', sectionId: 'blog' },
   { label: 'Contact', href: '#contact', sectionId: 'contact' },
 ];
@@ -48,28 +48,30 @@ export const navItems: NavItem[] = [
 export type HeroRole = { title: string };
 
 export const heroRoles: HeroRole[] = [
-  { title: 'Artificial Intelligence Engineer' },
-  { title: 'Machine Learning & Systems Builder' },
-  { title: 'Applied AI & Neural Model Developer' },
-  { title: 'Full Stack & IoT Systems Integrator' },
+  { title: 'Software Engineer' },
+  { title: 'Full-Stack Developer' },
+  { title: 'Computer Science Engineering Student' },
+  { title: 'UI/UX & Product Builder' },
 ];
 
 export const heroTechBadges = [
+  { label: 'Java', value: 'Java' },
   { label: 'Python', value: 'Python' },
-  { label: 'TensorFlow / PyTorch', value: 'ML' },
-  { label: 'Scikit-Learn', value: 'DataScience' },
-  { label: 'FastAPI', value: 'FastAPI' },
-  { label: 'React & TypeScript', value: 'React' },
-  { label: 'Cloud & Vector DBs', value: 'Cloud' },
+  { label: 'React 18', value: 'React' },
+  { label: 'Node.js & Express', value: 'Node' },
+  { label: 'MongoDB Atlas', value: 'MongoDB' },
+  { label: 'Tailwind CSS', value: 'Tailwind' },
+  { label: 'REST APIs', value: 'API' },
+  { label: 'Firebase', value: 'Firebase' },
 ];
 
 export type AboutStat = { label: string; value: number; suffix?: string };
 
 export const aboutStats: AboutStat[] = [
-  { label: 'Projects Shipped', value: 8, suffix: '+' },
-  { label: 'Technologies Mastered', value: 20, suffix: '+' },
-  { label: 'GitHub Commits', value: 450, suffix: '+' },
-  { label: 'Hands-On Projects', value: 8, suffix: '+' },
+  { label: 'Public Repositories', value: 9, suffix: '' },
+  { label: 'Verified Git Commits', value: 450, suffix: '+' },
+  { label: 'Live Deployments', value: 2, suffix: '' },
+  { label: 'Academic Year', value: 3, suffix: 'rd Year' },
 ];
 
 export type SkillCategory = {
@@ -77,78 +79,78 @@ export type SkillCategory = {
   icon: LucideIcon;
   items: {
     name: string;
-    level: number;
-    badge: string;
+    level: string; // Recruiter-friendly: 'Advanced', 'Proficient', 'Familiar'
   }[];
 };
 
 export const skillsCategories: SkillCategory[] = [
   {
-    title: 'Artificial Intelligence & Deep Learning',
-    icon: Bot,
+    title: 'Programming Languages',
+    icon: Code2,
     items: [
-      { name: 'Python (NumPy, Pandas, SciPy)', level: 92, badge: 'Advanced' },
-      { name: 'PyTorch & TensorFlow (Neural Architectures)', level: 85, badge: 'Proficient' },
-      { name: 'Natural Language Processing (NLP) & Clinical Triage', level: 86, badge: 'Advanced' },
-      { name: 'Computer Vision & Classification Models', level: 78, badge: 'Proficient' },
-      { name: 'Prompt Engineering & Agentic Workflows', level: 90, badge: 'Advanced' },
+      { name: 'Java (Core OOP, Collections, Multithreading)', level: 'Advanced' },
+      { name: 'Python (Data Structures, Scripting, Automation)', level: 'Advanced' },
+      { name: 'JavaScript (ES6+, Async/Await, DOM)', level: 'Advanced' },
+      { name: 'TypeScript (Type Safety, Interfaces)', level: 'Proficient' },
+      { name: 'C & C++ (Algorithms, Memory Foundations)', level: 'Proficient' },
+      { name: 'SQL (Queries, Joins, Schema Normalization)', level: 'Proficient' },
     ],
   },
   {
-    title: 'Machine Learning & Predictive Analytics',
-    icon: Cpu,
-    items: [
-      { name: 'Scikit-Learn & Statistical Modeling', level: 88, badge: 'Advanced' },
-      { name: 'Feature Engineering & Data Cleansing', level: 85, badge: 'Advanced' },
-      { name: 'Model Evaluation, Tuning & Cross-Validation', level: 82, badge: 'Proficient' },
-      { name: 'IoT Telemetry Ingestion & Sensor Analytics', level: 86, badge: 'Advanced' },
-      { name: 'Predictive Recommendation Engines', level: 84, badge: 'Proficient' },
-    ],
-  },
-  {
-    title: 'AI Backend & API Deployment',
-    icon: Server,
-    items: [
-      { name: 'FastAPI & Asynchronous Python', level: 88, badge: 'Advanced' },
-      { name: 'RESTful Microservices & Webhooks', level: 86, badge: 'Advanced' },
-      { name: 'Node.js & Express.js Backends', level: 84, badge: 'Proficient' },
-      { name: 'Model Serving & Inference Optimization', level: 80, badge: 'Proficient' },
-      { name: 'Secure Authentication (JWT, API Keys)', level: 85, badge: 'Advanced' },
-    ],
-  },
-  {
-    title: 'Databases & Telemetry Pipelines',
-    icon: Database,
-    items: [
-      { name: 'PostgreSQL & Relational Schemas', level: 84, badge: 'Proficient' },
-      { name: 'Firebase Cloud Firestore & Realtime DB', level: 88, badge: 'Advanced' },
-      { name: 'MongoDB Atlas (Aggregations & Compound Indexes)', level: 86, badge: 'Advanced' },
-      { name: 'Data Pipeline Design & Transformation', level: 80, badge: 'Proficient' },
-    ],
-  },
-  {
-    title: 'Full Stack & Interactive Interfaces',
+    title: 'Frontend & Web Development',
     icon: Globe,
     items: [
-      { name: 'React 18 & Modern Web Architecture', level: 92, badge: 'Advanced' },
-      { name: 'TypeScript & Type-Safe Systems', level: 88, badge: 'Advanced' },
-      { name: 'Tailwind CSS & Responsive UI/UX', level: 94, badge: 'Expert' },
-      { name: 'State Management & Performance Optimization', level: 86, badge: 'Advanced' },
+      { name: 'React 18 & Vite (Component Architecture, Hooks)', level: 'Advanced' },
+      { name: 'Tailwind CSS (Responsive Design Systems)', level: 'Advanced' },
+      { name: 'HTML5 & Modern CSS3 (Semantic Web, Flexbox, Grid)', level: 'Advanced' },
+      { name: 'Bootstrap & EJS (Server-Side Templating)', level: 'Proficient' },
+      { name: 'Client State Management & Web Performance', level: 'Advanced' },
     ],
   },
   {
-    title: 'MLOps, DevOps & Engineering Practices',
+    title: 'Backend & API Engineering',
+    icon: Server,
+    items: [
+      { name: 'Node.js & Express.js (REST APIs, Middleware)', level: 'Advanced' },
+      { name: 'FastAPI (Asynchronous Python Endpoints)', level: 'Proficient' },
+      { name: 'Authentication & Security (JWT, Role-Based Access Control)', level: 'Proficient' },
+      { name: 'API Design & Testing (Postman, REST Standards)', level: 'Advanced' },
+      { name: 'Error Handling Middleware & Payload Validation', level: 'Advanced' },
+    ],
+  },
+  {
+    title: 'Databases & Cloud Hosting',
+    icon: Database,
+    items: [
+      { name: 'MongoDB Atlas (Atomic Operators, Aggregations)', level: 'Advanced' },
+      { name: 'Firebase Cloud Firestore & Realtime Database', level: 'Advanced' },
+      { name: 'Firebase Hosting & Global Edge Deployment', level: 'Advanced' },
+      { name: 'SQLite & Relational Database Design', level: 'Proficient' },
+    ],
+  },
+  {
+    title: 'Developer Tools & Hardware',
     icon: Terminal,
     items: [
-      { name: 'Git & GitHub Distributed Version Control', level: 92, badge: 'Advanced' },
-      { name: 'Linux Environment, Bash Scripting & CLI', level: 85, badge: 'Proficient' },
-      { name: 'Docker Containerization Basics', level: 76, badge: 'Intermediate' },
-      { name: 'Firebase Hosting & Cloud Deployment', level: 90, badge: 'Advanced' },
+      { name: 'Git & GitHub (Distributed Version Control, Pull Requests)', level: 'Advanced' },
+      { name: 'Linux CLI & Bash Commands', level: 'Proficient' },
+      { name: 'ESP32 Microcontrollers & Arduino (Hardware Telemetry)', level: 'Proficient' },
+      { name: 'VS Code, Postman & Chrome DevTools', level: 'Advanced' },
+    ],
+  },
+  {
+    title: 'UI/UX & Product Development',
+    icon: Sparkles,
+    items: [
+      { name: 'Responsive & Mobile-First Web Architecture', level: 'Advanced' },
+      { name: 'User Flow Design & Interactive Wireframing', level: 'Proficient' },
+      { name: 'Web Accessibility & Semantic HTML Best Practices', level: 'Proficient' },
+      { name: 'E-Commerce Product Operations & Customer Checkout', level: 'Advanced' },
     ],
   },
 ];
 
-export type ProjectCategory = 'All' | 'Artificial Intelligence' | 'Machine Learning & IoT' | 'Full Stack & Web';
+export type ProjectCategory = 'All' | 'Full Stack & Web' | 'Academic & Systems' | 'IoT & Machine Learning';
 
 export type Project = {
   id: string;
@@ -156,11 +158,13 @@ export type Project = {
   tagline: string;
   description: string;
   longDescription: string;
+  problemStatement: string;
+  contribution: string;
   architecture: string[];
   impactMetric: string;
   imageSrc: string;
   featured?: boolean;
-  status: 'Live Production' | 'Completed' | 'Open Source';
+  status: 'Live Production' | 'Hackathon Project' | 'Project Expo' | 'Completed';
   category: ProjectCategory;
   tags: string[];
   githubUrl: string;
@@ -170,44 +174,52 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'medplus-ai',
-    title: 'MedPulse AI — Rural Healthcare Triage & Navigator',
-    tagline: 'AI triage engine prioritizing patient symptom emergency severity and guiding rural healthcare navigation.',
+    id: 'posterkadai',
+    title: 'PosterKadai — E-Commerce Storefront & Custom Print Business',
+    tagline: 'Production wall art and personalized merchandise storefront with direct WhatsApp checkout.',
     description:
-      'An intelligent healthcare navigation system developed in Python to evaluate patient symptoms, calculate clinical urgency scores, and guide rural citizens to regional medical facilities.',
+      'An active commercial e-commerce web platform for custom wall prints, featuring responsive catalog browsing, shopping cart management, Firebase Firestore, and direct WhatsApp order fulfillment.',
+    problemStatement:
+      'Regional buyers and art enthusiasts needed an intuitive, frictionless way to explore custom artwork and place personalized orders without tedious multi-step account barriers.',
+    contribution:
+      'Independently architected the full-stack web storefront from design to deployment, configured Firebase Cloud Firestore for catalog indexing, and engineered the automated WhatsApp cart checkout bridge.',
     longDescription:
-      'MedPulse AI addresses the critical deficit of immediate medical guidance in underserved rural regions. Using structured clinical symptom trees, rule-based inference, and natural language categorization, the engine triages patient descriptions into prioritized urgency levels (Urgent, Moderate, Routine). It suggests localized healthcare resource navigation via OpenStreetMap and Leaflet while providing explainable guidance.',
+      'PosterKadai is a live commercial platform engineered for custom wall artwork and prints. Features a lightweight catalog architecture with high-resolution image optimization, responsive shopping cart, dynamic category filtering, and direct WhatsApp checkout integration for instantaneous order fulfillment.',
     architecture: [
-      'Python machine learning pipeline with symptom feature vectorization',
-      'Clinical classification model ranking urgency and emergency probabilities',
-      'FastAPI asynchronous endpoints delivering sub-150ms triage response times',
-      'Interactive hospital and resource navigation via Leaflet and OpenStreetMap',
+      'React 18 single-page application with responsive Tailwind CSS design system',
+      'Firebase Cloud Firestore for real-time catalog indexing and order data structure',
+      'Seamless WhatsApp ordering bridge transforming cart states into structured customer orders',
+      'Optimized client-side asset delivery ensuring sub-1.2s page load speeds',
     ],
-    impactMetric: 'Automates clinical triage severity indexing with < 150ms inference latency',
-    imageSrc: medplusAiImg,
+    impactMetric: 'Live production deployment with active customer transactions and sub-1.2s page load speed',
+    imageSrc: posterKadaiImg,
     featured: true,
-    status: 'Completed',
-    category: 'Artificial Intelligence',
-    tags: ['Python', 'Healthcare AI', 'NLP', 'FastAPI', 'Pandas', 'OpenStreetMap'],
-    githubUrl: 'https://github.com/Surya252006/medplus-ai',
-    liveUrl: 'https://github.com/Surya252006/medplus-ai#readme',
-    icon: Activity,
+    status: 'Live Production',
+    category: 'Full Stack & Web',
+    tags: ['React 18', 'Firebase Firestore', 'Tailwind CSS', 'WhatsApp Business API', 'E-Commerce'],
+    githubUrl: 'https://github.com/Surya252006/Posterkadai',
+    liveUrl: 'https://posterkadai-e364b.web.app/',
+    icon: ShoppingBag,
   },
   {
     id: 'kisanconnect',
-    title: 'KisanConnect AgriTech Platform',
-    tagline: 'Direct farmer-to-buyer agricultural marketplace with transparent APMC Mandi price benchmarking.',
+    title: 'KisanConnect — AgriTech Direct Farmer-to-Buyer Marketplace',
+    tagline: 'Direct agricultural trade platform with transparent APMC Mandi price benchmarking.',
     description:
-      'A full-stack agricultural marketplace designed to eliminate middlemen, giving farmers fair prices and direct access to retail consumers, retailers, and bulk buyers.',
+      'A full-stack agricultural marketplace platform built during MongoDB Tech-Odyssey to eliminate middlemen, giving farmers direct access to retail consumers, retailers, and bulk buyers.',
+    problemStatement:
+      'Smallholder farmers frequently lose significant profit margins to exploitative intermediaries due to lack of direct market access and real-time mandi rate transparency.',
+    contribution:
+      'Engineered the full-stack architecture using React and Node.js/Express, designed atomic inventory operations with MongoDB Atlas, and integrated APMC mandi price trend benchmarking.',
     longDescription:
       'KisanConnect is a production agricultural platform engineered to eliminate exploitative intermediary markups. Features Role-Based Access Control (Farmer, Consumer, Retailer, Wholesaler, Admin), real-time Mandi price comparison, atomic inventory reduction with MongoDB atomic operators ($gte, $inc), end-to-end logistics tracking, and verified producer badges. Live in production on Firebase Hosting.',
     architecture: [
-      'React 18 single-page application with responsive Tailwind CSS design system',
-      'Node.js & Express.js REST API with JWT authentication and RBAC permissions',
+      'React 18 single-page application with responsive Tailwind CSS components',
+      'Node.js & Express.js REST API with JWT authentication and multi-tier RBAC permissions',
       'MongoDB Atlas with compound indexes and race-condition-free atomic inventory pipelines',
       'Mandi price benchmarking with trend indicators (UP, DOWN, STABLE) and Firebase Hosting deployment',
     ],
-    impactMetric: 'Live production deployment supporting 5 user roles with atomic order checkout',
+    impactMetric: 'Full-stack platform with atomic inventory processing across 5 distinct user access tiers',
     imageSrc: kisanconnectImg,
     featured: true,
     status: 'Live Production',
@@ -218,118 +230,84 @@ export const projects: Project[] = [
     icon: Leaf,
   },
   {
-    id: 'posterkadai',
-    title: 'PosterKadai E-Commerce Platform',
-    tagline: 'Custom art and wall decor e-commerce storefront with live previews and WhatsApp checkout.',
-    description:
-      'A production-grade e-commerce web platform for custom wall prints, featuring instant mockup renderers, shopping cart management, Firebase Firestore, and direct WhatsApp checkout.',
-    longDescription:
-      'PosterKadai is a live commercial platform engineered for custom wall artwork. Features a lightweight catalog architecture with high-resolution image optimization, responsive shopping cart, dynamic category filtering, and direct WhatsApp checkout integration for instantaneous order fulfillment.',
-    architecture: [
-      'High-performance React single-page application with responsive asset optimization',
-      'Firebase Cloud Firestore for real-time catalog indexing and order tracking',
-      'Seamless WhatsApp ordering bridge sending structured cart payloads directly to sales',
-      'Optimized client-side state maintaining zero-latency cart updates',
-    ],
-    impactMetric: 'Live production deployment with sub-1.2s page load speed and active users',
-    imageSrc: posterKadaiImg,
-    featured: true,
-    status: 'Live Production',
-    category: 'Full Stack & Web',
-    tags: ['React', 'Firebase', 'Firestore', 'Tailwind CSS', 'WhatsApp Integration'],
-    githubUrl: 'https://github.com/Surya252006/Posterkadai',
-    liveUrl: 'https://posterkadai-e364b.web.app/',
-    icon: ShoppingBag,
-  },
-  {
     id: 'smartathon26dsu',
-    title: "Smartathon'26 AI Scholarship & Scheme Matcher",
-    tagline: 'Tamil Nadu Higher Education & Central Student Welfare Optimization Platform (DSU × ONEYES).',
+    title: "TN Scheme AI — Smartathon '26 Government Welfare Discovery",
+    tagline: 'Automated scholarship and state welfare discovery platform developed for SMARTATHON\'26.',
     description:
-      'Built for SMARTATHON\'26 (Problem Statement #6), this platform automatically matches students with eligible government scholarships, higher education grants, and welfare schemes.',
+      'Built for SMARTATHON\'26 (Problem Statement #6), this platform automatically matches students with eligible Tamil Nadu state and central government scholarships and higher education grants.',
+    problemStatement:
+      'Students in rural and semi-urban colleges often miss critical higher education scholarships because criteria rules are fragmented across bureaucratic portals.',
+    contribution:
+      'Authored the multi-parameter eligibility matching algorithms in Python, built the FastAPI backend, and designed the interactive student qualification portal.',
     longDescription:
-      'Engineered for the DSU × ONEYES Smartathon 2026 hackathon, this intelligent system ingests student academic, financial, demographic, and educational criteria to run eligibility rule-matching against central and Tamil Nadu state scholarship catalogs. Provides transparent eligibility scoring, document checklists, and application deadline alerts.',
+      'Engineered for the DSU × ONEYES Smartathon 2026 hackathon (9–10 September 2026), this intelligent system ingests student academic, financial, demographic, and educational criteria to run eligibility rule-matching against central and Tamil Nadu state scholarship catalogs. Provides transparent qualification scoring, document checklists, and application deadline alerts.',
     architecture: [
-      'FastAPI 2.0 backend with Python 3.13 eligibility matching algorithms',
+      'FastAPI backend with Python eligibility matching algorithms evaluating 50+ criteria rules',
       'React 18 frontend with Vite and responsive Tailwind CSS styling',
-      'MongoDB Atlas and SQLite data models for scholarship guidelines and criteria rules',
+      'MongoDB Atlas and SQLite data models for scholarship guidelines and qualification logic',
       'Automated qualification scoring and multi-parameter student profile evaluation',
     ],
     impactMetric: 'Hackathon solution evaluating 50+ eligibility parameters with instant match scoring',
     imageSrc: smartathonImg,
     featured: true,
-    status: 'Completed',
-    category: 'Artificial Intelligence',
-    tags: ['FastAPI', 'Python 3.13', 'React 18', 'Tailwind CSS', 'MongoDB Atlas', 'AI Rules'],
+    status: 'Hackathon Project',
+    category: 'Academic & Systems',
+    tags: ['FastAPI', 'Python 3.13', 'React 18', 'Tailwind CSS', 'MongoDB Atlas', 'Smartathon \'26'],
     githubUrl: 'https://github.com/Surya252006/smartathon26dsu',
     liveUrl: 'https://github.com/Surya252006/smartathon26dsu#readme',
     icon: Trophy,
   },
   {
     id: 'soil-telemetry',
-    title: 'Smart Precision Soil Telemetry System',
-    tagline: 'IoT sensor telemetry ingestion and Machine Learning soil health & crop recommendation engine.',
+    title: 'Smart Precision Fertilization System',
+    tagline: 'IoT sensor telemetry ingestion and predictive crop recommendation engine.',
     description:
-      'An applied Machine Learning telemetry platform that processes physical soil NPK, moisture, and pH sensor metrics to predict optimal crop varieties and fertilizer dosage.',
+      'Sensor-based precision agriculture project presented at the Barnstromz 2K26 project expo. Processes physical soil NPK, moisture, and pH sensor metrics to predict optimal crop varieties and fertilizer dosage.',
+    problemStatement:
+      'Unbalanced chemical fertilizer application leads to degraded soil fertility, environmental runoff, and reduced crop yields for regional farmers.',
+    contribution:
+      'Integrated physical soil NPK and pH probes with ESP32 microcontrollers, created Python data ingestion pipelines, and mapped nutrient values to optimal crop compatibility tables.',
     longDescription:
-      'Engineered to prevent chemical runoff and optimize harvest yields, this system ingests physical IoT soil telemetry and runs multi-parameter classification models. By analyzing nitrogen, phosphorus, potassium, moisture, and pH levels, the model calculates precise crop compatibility scores and deficiency remedies.',
+      'Demonstrated at the Barnstromz 2K26 project expo (11 September 2026), this system ingests physical IoT soil telemetry and runs multi-parameter classification models. By analyzing nitrogen, phosphorus, potassium, moisture, and pH levels, the model calculates precise crop compatibility scores and deficiency remedies to prevent chemical runoff.',
     architecture: [
-      'Scikit-Learn & TensorFlow classification pipelines trained on agricultural telemetry data',
-      'IoT hardware telemetry ingestion handling multi-sensor streams via ESP32 / Arduino',
-      'FastAPI REST service providing batch predictions and parameter validation',
-      'Interactive responsive dashboard displaying real-time telemetry graphs and fertilizer schedules',
+      'IoT hardware telemetry ingestion handling multi-sensor analog/digital streams via ESP32',
+      'Python data processing pipelines evaluating NPK and pH telemetry against agricultural benchmarks',
+      'FastAPI REST endpoints for sensor payload ingestion and batch recommendations',
+      'Responsive dashboard displaying real-time soil telemetry metrics and dosage guidance',
     ],
-    impactMetric: 'Achieved 91.4% crop recommendation accuracy across multi-nutrient profiles',
+    impactMetric: 'Presented at Barnstromz 2K26 expo with live hardware sensor telemetry ingestion',
     imageSrc: fertilizationImg,
     featured: true,
-    status: 'Completed',
-    category: 'Machine Learning & IoT',
-    tags: ['Python', 'Machine Learning', 'TensorFlow', 'Scikit-Learn', 'IoT', 'FastAPI'],
+    status: 'Project Expo',
+    category: 'IoT & Machine Learning',
+    tags: ['Python', 'IoT Hardware', 'ESP32', 'Scikit-Learn', 'FastAPI', 'Barnstromz 2K26'],
     githubUrl: 'https://github.com/Surya252006',
     liveUrl: 'https://github.com/Surya252006',
     icon: Cpu,
   },
   {
-    id: 'Personal-Finance-chat-bot',
-    title: 'Personal Finance AI Assistant',
-    tagline: 'Conversational agent for automated budget analysis, expense categorization, and advice.',
-    description:
-      'An interactive AI assistant designed to parse financial transactions, classify spending trends, and provide contextual budgeting guidance via conversational UI.',
-    longDescription:
-      'Built to democratize personal financial wellness, this conversational assistant processes natural language inquiries regarding spending, savings goals, and transaction history. Features a responsive chat interface, automated spending distribution breakdown, and dynamic advisory logic.',
-    architecture: [
-      'Contextual intent classification engine matching user financial queries',
-      'Interactive chat frontend with dynamic message streams and transaction charts',
-      'Automated expense categorization logic sorting transactions by budget buckets',
-      'Responsive design ensuring frictionless access on mobile and desktop devices',
-    ],
-    impactMetric: 'Provides real-time conversational budget analysis with instant visual breakdown',
-    imageSrc: medplusAiImg,
-    featured: false,
-    status: 'Completed',
-    category: 'Artificial Intelligence',
-    tags: ['Conversational AI', 'NLP', 'JavaScript', 'React', 'Financial Analytics'],
-    githubUrl: 'https://github.com/Surya252006/Personal-Finance-chat-bot',
-    liveUrl: 'https://github.com/Surya252006/Personal-Finance-chat-bot#readme',
-    icon: Bot,
-  },
-  {
     id: 'bank-management-system',
-    title: 'Console Banking & Ledger Engine',
+    title: 'Java Banking Management System & Ledger Engine',
     tagline: 'Object-Oriented core banking transaction simulator in Java.',
     description:
       'A console-based software system demonstrating core OOP principles, secure account management, transaction history tracking, and ACID-compliant state changes in Java.',
+    problemStatement:
+      'Building foundational software engineering capability in financial state management, data integrity, and defensive input validation.',
+    contribution:
+      'Designed the complete Object-Oriented architecture in Java, encapsulating account entities, PIN authentication, and double-entry transaction journals with boundary checks.',
     longDescription:
-      'Engineered in Java to model foundational financial software systems. Implements customer account registration, PIN-based authentication, balance verification, deposit/withdrawal transaction pipelines, and structured console input validation.',
+      'Engineered in Java to model foundational financial software systems. Implements customer account registration, PIN-based authentication, balance verification, deposit/withdrawal transaction pipelines, and structured console input validation with permanent file persistence.',
     architecture: [
       'Strict Object-Oriented Design encapsulating account entities and transaction records',
       'Input validation loops preventing balance underflows and arithmetic exceptions',
       'Modular class structure enabling extensible payment and interest calculation rules',
+      'Persistent ledger journal recording timestamped credit and debit entries',
     ],
-    impactMetric: 'Demonstrates rock-solid OOP data structures and state integrity principles',
+    impactMetric: 'Demonstrates rock-solid OOP data structures and atomic balance state integrity',
     imageSrc: bankSystemImg,
+    featured: false,
     status: 'Completed',
-    category: 'Full Stack & Web',
+    category: 'Academic & Systems',
     tags: ['Java', 'OOP', 'Data Structures', 'Console', 'Algorithms'],
     githubUrl: 'https://github.com/Surya252006/BANK-MANAGEMENT-SYSTEM-',
     liveUrl: 'https://github.com/Surya252006/BANK-MANAGEMENT-SYSTEM-#readme',
@@ -341,6 +319,10 @@ export const projects: Project[] = [
     tagline: 'Comprehensive full-stack web application modules with REST APIs and responsive UI.',
     description:
       'Completed 5 production engineering tasks during Full Stack Development Internship at Cognifyz Technologies, delivering secure backends, form validation, and dynamic DOM rendering.',
+    problemStatement:
+      'Delivering verified full-stack software requirements conforming to enterprise web standards, clean route structuring, and defensive payload handling.',
+    contribution:
+      'Developed all 5 internship milestone modules using Node.js, Express, EJS, and RESTful architectures with responsive frontends.',
     longDescription:
       'During this engineering internship, built and deployed full-stack software modules using Node.js, Express, EJS, and RESTful architectures. Solved data validation requirements, created responsive multi-device layouts, and structured scalable routing patterns for enterprise applications.',
     architecture: [
@@ -349,37 +331,15 @@ export const projects: Project[] = [
       'Robust form validation, error handling middleware, and payload sanitation',
       'Modular route handlers following Clean Architecture patterns',
     ],
-    impactMetric: 'Successfully delivered 5 full-stack internship milestones with verified evaluation',
+    impactMetric: 'Delivered all 5 full-stack internship milestones with verified evaluation',
     imageSrc: posterKadaiImg,
+    featured: false,
     status: 'Completed',
     category: 'Full Stack & Web',
     tags: ['Node.js', 'Express', 'REST APIs', 'JavaScript', 'Bootstrap', 'EJS'],
     githubUrl: 'https://github.com/Surya252006/cognifyz-fullstack-internship',
     liveUrl: 'https://github.com/Surya252006/cognifyz-fullstack-internship#readme',
     icon: Layers,
-  },
-  {
-    id: 'portfolio',
-    title: 'Surya Suresh — Engineering Portfolio',
-    tagline: 'High-performance personal developer portfolio showcasing AI and full-stack systems.',
-    description:
-      'Production portfolio engineered with React 18, TypeScript, Tailwind CSS, and custom movement telemetry, deployed on Firebase Hosting.',
-    longDescription:
-      'Built to provide recruiters and engineering teams with an authentic, interactive view of projects, technical architecture, and live GitHub repositories. Includes custom mouse tracking, responsive design, and SEO metadata.',
-    architecture: [
-      'Vite & React 18 single-page application with TypeScript type safety',
-      'Tailwind CSS design system with custom cursor telemetry and dark mode slate palette',
-      'Live GitHub API integration retrieving real repository statistics',
-      'Deployed on Firebase Hosting with fast worldwide edge caching',
-    ],
-    impactMetric: 'Live production deployment with sub-1s initial paint and 100% responsiveness',
-    imageSrc: profileAvatar,
-    status: 'Live Production',
-    category: 'Full Stack & Web',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Firebase'],
-    githubUrl: 'https://github.com/Surya252006/Portfolio',
-    liveUrl: 'https://surya-s-portfolio-e8625.web.app/',
-    icon: Sparkles,
   },
 ];
 
@@ -402,43 +362,42 @@ export const timelineItems: TimelineItem[] = [
     id: 'engineering-education',
     date: '2024 – 2028',
     role: 'B.E. in Computer Science & Engineering',
-    organization: 'Anna University Affiliated Institution',
+    organization: 'Dhanalakshmi Srinivasan College of Engineering',
     location: 'Coimbatore, Tamil Nadu, India',
     summary:
-      'Undergraduate engineering degree deepening foundations in Artificial Intelligence, Machine Learning, Data Structures, Operating Systems, and Distributed Computing.',
+      'Currently in Third Year. Undergraduate engineering program affiliated with Anna University, deepening foundations in Data Structures & Algorithms, Object-Oriented Programming (Java/C++), Database Systems, Computer Networks, and Software Engineering.',
     responsibilities: [
-      'Active coursework in Core Computer Science, Object-Oriented Programming (Java/C++), and Data Structures',
-      'Designing and deploying machine learning models, neural pipelines, and IoT telemetry architectures',
-      'Representing the institution in engineering hackathons including SMARTATHON\'26 (DSU × ONEYES)',
+      'Rigorous academic coursework in Data Structures, Algorithms, Object-Oriented System Architecture, and Operating Systems',
+      'Actively building production software and web applications alongside the academic curriculum',
+      'Representing the institution in collegiate hackathons (SMARTATHON\'26) and technical exhibitions (Barnstromz 2K26)',
     ],
     achievements: [
-      'Joined B.E. Computer Science in 2024, actively shipping production-grade platforms alongside studies',
+      'Third-year student actively shipping production-grade platforms and participating in engineering expos',
       'Qualified for IIT Guwahati advanced learning initiatives in Artificial Intelligence & Machine Learning',
     ],
-    skills: ['Machine Learning', 'Python', 'PyTorch', 'Data Structures & Algorithms', 'C++', 'Java'],
+    skills: ['Data Structures & Algorithms', 'Java', 'Python', 'C++', 'Database Management Systems', 'Software Engineering'],
     icon: GraduationCap,
     highlight: true,
   },
   {
-    id: 'ai-independent-dev',
-    date: '2024 – Present',
-    role: 'Artificial Intelligence & Systems Developer',
-    organization: 'Applied AI & Open-Source Engineering',
-    location: 'Tamil Nadu, India',
+    id: 'skypark-internship',
+    date: '11 – 27 August 2025',
+    role: 'Digital Marketing & Web Operations Intern',
+    organization: 'Skypark ITech',
+    location: 'Coimbatore, Tamil Nadu, India',
     summary:
-      'Designing and developing machine learning triage systems, IoT telemetry pipelines, and production web applications.',
+      'Completed a focused internship covering web operations, search engine indexing workflows, digital marketing strategies, and user engagement analytics.',
     responsibilities: [
-      'Built MedPulse AI healthcare triage engine utilizing Python, PyTorch, and clinical symptom classification logic',
-      'Engineered SMARTATHON\'26 AI Scholarship & Scheme Matcher for DSU × ONEYES hackathon with 96% match confidence scoring',
-      'Architected and shipped PosterKadai e-commerce platform and KisanConnect live to production on Firebase',
-      'Integrated real-time IoT sensor telemetry streams with FastAPI asynchronous backend inference',
+      'Executed on-page web optimization and content structuring to enhance search engine indexing and discoverability',
+      'Analyzed web traffic and audience engagement metrics to improve visibility across targeted regional demographics',
+      'Collaborated on digital outreach workflows and web marketing best practices',
     ],
     achievements: [
-      'Deployed PosterKadai and KisanConnect to active live production on Firebase Hosting',
-      'Built functional AI prototypes addressing real agricultural and healthcare challenges',
+      'Successfully completed scheduled internship track with verified hands-on operational delivery',
+      'Gained practical insight into web discoverability, metadata indexing, and user conversion funnels',
     ],
-    skills: ['Python', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'FastAPI', 'React 18', 'Firebase', 'IoT Telemetry'],
-    icon: Bot,
+    skills: ['Web Operations', 'SEO Optimization', 'Analytics', 'Digital Outreach', 'Web Performance'],
+    icon: Briefcase,
     highlight: false,
   },
   {
@@ -469,7 +428,7 @@ export const timelineItems: TimelineItem[] = [
     organization: 'PosterKadai (Commercial E-Commerce)',
     location: 'Tamil Nadu, India',
     summary:
-      'Architecting and operating a live commercial e-commerce storefront for custom artwork with direct WhatsApp checkout integration and Firebase Firestore.',
+      'Architected and operating a live commercial e-commerce storefront for custom artwork with direct WhatsApp checkout integration and Firebase Firestore.',
     responsibilities: [
       'Architected full-stack single-page application with instant catalog exploration and zero-latency shopping cart',
       'Configured cloud database rules, automated order tracking, and WhatsApp checkout bridging',
@@ -518,49 +477,56 @@ export type AchievementItem = {
 export const achievements: AchievementItem[] = [
   {
     id: 'smartathon',
-    title: 'SMARTATHON\'26 (DSU × ONEYES) Finalist',
+    title: 'Smartathon \'26 Hackathon Participant & Developer',
     issuer: 'DSU × ONEYES Engineering Initiative',
     description:
-      'Engineered the AI Scholarship & Government Scheme Eligibility Matcher (Problem Statement #6) using FastAPI, React 18, and Python rule algorithms.',
-    impact: 'Automates multi-parameter scheme matching for higher education optimization with 96% confidence score.',
+      'Participated in the DSU × ONEYES Smartathon \'26 (9–10 September 2026), engineering TN Scheme AI (Problem Statement #6) using FastAPI, React 18, and Python rule algorithms.',
+    impact: 'Automates multi-parameter government scholarship and welfare discovery for students.',
     icon: Trophy,
   },
   {
-    id: 'iit-guwahati',
-    title: 'IIT Guwahati AI & ML Qualification',
-    issuer: 'IIT Guwahati E&ICT Academy',
+    id: 'barnstromz-expo',
+    title: 'Barnstromz 2K26 Project Expo Exhibitor',
+    issuer: 'Barnstromz 2K26 Technical Symposium',
     description:
-      'Qualified and completed rigorous machine learning coursework covering statistical modeling, regression, neural networks, and computer vision foundations.',
-    impact: 'Applied core algorithms directly into agricultural telemetry and healthcare triage projects.',
-    icon: Award,
+      'Exhibited the Smart Precision Fertilization System on 11 September 2026, showcasing hardware IoT telemetry with ESP32 soil NPK sensors and predictive analysis.',
+    impact: 'Demonstrated real-time hardware-to-software telemetry processing and targeted fertilizer dosage logic.',
+    icon: Cpu,
+  },
+  {
+    id: 'mongodb-tech-odyssey',
+    title: 'MongoDB Tech-Odyssey AgriTech Development',
+    issuer: 'MongoDB Developer Community Initiative',
+    description:
+      'Engineered KisanConnect agricultural direct-trade platform, implementing race-condition-free inventory decrementing using MongoDB atomic operators ($gte, $inc).',
+    impact: 'Deployed live on Firebase Hosting (kisanconnect-2267e.web.app) with APMC mandi price benchmarks.',
+    icon: Rocket,
   },
   {
     id: 'cognifyz-cert',
-    title: 'Cognifyz Full-Stack Engineering Certification',
+    title: 'Cognifyz Full-Stack Development Certification',
     issuer: 'Cognifyz Technologies',
     description:
-      'Successfully completed full-stack software development internship track, delivering 5 enterprise web modules and RESTful backends.',
+      'Successfully completed verified full-stack software development internship track, delivering 5 enterprise web modules and RESTful backends.',
     impact: 'Verified hands-on internship delivery across Node.js, Express, and modern JavaScript.',
     icon: Layers,
   },
   {
-    id: 'kisanconnect-deployment',
-    title: 'Shipped KisanConnect AgriTech Live',
-    issuer: 'Firebase Hosting Production',
+    id: 'iit-guwahati',
+    title: 'IIT Guwahati AI & ML Coursework Qualification',
+    issuer: 'IIT Guwahati E&ICT Academy',
     description:
-      'Engineered and deployed KisanConnect live on Firebase with role-based access, atomic order processing, and Mandi price insights.',
-    impact: 'Live production URL: kisanconnect-2267e.web.app with verified end-to-end checkout.',
-    icon: Rocket,
+      'Qualified and completed advanced machine learning coursework covering statistical modeling, regression, neural networks, and computer vision foundations.',
+    impact: 'Applied core algorithms directly into agricultural telemetry and analytics projects.',
+    icon: Award,
   },
   {
-    id: 'production-deployment',
-    title: 'Shipped PosterKadai Live Production',
-    issuer: 'PosterKadai Platform',
+    id: 'open-source-commits',
+    title: 'Active Open-Source Builder & Codebase',
+    issuer: 'GitHub Community (github.com/Surya252006)',
     description:
-      'Independently engineered and deployed PosterKadai with full catalog indexing, secure checkout architecture, and cloud database persistence.',
-    impact: 'Live web app running reliably with fast sub-second client performance and WhatsApp orders.',
-    icon: ShoppingBag,
+      '450+ verified Git commits and 9 publicly accessible technical repositories across full-stack web applications, IoT firmware, and developer tools.',
+    impact: 'Transparent, publicly auditable code history demonstrating continuous software engineering practice.',
+    icon: FolderGit2,
   },
 ];
-
-

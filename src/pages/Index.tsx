@@ -1,11 +1,9 @@
 import { PremiumNavbar } from '@/components/PremiumNavbar';
 import { MouseTracker } from '@/components/MouseTracker';
 import { HeroSection } from '@/components/HeroSection';
-import { LiveTelemetryDashboard } from '@/components/LiveTelemetryDashboard';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
-import { InteractiveModelPlayground } from '@/components/InteractiveModelPlayground';
 import { SystemArchitectureVisualizer } from '@/components/SystemArchitectureVisualizer';
 import { SkillsSection } from '@/components/SkillsSection';
 import { AchievementsSection } from '@/components/AchievementsSection';
@@ -22,11 +20,9 @@ const Index = () => {
       <PremiumNavbar />
       <main className="w-full overflow-x-hidden">
         <HeroSection />
-        <LiveTelemetryDashboard />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
-        <InteractiveModelPlayground />
         <SystemArchitectureVisualizer />
         <SkillsSection />
         <AchievementsSection />

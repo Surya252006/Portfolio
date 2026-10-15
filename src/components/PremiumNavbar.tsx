@@ -86,10 +86,10 @@ export function PremiumNavbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-foreground tracking-tight text-base sm:text-lg leading-none">
-                Surya Suresh
+                Surya S.
               </span>
               <span className="text-[11px] text-primary/90 font-mono tracking-wider mt-0.5">
-                AI Engineer
+                Software Developer
               </span>
             </div>
           </a>
@@ -133,8 +133,8 @@ export function PremiumNavbar() {
             </button>
 
             <a
-              href="/resume/Surya_S_AI_Engineer_Resume.pdf"
-              download="Surya_S_AI_Engineer_Resume.pdf"
+              href="/resume/Surya_S_Software_Developer_Resume.pdf"
+              download="Surya_S_Software_Developer_Resume.pdf"
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-lg border border-border bg-card/60 hover:bg-secondary text-foreground transition-colors shadow-sm"
             >
               <Download className="w-3.5 h-3.5 text-muted-foreground" />
@@ -226,8 +226,8 @@ export function PremiumNavbar() {
 
               <div className="grid grid-cols-2 gap-3">
                 <a
-                  href="/resume/Surya_S_AI_Engineer_Resume.pdf"
-                  download="Surya_S_AI_Engineer_Resume.pdf"
+                  href="/resume/Surya_S_Software_Developer_Resume.pdf"
+                  download="Surya_S_Software_Developer_Resume.pdf"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-border bg-card text-foreground text-sm font-medium hover:bg-secondary transition-colors"
                 >
                   <Download className="w-4 h-4" />
@@ -254,7 +254,7 @@ export function PremiumNavbar() {
                   <Github className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/surya-suresh-755937267/"
+                  href="https://www.linkedin.com/in/surya-s-755937267/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"

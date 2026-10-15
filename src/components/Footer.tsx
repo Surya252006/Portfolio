@@ -20,11 +20,11 @@ export function Footer() {
                 S
               </div>
               <span className="font-display font-bold text-foreground text-lg tracking-tight">
-                Surya Suresh
+                Surya S.
               </span>
             </div>
             <p className="text-xs text-muted-foreground font-body max-w-sm">
-              Artificial Intelligence Engineer & Machine Learning Builder based in India.
+              Software Developer & Full-Stack Engineer • Dhanalakshmi Srinivasan College of Engineering, Coimbatore.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             {[
               { Icon: Github, href: 'https://github.com/Surya252006', label: 'GitHub' },
-              { Icon: Linkedin, href: 'https://www.linkedin.com/in/surya-suresh-755937267/', label: 'LinkedIn' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/in/surya-s-755937267/', label: 'LinkedIn' },
               { Icon: Mail, href: 'mailto:surya25suresh2006@gmail.com', label: 'Email' },
             ].map(({ Icon, href, label }) => (
               <a
@@ -72,7 +72,7 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono text-center sm:text-left">
           <div>
-            © {year} Surya Suresh. All rights reserved.
+            © {year} Surya S. All rights reserved.
           </div>
           <div>
             Handcrafted with React, TypeScript & Tailwind CSS

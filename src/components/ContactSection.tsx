@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { toast } from 'sonner';
-import { sendEmailJS } from '@/lib/emailjs';
+import { saveContactToSupabase } from '@/lib/supabaseService';
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -40,38 +40,33 @@ export function ContactSection() {
 
     setSubmitting(true);
     try {
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const savedToSupabase = await saveContactToSupabase({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        subject: form.subject.trim() || 'Portfolio Contact Inquiry',
+        message: form.message.trim(),
+      });
 
-      if (
-        serviceId.includes('YOUR_') ||
-        templateId.includes('YOUR_') ||
-        publicKey.includes('YOUR_')
-      ) {
+      if (savedToSupabase) {
+        toast.success('Message received successfully!', {
+          description: "Thank you for reaching out. I'll get back to you promptly.",
+        });
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setTouched({});
+      } else {
         // Direct email fallback
         const subjectLine = form.subject.trim() ? encodeURIComponent(form.subject) : 'Project%20Inquiry%20from%20Portfolio';
         window.location.href = `mailto:surya25suresh2006@gmail.com?subject=${subjectLine}&body=${encodeURIComponent(
           `Hi Surya,\n\nName: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n`
         )}`;
         toast.success('Opening your email client to send message...');
-        return;
       }
-
-      await sendEmailJS({
-        serviceId,
-        templateId,
-        publicKey,
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      });
-
-      toast.success('Message delivered successfully', { description: 'Thanks for reaching out! I will respond promptly.' });
-      setForm({ name: '', email: '', subject: '', message: '' });
-      setTouched({});
     } catch {
-      toast.error('Unable to send message automatically', { description: 'Please send an email directly to surya25suresh2006@gmail.com' });
+      const subjectLine = form.subject.trim() ? encodeURIComponent(form.subject) : 'Project%20Inquiry%20from%20Portfolio';
+      window.location.href = `mailto:surya25suresh2006@gmail.com?subject=${subjectLine}&body=${encodeURIComponent(
+        `Hi Surya,\n\nName: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n`
+      )}`;
+      toast.success('Opening your email client to send message...');
     } finally {
       setSubmitting(false);
     }
@@ -87,8 +82,8 @@ export function ContactSection() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/surya-suresh-755937267',
-      href: 'https://www.linkedin.com/in/surya-suresh-755937267/',
+      value: 'linkedin.com/in/surya-s-755937267',
+      href: 'https://www.linkedin.com/in/surya-s-755937267/',
     },
     {
       icon: Github,
@@ -99,7 +94,7 @@ export function ContactSection() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Tamil Nadu, India',
+      value: 'Coimbatore, Tamil Nadu, India',
       href: '#',
     },
   ];

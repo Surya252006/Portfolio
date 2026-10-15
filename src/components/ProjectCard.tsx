@@ -12,11 +12,13 @@ export function ProjectCard({
 }) {
   const Icon = project.icon;
 
-  const statusColor = {
+  const statusColor: Record<string, string> = {
     'Live Production': 'bg-emerald-950/80 border-emerald-500/40 text-emerald-300',
+    'Hackathon Project': 'bg-amber-950/80 border-amber-500/40 text-amber-300',
+    'Project Expo': 'bg-cyan-950/80 border-cyan-500/40 text-cyan-300',
     'Completed': 'bg-blue-950/80 border-blue-500/40 text-blue-300',
-    'Open Source': 'bg-purple-950/80 border-purple-500/40 text-purple-300',
-  }[project.status];
+  };
+  const currentStatusClass = statusColor[project.status] || 'bg-slate-900 border-border text-slate-300';
 
   return (
     <div
@@ -37,7 +39,7 @@ export function ProjectCard({
         {/* Status & Category Badge */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
           <span
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium border backdrop-blur-md ${statusColor}`}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium border backdrop-blur-md ${currentStatusClass}`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-current" />
             {project.status}

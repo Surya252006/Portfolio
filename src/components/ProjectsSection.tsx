@@ -4,7 +4,7 @@ import { projects, type Project, type ProjectCategory } from '@/lib/portfolioDat
 import { ProjectCard } from './ProjectCard';
 import { ProjectDetailsModal } from './ProjectDetailsModal';
 
-const categories: ProjectCategory[] = ['All', 'Artificial Intelligence', 'Machine Learning & IoT', 'Full Stack & Web'];
+const categories: ProjectCategory[] = ['All', 'Full Stack & Web', 'Academic & Systems', 'IoT & Machine Learning'];
 
 export function ProjectsSection() {
   const [category, setCategory] = useState<ProjectCategory>('All');
@@ -24,13 +24,13 @@ export function ProjectsSection() {
         <div className="text-center max-w-4xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            GitHub Repositories & Deployments
+            Featured Software & Engineering Projects
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
-            Featured <span className="text-primary">AI & Systems</span> Projects
+            Production Software & <span className="text-primary">Systems</span>
           </h2>
           <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
-            Directly from my GitHub repositories. Explore AI healthcare triage, ML IoT telemetry, and live production platforms with source code and demos.
+            Directly from my verified GitHub repositories and live deployments. Explore full-stack e-commerce, agricultural marketplaces, government welfare platforms, and core OOP systems.
           </p>
         </div>
 
