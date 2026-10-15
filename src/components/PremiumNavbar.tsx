@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Menu, X, Download, ArrowUpRight, Github, Linkedin, Mail, Bot } from 'lucide-react';
+import { Menu, X, Download, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems } from '@/lib/portfolioData';
@@ -117,21 +117,6 @@ export function PremiumNavbar() {
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
-            <button
-              onClick={() => {
-                window.dispatchEvent(
-                  new CustomEvent('open-spoofy-chat', {
-                    detail: { query: "Hi Spoofy, give me a quick executive summary of Surya's engineering background and top achievements." },
-                  })
-                );
-              }}
-              className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border border-cyan-800/60 bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 transition-colors shadow-sm"
-              title="Open 24/7 AI Representative"
-            >
-              <Bot className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Spoofy AI</span>
-            </button>
-
             <a
               href="/resume/Surya_S_Software_Developer_Resume.pdf"
               download="Surya_S_Software_Developer_Resume.pdf"
@@ -209,21 +194,6 @@ export function PremiumNavbar() {
             </div>
 
             <div className="pt-6 mt-6 border-t border-border space-y-3">
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  window.dispatchEvent(
-                    new CustomEvent('open-spoofy-chat', {
-                      detail: { query: "Hi Spoofy, give me a quick executive summary of Surya's engineering background and top achievements." },
-                    })
-                  );
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-cyan-800/80 bg-cyan-950/60 text-cyan-300 font-mono text-xs font-semibold shadow-sm active:scale-95 transition-all"
-              >
-                <Bot className="w-4 h-4 text-cyan-400" />
-                <span>Talk to Spoofy AI (24/7 Agent)</span>
-              </button>
-
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href="/resume/Surya_S_Software_Developer_Resume.pdf"

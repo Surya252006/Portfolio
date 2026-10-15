@@ -139,17 +139,17 @@ export function SystemArchitectureVisualizer() {
 
   return (
     <section id="architecture" className="relative py-20 md:py-28 overflow-hidden bg-slate-950/60">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.06),transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.04),transparent_60%)] pointer-events-none" />
 
       <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <Layers className="h-3.5 w-3.5" />
             End-to-End System Blueprint
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
-            Production <span className="text-cyan-400">System Architecture</span>
+            Production <span className="text-primary">System Architecture</span>
           </h2>
           <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
             How Surya engineers scalable software: from physical IoT sensor telemetry ingestion through asynchronous FastAPI gateways to applied neural model inference and atomic cloud persistence.
@@ -167,8 +167,8 @@ export function SystemArchitectureVisualizer() {
                 onClick={() => setSelectedNodeId(node.id)}
                 className={`group relative p-4 rounded-2xl border text-left transition-all shrink-0 w-[240px] sm:w-[260px] lg:w-auto snap-start active:scale-95 ${
                   isSelected
-                    ? 'border-cyan-400 bg-cyan-950/40 shadow-lg shadow-cyan-500/15'
-                    : 'border-border/80 bg-card/60 hover:border-cyan-500/40 hover:bg-card/90'
+                    ? 'border-primary bg-primary/10 shadow-md'
+                    : 'border-border/80 bg-card/60 hover:border-primary/40 hover:bg-card/90'
                 }`}
               >
                 {/* Step indicator */}
@@ -176,7 +176,7 @@ export function SystemArchitectureVisualizer() {
                   <span
                     className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                       isSelected
-                        ? 'bg-cyan-500 text-slate-950'
+                        ? 'bg-primary text-primary-foreground'
                         : 'bg-secondary text-muted-foreground'
                     }`}
                   >
@@ -184,7 +184,7 @@ export function SystemArchitectureVisualizer() {
                   </span>
                   <Icon
                     className={`w-4 h-4 transition-colors ${
-                      isSelected ? 'text-cyan-400' : 'text-muted-foreground group-hover:text-cyan-400'
+                      isSelected ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'
                     }`}
                   />
                 </div>
@@ -214,7 +214,7 @@ export function SystemArchitectureVisualizer() {
               {/* Left Column: Architectural Rationale */}
               <div className="lg:col-span-7 space-y-5">
                 <div>
-                  <span className="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider">
+                  <span className="text-xs font-mono font-semibold text-primary uppercase tracking-wider">
                     {activeNode.category} &bull; Pipeline Phase {activeNode.step}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mt-1">
@@ -227,7 +227,7 @@ export function SystemArchitectureVisualizer() {
 
                 {/* Bottleneck Solved Box */}
                 <div className="p-4 rounded-2xl bg-secondary/30 border border-border/80 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-semibold">
+                  <div className="flex items-center gap-2 text-xs font-mono text-primary font-semibold">
                     <Zap className="w-3.5 h-3.5" />
                     Engineering Challenge &amp; Bottleneck Solved
                   </div>
@@ -262,7 +262,7 @@ export function SystemArchitectureVisualizer() {
               {/* Right Column: Code Implementation Snippet */}
               <div className="lg:col-span-5 rounded-2xl border border-border/90 bg-slate-950/90 overflow-hidden shadow-xl">
                 <div className="px-4 py-2.5 bg-slate-900 border-b border-border/70 flex items-center justify-between text-xs font-mono text-muted-foreground">
-                  <span className="flex items-center gap-1.5 text-cyan-400">
+                  <span className="flex items-center gap-1.5 text-primary">
                     <Code2 className="w-3.5 h-3.5" />
                     Clean Architecture Snippet
                   </span>

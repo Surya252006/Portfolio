@@ -1,5 +1,4 @@
 import { PremiumNavbar } from '@/components/PremiumNavbar';
-import { MouseTracker } from '@/components/MouseTracker';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
@@ -16,7 +15,6 @@ import { SpoofyChatbot } from '@/components/SpoofyChatbot';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative selection:bg-primary/30 selection:text-white overflow-x-hidden">
-      <MouseTracker />
       <PremiumNavbar />
       <main className="w-full overflow-x-hidden">
         <HeroSection />

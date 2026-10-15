@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Rocket, GraduationCap, Code2, Layers, CheckCircle2, Award, Terminal, Bot } from 'lucide-react';
+import { MapPin, Rocket, GraduationCap, Code2, Layers, CheckCircle2, Award, Terminal } from 'lucide-react';
 import profileAvatar from '@/assets/profile-avatar.png';
 import { AnimatedCounter } from './AnimatedCounter';
 import { aboutStats } from '@/lib/portfolioData';

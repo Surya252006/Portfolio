@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Bot,
   Send,
   X,
-  Sparkles,
+  Loader2,
   Download,
   ExternalLink,
   Trash2,
@@ -41,7 +40,7 @@ export function SpoofyChatbot() {
     {
       id: 'welcome-1',
       sender: 'spoofy',
-      text: "👋 **Hi! I am Spoofy**, Surya S.'s dedicated **24/7 AI Representative**.\n\nI can assist you with details about Surya's **software engineering background**, **live platforms** (PosterKadai, KisanConnect, TN Scheme AI), **technical skills**, or help you **download his verified resume**.\n\nHow can I help you today?",
+      text: "👋 **Hello!** I am Surya's interactive portfolio assistant.\n\nI can answer questions regarding his **software engineering experience**, **live production platforms** (PosterKadai, KisanConnect, TN Scheme AI), **technical skill set**, or provide his **verified resume**.\n\nWhat would you like to explore?",
       timestamp: 'Just now',
       actions: [
         { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
@@ -222,14 +221,11 @@ export function SpoofyChatbot() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 2, duration: 0.5 }}
-            className="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/90 backdrop-blur-md border border-primary/40 text-xs font-mono text-slate-200 shadow-xl cursor-pointer"
+            className="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border text-xs font-mono text-slate-200 shadow-lg cursor-pointer hover:border-primary/50 transition-colors"
             onClick={() => setIsOpen(true)}
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            <span>Ask <strong>Spoofy AI</strong> 24/7</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>Chat with <strong>Portfolio Assistant</strong></span>
           </motion.div>
         )}
 
@@ -238,44 +234,34 @@ export function SpoofyChatbot() {
           onClick={() => setIsOpen((prev) => !prev)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          aria-label={isOpen ? 'Close Spoofy AI Chat' : 'Open Spoofy AI Chat'}
-          className="relative group flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-primary via-cyan-600 to-emerald-500 p-[2px] shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+          aria-label={isOpen ? 'Close Chat' : 'Open Portfolio Assistant'}
+          className="relative flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 border border-primary/20 transition-all"
         >
-          {/* Pulsing ambient aura */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-emerald-500 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-500 pointer-events-none animate-pulse" />
-
-          {/* Button Face */}
-          <div className="relative w-full h-full rounded-[14px] bg-slate-950 flex items-center justify-center overflow-hidden">
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-6 h-6 text-slate-200" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="bot"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative"
-                >
-                  <Bot className="w-6 h-6 text-primary group-hover:text-cyan-400 transition-colors" />
-                  {/* Green Online Dot */}
-                  <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <AnimatePresence mode="wait">
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="w-5 h-5" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="chat"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="relative"
+              >
+                <MessageSquare className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-primary" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.button>
       </div>
 
@@ -287,29 +273,25 @@ export function SpoofyChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 25, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed inset-x-2 sm:inset-x-auto bottom-20 sm:bottom-24 sm:right-6 z-50 sm:w-[420px] h-[580px] max-h-[calc(100dvh-95px)] rounded-2xl sm:rounded-3xl border border-border/80 bg-slate-950/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden font-body"
+            className="fixed inset-x-2 sm:inset-x-auto bottom-20 sm:bottom-24 sm:right-6 z-50 sm:w-[420px] h-[580px] max-h-[calc(100dvh-95px)] rounded-2xl sm:rounded-3xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden font-body"
           >
             {/* Window Header */}
-            <div className="px-4 py-3.5 bg-slate-900/80 border-b border-border/70 flex items-center justify-between shrink-0">
+            <div className="px-4 py-3.5 bg-secondary/40 border-b border-border flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
-                <div className="relative w-9 h-9 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shadow-inner">
-                  <Bot className="w-5 h-5" />
-                  <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-sm">
+                  <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="font-display font-bold text-sm text-foreground">
-                      Spoofy AI
+                      Portfolio Assistant
                     </h3>
                     <span className="px-1.5 py-0.2 rounded text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      24/7 Active
+                      Online
                     </span>
                   </div>
                   <p className="text-[11px] text-muted-foreground font-mono">
-                    Surya's Engineering Representative
+                    Surya's Interactive Showcase
                   </p>
                 </div>
               </div>
@@ -358,8 +340,8 @@ export function SpoofyChatbot() {
                   >
                     {msg.sender === 'spoofy' && (
                       <div className="flex items-center gap-1.5 text-[10px] font-mono text-primary font-semibold mb-1">
-                        <Sparkles className="w-3 h-3" />
-                        Spoofy
+                        <MessageSquare className="w-3 h-3" />
+                        Assistant
                       </div>
                     )}
 
@@ -397,8 +379,8 @@ export function SpoofyChatbot() {
               {isTyping && (
                 <div className="flex items-center gap-2 p-3 rounded-2xl bg-card/80 border border-border/70 max-w-[130px] rounded-bl-sm">
                   <span className="text-[11px] font-mono text-primary flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 animate-spin" />
-                    Thinking
+                    <Loader2 className="w-3 h-3 animate-spin" />
+                    Typing
                   </span>
                   <div className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]" />
@@ -414,8 +396,8 @@ export function SpoofyChatbot() {
             {/* Quick Suggestions Shelf */}
             <div className="px-3.5 py-2 bg-slate-900/60 border-t border-border/50 overflow-x-auto scrollbar-none flex items-center gap-1.5 shrink-0">
               <span className="text-[10px] font-mono text-muted-foreground shrink-0 flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-primary" />
-                Suggestions:
+                <ChevronRight className="w-3 h-3 text-primary" />
+                Topics:
               </span>
               {initialSuggestions.slice(0, 4).map((sug, sIdx) => (
                 <button
@@ -444,7 +426,7 @@ export function SpoofyChatbot() {
                 autoComplete="off"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask Spoofy about AI projects, resume..."
+                placeholder="Ask about projects, engineering skills, resume..."
                 className="flex-1 bg-secondary/50 border border-border/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:bg-secondary/80 transition-all font-body"
               />
               <Button

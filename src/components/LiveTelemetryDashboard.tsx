@@ -11,7 +11,7 @@ import {
   RefreshCw,
   ExternalLink,
   ChevronRight,
-  Bot,
+  MessageSquare,
   FileCheck2,
 } from 'lucide-react';
 import { Button } from './ui/button';
@@ -65,32 +65,27 @@ export function LiveTelemetryDashboard() {
   };
 
   return (
-    <section id="telemetry" className="relative py-12 bg-slate-950/60 border-y border-cyan-900/30 overflow-hidden">
-      {/* Background cyber grid & glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.06),transparent_70%)] pointer-events-none" />
+    <section id="telemetry" className="relative py-12 bg-slate-950/60 border-y border-border overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
       <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Top Header Strip */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800/80">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-border/80">
           <div>
             <div className="flex items-center gap-2.5 mb-1.5">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-              </span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
               <span className="text-xs font-mono font-semibold tracking-wider uppercase text-emerald-400">
                 Production System Telemetry
               </span>
               <span className="text-slate-600 font-mono text-xs">|</span>
               <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
-                <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
+                <Radio className="w-3 h-3 text-emerald-400" />
                 Live Edge Status
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2.5">
-              Infrastructure & Inference Health
-              <span className="hidden sm:inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-medium bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">
+              Infrastructure &amp; Inference Health
+              <span className="hidden sm:inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-medium bg-secondary text-foreground border border-border">
                 SLA: {uptime}
               </span>
             </h2>
@@ -98,9 +93,9 @@ export function LiveTelemetryDashboard() {
 
           {/* Quick Ping Controller */}
           <div className="flex items-center gap-3">
-            <div className="px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center gap-3 font-mono text-xs">
+            <div className="px-3 py-1.5 rounded-lg bg-secondary/40 border border-border flex items-center gap-3 font-mono text-xs">
               <div className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-cyan-400" />
+                <Activity className="w-3.5 h-3.5 text-primary" />
                 <span className="text-slate-400">Edge RTT:</span>
                 <span className={`font-bold ${latency < 60 ? 'text-emerald-400' : 'text-amber-400'}`}>
                   {latency}ms
@@ -117,10 +112,10 @@ export function LiveTelemetryDashboard() {
               size="sm"
               onClick={handleManualPing}
               disabled={isPinging}
-              className="border-cyan-800/60 bg-cyan-950/40 hover:bg-cyan-900/40 text-cyan-300 font-mono text-xs gap-1.5 transition-all shadow-sm"
+              className="border-border bg-secondary/60 hover:bg-secondary text-foreground font-mono text-xs gap-1.5 transition-all shadow-sm"
               title="Send real-time probe to edge CDN"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${isPinging ? 'animate-spin text-cyan-400' : ''}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${isPinging ? 'animate-spin text-primary' : ''}`} />
               {isPinging ? 'Probing...' : 'Ping Edge'}
             </Button>
           </div>
@@ -131,7 +126,7 @@ export function LiveTelemetryDashboard() {
           {/* Metric 1 */}
           <motion.div
             whileHover={{ y: -2 }}
-            className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-700/50 transition-all backdrop-blur-sm group"
+            className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all backdrop-blur-sm group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -152,7 +147,7 @@ export function LiveTelemetryDashboard() {
               <span>Warmup: 0ms (In-Memory)</span>
               <button
                 onClick={() => scrollTo('model-playground')}
-                className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-0.5"
+                className="text-primary hover:text-primary/80 inline-flex items-center gap-0.5"
               >
                 Benchmark <ChevronRight className="w-3 h-3" />
               </button>
@@ -169,7 +164,7 @@ export function LiveTelemetryDashboard() {
                 <Cpu className="w-3.5 h-3.5 text-emerald-400" />
                 Model Accuracy
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/40">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-primary border border-border">
                 Ensemble
               </span>
             </div>
@@ -226,11 +221,11 @@ export function LiveTelemetryDashboard() {
           {/* Metric 4 */}
           <motion.div
             whileHover={{ y: -2 }}
-            className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-700/50 transition-all backdrop-blur-sm group"
+            className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all backdrop-blur-sm group"
           >
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                <FileCheck2 className="w-3.5 h-3.5 text-cyan-400" />
+                <FileCheck2 className="w-3.5 h-3.5 text-primary" />
                 ATS Parser Index
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/40">
@@ -243,12 +238,12 @@ export function LiveTelemetryDashboard() {
             <p className="text-xs text-slate-400 mt-1 line-clamp-2">
               Standardized ISO date hierarchies, comma-separated technical skills, and ReportLab PDF layout.
             </p>
-            <div className="mt-3 pt-2.5 border-t border-slate-800/70 flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <div className="mt-3 pt-2.5 border-t border-border/70 flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span>Legacy &amp; Modern ATS</span>
               <a
-                href="/resume/Surya_S_AI_Engineer_Resume.pdf"
-                download="Surya_S_AI_Engineer_Resume.pdf"
-                className="text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-0.5"
+                href="/resume/Surya_S_Software_Developer_Resume.pdf"
+                download="Surya_S_Software_Developer_Resume.pdf"
+                className="text-primary hover:text-primary/80 inline-flex items-center gap-0.5"
               >
                 PDF Spec <ChevronRight className="w-3 h-3" />
               </a>
@@ -257,9 +252,9 @@ export function LiveTelemetryDashboard() {
         </div>
 
         {/* Action Command Bar */}
-        <div className="mt-6 p-3.5 rounded-xl bg-slate-900/90 border border-cyan-900/40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
+        <div className="mt-6 p-3.5 rounded-xl bg-card border border-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2 text-slate-400 font-mono text-[11px] sm:text-xs">
-            <Server className="w-4 h-4 text-cyan-400 shrink-0" />
+            <Server className="w-4 h-4 text-primary shrink-0" />
             <span className="truncate">Telemetry Pipeline: Edge CDN &rarr; Supabase Realtime &rarr; In-Memory Cache</span>
           </div>
 
@@ -268,9 +263,9 @@ export function LiveTelemetryDashboard() {
               variant="ghost"
               size="sm"
               onClick={() => scrollTo('system-architecture')}
-              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
+              className="text-slate-300 hover:text-white hover:bg-secondary font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
             >
-              <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+              <Cpu className="w-3.5 h-3.5 text-primary" />
               Architecture
             </Button>
 
@@ -278,19 +273,19 @@ export function LiveTelemetryDashboard() {
               variant="ghost"
               size="sm"
               onClick={() => scrollTo('model-playground')}
-              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
+              className="text-slate-300 hover:text-white hover:bg-secondary font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
             >
               <Zap className="w-3.5 h-3.5 text-amber-400" />
-              AI Sandbox
+              Interactive Demos
             </Button>
 
             <Button
               size="sm"
-              onClick={() => openSpoofyWithQuery('Tell me about your system performance, model benchmarks, and production reliability.')}
-              className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs gap-1.5 h-9 sm:h-8 shadow-sm justify-center active:scale-95 transition-transform"
+              onClick={() => openSpoofyWithQuery('Tell me about your system performance, benchmarks, and production reliability.')}
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-xs gap-1.5 h-9 sm:h-8 shadow-sm justify-center active:scale-95 transition-transform"
             >
-              <Bot className="w-3.5 h-3.5" />
-              Verify with Spoofy AI
+              <MessageSquare className="w-3.5 h-3.5" />
+              Ask About Systems
             </Button>
           </div>
         </div>

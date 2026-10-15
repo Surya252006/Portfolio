@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Activity,
   Cpu,
-  Sparkles,
+  Loader2,
   Zap,
   CheckCircle2,
   AlertTriangle,
@@ -172,8 +172,7 @@ export function InteractiveModelPlayground() {
 
   return (
     <section id="playground" className="relative py-20 md:py-28 overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(2,132,199,0.08),transparent_60%)] pointer-events-none" />
+      {/* Background subtle pattern */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
       <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
@@ -218,13 +217,7 @@ export function InteractiveModelPlayground() {
           </div>
         </div>
 
-        {/* Playground Container Card (Expanded for PC Displays) */}
         <div className="w-full max-w-7xl 2xl:max-w-[1700px] mx-auto rounded-3xl border border-border/90 bg-card/90 backdrop-blur-xl shadow-2xl p-5 sm:p-8 lg:p-10 relative overflow-hidden">
-          {/* Cyber HUD accents */}
-          <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary pointer-events-none" />
-          <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-cyan-400 pointer-events-none" />
-          <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-emerald-400 pointer-events-none" />
-          <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary pointer-events-none" />
 
           <AnimatePresence mode="wait">
             {/* ===================== TAB 1: MEDPULSE AI ===================== */}
@@ -314,7 +307,7 @@ export function InteractiveModelPlayground() {
                     >
                       {isInferencingMed ? (
                         <>
-                          <Sparkles className="w-4 h-4 mr-1.5 animate-spin" />
+                          <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
                           Evaluating Neural Vector...
                         </>
                       ) : (
@@ -412,7 +405,7 @@ export function InteractiveModelPlayground() {
                     </div>
                   ) : (
                     <div className="py-12 text-center text-muted-foreground font-mono text-xs">
-                      <Sparkles className="w-6 h-6 mx-auto mb-2 text-primary animate-pulse" />
+                      <Cpu className="w-6 h-6 mx-auto mb-2 text-primary animate-pulse" />
                       Computing inference matrix...
                     </div>
                   )}
@@ -518,7 +511,7 @@ export function InteractiveModelPlayground() {
                       <div className="space-y-1">
                         <div className="flex justify-between text-xs font-mono text-slate-300">
                           <span>Moisture:</span>
-                          <span className="text-cyan-400 font-bold">{moisture}%</span>
+                          <span className="text-primary font-bold">{moisture}%</span>
                         </div>
                         <input
                           type="range"
@@ -526,7 +519,7 @@ export function InteractiveModelPlayground() {
                           max={95}
                           value={moisture}
                           onChange={(e) => setMoisture(Number(e.target.value))}
-                          className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                          className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
                         />
                       </div>
                     </div>
@@ -541,7 +534,7 @@ export function InteractiveModelPlayground() {
                     >
                       {isInferencingSoil ? (
                         <>
-                          <Sparkles className="w-4 h-4 mr-1.5 animate-spin" />
+                          <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
                           Evaluating Soil Matrix...
                         </>
                       ) : (
@@ -642,7 +635,7 @@ export function InteractiveModelPlayground() {
                     </div>
                   ) : (
                     <div className="py-12 text-center text-muted-foreground font-mono text-xs">
-                      <Sparkles className="w-6 h-6 mx-auto mb-2 text-primary animate-pulse" />
+                      <Cpu className="w-6 h-6 mx-auto mb-2 text-primary animate-pulse" />
                       Computing crop classification vector...
                     </div>
                   )}

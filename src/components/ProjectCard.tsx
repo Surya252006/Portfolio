@@ -15,7 +15,7 @@ export function ProjectCard({
   const statusColor: Record<string, string> = {
     'Live Production': 'bg-emerald-950/80 border-emerald-500/40 text-emerald-300',
     'Hackathon Project': 'bg-amber-950/80 border-amber-500/40 text-amber-300',
-    'Project Expo': 'bg-cyan-950/80 border-cyan-500/40 text-cyan-300',
+    'Project Expo': 'bg-primary/15 border-primary/30 text-primary',
     'Completed': 'bg-blue-950/80 border-blue-500/40 text-blue-300',
   };
   const currentStatusClass = statusColor[project.status] || 'bg-slate-900 border-border text-slate-300';

@@ -13,8 +13,7 @@ import {
   Database,
   Globe,
   Layers,
-  Sparkles,
-  Bot,
+  LayoutGrid,
   Activity,
   ShieldCheck,
   Server,
@@ -140,7 +139,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: 'UI/UX & Product Development',
-    icon: Sparkles,
+    icon: LayoutGrid,
     items: [
       { name: 'Responsive & Mobile-First Web Architecture', level: 'Advanced' },
       { name: 'User Flow Design & Interactive Wireframing', level: 'Proficient' },

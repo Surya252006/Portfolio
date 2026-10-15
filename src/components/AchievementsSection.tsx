@@ -90,7 +90,7 @@ export function AchievementsSection() {
                       href={item.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition-colors pt-1"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:text-primary/80 transition-colors pt-1"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>View Announcement Post</span>
