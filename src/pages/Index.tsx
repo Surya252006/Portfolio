@@ -1,35 +1,35 @@
 import { PremiumNavbar } from '@/components/PremiumNavbar';
-import { ExperienceSection } from '@/components/ExperienceSection';
-
+import { MouseTracker } from '@/components/MouseTracker';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
+import { ExperienceSection } from '@/components/ExperienceSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { SkillsSection } from '@/components/SkillsSection';
-
+import { AchievementsSection } from '@/components/AchievementsSection';
+import { GitHubStatsSection } from '@/components/GitHubStatsSection';
+import { BlogSection } from '@/components/BlogSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { AchievementsSection } from '@/components/AchievementsSection';
-
-import { GitHubStatsSection } from '@/components/GitHubStatsSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { BlogSection } from '@/components/BlogSection';
+import { SpoofyChatbot } from '@/components/SpoofyChatbot';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative selection:bg-primary/30 selection:text-white">
+      <MouseTracker />
       <PremiumNavbar />
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-
-      <SkillsSection />
-      <AchievementsSection />
-      <GitHubStatsSection />
-      <TestimonialsSection />
-      <BlogSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <AchievementsSection />
+        <GitHubStatsSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
       <Footer />
+      <SpoofyChatbot />
     </div>
   );
 };

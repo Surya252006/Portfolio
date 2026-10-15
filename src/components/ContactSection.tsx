@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -13,17 +13,17 @@ function isValidEmail(email: string) {
 
 export function ContactSection() {
   const reduceMotion = useReducedMotion();
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
 
   const errors = useMemo(() => {
     const e: Record<string, string> = {};
-    if (!form.name.trim()) e.name = 'Name is required.';
-    if (!form.email.trim()) e.email = 'Email is required.';
-    else if (!isValidEmail(form.email)) e.email = 'Enter a valid email address.';
-    if (!form.message.trim()) e.message = 'Message is required.';
-    else if (form.message.trim().length < 20) e.message = 'Message should be at least 20 characters.';
+    if (!form.name.trim()) e.name = 'Please provide your name.';
+    if (!form.email.trim()) e.email = 'Please provide your email.';
+    else if (!isValidEmail(form.email)) e.email = 'Please enter a valid email address.';
+    if (!form.message.trim()) e.message = 'Please provide a brief message.';
+    else if (form.message.trim().length < 10) e.message = 'Message should be at least 10 characters.';
     return e;
   }, [form]);
 
@@ -34,13 +34,12 @@ export function ContactSection() {
     setTouched({ name: true, email: true, message: true });
 
     if (Object.keys(errors).length > 0) {
-      toast.error('Check the form', { description: 'Please fix the highlighted fields.' });
+      toast.error('Incomplete form', { description: 'Please fill in all required fields.' });
       return;
     }
 
     setSubmitting(true);
     try {
-      // EmailJS example integration (replace with your real IDs)
       const serviceId = 'YOUR_SERVICE_ID';
       const templateId = 'YOUR_TEMPLATE_ID';
       const publicKey = 'YOUR_PUBLIC_KEY';
@@ -50,11 +49,12 @@ export function ContactSection() {
         templateId.includes('YOUR_') ||
         publicKey.includes('YOUR_')
       ) {
-        // Fallback (mailto) if EmailJS isn't configured
-        window.location.href = `mailto:surya25suresh2006@gmail.com?subject=Portfolio%20Contact&body=${encodeURIComponent(
-          `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+        // Direct email fallback
+        const subjectLine = form.subject.trim() ? encodeURIComponent(form.subject) : 'Project%20Inquiry%20from%20Portfolio';
+        window.location.href = `mailto:surya25suresh2006@gmail.com?subject=${subjectLine}&body=${encodeURIComponent(
+          `Hi Surya,\n\nName: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n`
         )}`;
-        toast.success('Opening your email client…');
+        toast.success('Opening your email client to send message...');
         return;
       }
 
@@ -67,17 +67,17 @@ export function ContactSection() {
         message: form.message,
       });
 
-      toast.success('Message sent', { description: 'I will get back to you soon.' });
-      setForm({ name: '', email: '', message: '' });
+      toast.success('Message delivered successfully', { description: 'Thanks for reaching out! I will respond promptly.' });
+      setForm({ name: '', email: '', subject: '', message: '' });
       setTouched({});
     } catch {
-      toast.error('Failed to send message', { description: 'Please try again or email me directly.' });
+      toast.error('Unable to send message automatically', { description: 'Please send an email directly to surya25suresh2006@gmail.com' });
     } finally {
       setSubmitting(false);
     }
   };
 
-  const contactInfo = [
+  const contactChannels = [
     {
       icon: Mail,
       label: 'Email',
@@ -85,198 +85,238 @@ export function ContactSection() {
       href: 'mailto:surya25suresh2006@gmail.com',
     },
     {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/surya-suresh-755937267',
+      href: 'https://www.linkedin.com/in/surya-suresh-755937267/',
+    },
+    {
+      icon: Github,
+      label: 'GitHub',
+      value: 'github.com/Surya252006',
+      href: 'https://github.com/Surya252006',
+    },
+    {
       icon: MapPin,
       label: 'Location',
-      value: 'India',
+      value: 'Tamil Nadu, India',
       href: '#',
     },
   ];
 
-  const social = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com/Surya252006' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/surya-suresh-755937267/' },
-  ];
-
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(59,130,246,0.08),transparent_55%)]" />
+    <section id="contact" className="relative py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.06),transparent_60%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-border bg-secondary/40 backdrop-blur">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            <span className="text-xs font-body tracking-widest uppercase text-text-secondary">Contact</span>
+            Get In Touch
           </div>
-          <h2 className="mt-5 font-display font-bold text-[40px] sm:text-[48px] text-foreground">
-            Let’s build something <span className="text-primary">great</span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
+            Let's Discuss a <span className="text-primary">Project</span> or Opportunity
           </h2>
-          <p className="mt-4 text-text-secondary font-body max-w-2xl mx-auto">
-            Send a message with context. I reply quickly and value clear problem statements.
+          <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
+            Whether you have an engineering role, a software project, or just want to connect, feel free to send a message.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+          {/* Left Column: Direct Info & Communication Cards */}
           <motion.div
             initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-5 space-y-6"
           >
-            <div className="rounded-2xl border border-border bg-card/60 backdrop-blur p-6">
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-xl font-bold text-foreground">Direct</h3>
-                <span className="inline-flex items-center gap-2 text-sm text-text-secondary">
-                  <span className="w-2 h-2 rounded-full bg-success" /> Available
+            <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 sm:p-7 shadow-sm space-y-5">
+              <div className="flex items-center justify-between border-b border-border/70 pb-4">
+                <h3 className="font-display text-lg font-bold text-foreground">
+                  Direct Channels
+                </h3>
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Fast Response
                 </span>
               </div>
-              <div className="mt-5 space-y-3">
-                {contactInfo.map((c) => (
-                  <a
-                    key={c.label}
-                    href={c.href}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-border bg-secondary/20 hover:bg-secondary/30 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-xl border border-primary/20 bg-primary/10 flex items-center justify-center">
-                      <c.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-text-secondary font-body">{c.label}</div>
-                      <div className="text-base font-body font-medium text-foreground">{c.value}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
 
-              <div className="mt-6">
-                <h4 className="font-display text-lg font-bold text-foreground">Social</h4>
-                <div className="flex gap-3 mt-3">
-                  {social.map((s) => (
+              <div className="space-y-3">
+                {contactChannels.map((c) => {
+                  const Icon = c.icon;
+                  return (
                     <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-2xl border border-border bg-secondary/20 inline-flex items-center justify-center hover:bg-secondary/30 transition-colors"
-                      aria-label={s.label}
+                      key={c.label}
+                      href={c.href}
+                      target={c.href.startsWith('http') ? '_blank' : undefined}
+                      rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="p-3.5 rounded-xl border border-border/70 bg-secondary/30 hover:bg-secondary/60 hover:border-primary/40 transition-all flex items-center justify-between group"
                     >
-                      <s.icon className="w-5 h-5 text-text-secondary hover:text-primary transition-colors" />
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-primary shrink-0">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-xs text-muted-foreground font-mono">{c.label}</div>
+                          <div className="text-xs sm:text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">
+                            {c.value}
+                          </div>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0 ml-2" />
                     </a>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card/60 backdrop-blur p-6">
-              <h3 className="font-display text-xl font-bold text-foreground">What to include</h3>
-              <ul className="mt-4 space-y-3 text-text-secondary font-body">
-                {[
-                  'Your goal (recruitment, project, startup collaboration)',
-                  'Timeline and constraints',
-                  'What success looks like',
-                  'Any relevant links or requirements',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary" />
-                    <span>{t}</span>
-                  </li>
-                ))}
+            {/* Quick Availability Card */}
+            <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 sm:p-7 shadow-sm space-y-3">
+              <h4 className="font-display text-base font-bold text-foreground">
+                Target Roles & Engagements
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Artificial Intelligence & Machine Learning Engineering Roles</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Applied AI, Deep Learning Models & Python Backends (FastAPI)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Full-Stack AI Application Engineering & IoT Telemetry Systems</span>
+                </li>
               </ul>
             </div>
           </motion.div>
 
+          {/* Right Column: Contact Message Form */}
           <motion.div
             initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.5, delay: 0.04 }}
-            className="rounded-2xl border border-border bg-card/60 backdrop-blur p-6 md:p-7"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+            className="lg:col-span-7"
           >
-            <form onSubmit={onSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="name" className="text-sm font-body text-text-secondary">Name</label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={form.name}
-                  onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
-                  onBlur={() => setTouched((p) => ({ ...p, name: true }))}
-                  className="mt-2 bg-secondary/30"
-                  aria-invalid={Boolean(touched.name && errors.name)}
-                  aria-describedby={errors.name ? 'name-error' : undefined}
-                  required
-                />
-                {touched.name && errors.name ? (
-                  <div id="name-error" className="mt-2 text-sm text-[var(--success)] font-body">
-                    {errors.name}
+            <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 sm:p-8 shadow-sm">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/70">
+                <div className="p-2 rounded-xl bg-primary/10 border border-primary/20 text-primary">
+                  <MessageSquare className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">
+                    Send a Direct Message
+                  </h3>
+                  <p className="text-xs text-muted-foreground font-mono">
+                    I typically respond within 24 hours.
+                  </p>
+                </div>
+              </div>
+
+              <form onSubmit={onSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
+                      Your Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="e.g. John Doe"
+                      value={form.name}
+                      onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+                      onBlur={() => setTouched((p) => ({ ...p, name: true }))}
+                      className="bg-secondary/40 border-border"
+                      required
+                    />
+                    {touched.name && errors.name && (
+                      <p className="text-xs text-red-400 mt-1">{errors.name}</p>
+                    )}
                   </div>
-                ) : null}
-              </div>
 
-              <div>
-                <label htmlFor="email" className="text-sm font-body text-text-secondary">Email</label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
-                  onBlur={() => setTouched((p) => ({ ...p, email: true }))}
-                  className="mt-2 bg-secondary/30"
-                  aria-invalid={Boolean(touched.email && errors.email)}
-                  required
-                />
-                {touched.email && errors.email ? (
-                  <div className="mt-2 text-sm text-[var(--success)] font-body">{errors.email}</div>
-                ) : null}
-              </div>
+                  <div>
+                    <label htmlFor="email" className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
+                      Your Email *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="e.g. john@example.com"
+                      value={form.email}
+                      onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+                      onBlur={() => setTouched((p) => ({ ...p, email: true }))}
+                      className="bg-secondary/40 border-border"
+                      required
+                    />
+                    {touched.email && errors.email && (
+                      <p className="text-xs text-red-400 mt-1">{errors.email}</p>
+                    )}
+                  </div>
+                </div>
 
-              <div>
-                <label htmlFor="message" className="text-sm font-body text-text-secondary">Message</label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={form.message}
-                  onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
-                  onBlur={() => setTouched((p) => ({ ...p, message: true }))}
-                  className="mt-2 bg-secondary/30"
-                  rows={5}
-                  aria-invalid={Boolean(touched.message && errors.message)}
-                  required
-                />
-                {touched.message && errors.message ? (
-                  <div className="mt-2 text-sm text-[var(--success)] font-body">{errors.message}</div>
-                ) : null}
-              </div>
+                <div>
+                  <label htmlFor="subject" className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
+                    Subject (Optional)
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="e.g. Engineering Role / Web Project Inquiry"
+                    value={form.subject}
+                    onChange={(e) => setForm((p) => ({ ...p, subject: e.target.value }))}
+                    className="bg-secondary/40 border-border"
+                  />
+                </div>
 
-              <Button
-                type="submit"
-                variant="default"
-                size="xl"
-                className="w-full mt-2"
-                disabled={!canSubmit}
-              >
-                {submitting ? (
-                  <span className="inline-flex items-center gap-3">
-                    <span className="w-4 h-4 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
-                    Sending…
-                  </span>
-                ) : (
-                  <span className="inline-flex items-center gap-3">
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </span>
-                )}
-              </Button>
+                <div>
+                  <label htmlFor="message" className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
+                    Message *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Tell me about your project, timeline, or open role..."
+                    value={form.message}
+                    onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
+                    onBlur={() => setTouched((p) => ({ ...p, message: true }))}
+                    className="bg-secondary/40 border-border resize-none"
+                    required
+                  />
+                  {touched.message && errors.message && (
+                    <p className="text-xs text-red-400 mt-1">{errors.message}</p>
+                  )}
+                </div>
 
-              <p className="text-xs text-text-secondary font-body">
-                By sending, you confirm you’re okay with being contacted about this message.
-              </p>
-            </form>
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="lg"
+                  className="w-full font-medium"
+                  disabled={!canSubmit}
+                >
+                  {submitting ? (
+                    <span className="inline-flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+                      Sending Message...
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-2">
+                      <Send className="w-4 h-4" />
+                      Submit Message
+                    </span>
+                  )}
+                </Button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
   );
 }
-

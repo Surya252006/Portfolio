@@ -1,57 +1,84 @@
-import { Github, Linkedin, Mail, ChevronUp } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { navItems } from '@/lib/portfolioData';
 
 export function Footer() {
-  const reduceMotion = useReducedMotion();
-
   const year = new Date().getFullYear();
 
-  return (
-    <footer className="border-t border-border bg-background/40">
-      <div className="container mx-auto px-4 md:px-8 py-10 relative">
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[520px] h-[120px] rounded-full bg-primary/10 blur-3xl" />
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <div className="font-display font-bold text-foreground">Designed and Developed by Surya Suresh</div>
-            <div className="mt-2 text-text-secondary font-body text-sm">© {year} • Premium SaaS-inspired portfolio</div>
+  return (
+    <footer className="border-t border-border bg-[#090D16] py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-border/70">
+          {/* Brand */}
+          <div className="text-center md:text-left space-y-1">
+            <div className="flex items-center justify-center md:justify-start gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center font-display font-bold text-primary text-sm">
+                S
+              </div>
+              <span className="font-display font-bold text-foreground text-lg tracking-tight">
+                Surya Suresh
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground font-body max-w-sm">
+              Artificial Intelligence Engineer & Machine Learning Builder based in India.
+            </p>
           </div>
 
+          {/* Nav Quick Links */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-muted-foreground">
+            {navItems.map((item) => (
+              <button
+                key={item.sectionId}
+                onClick={() => scrollTo(item.sectionId)}
+                className="hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Social Links & Back to Top */}
           <div className="flex items-center gap-3">
             {[
               { Icon: Github, href: 'https://github.com/Surya252006', label: 'GitHub' },
               { Icon: Linkedin, href: 'https://www.linkedin.com/in/surya-suresh-755937267/', label: 'LinkedIn' },
               { Icon: Mail, href: 'mailto:surya25suresh2006@gmail.com', label: 'Email' },
             ].map(({ Icon, href, label }) => (
-              <motion.a
+              <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.18 }}
-                className="w-11 h-11 rounded-2xl border border-border bg-card/60 inline-flex items-center justify-center hover:bg-secondary/50 transition-colors"
+                className="w-9 h-9 rounded-lg border border-border bg-card/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
               >
-                <Icon className="w-5 h-5 text-text-secondary" />
-              </motion.a>
+                <Icon className="w-4 h-4" />
+              </a>
             ))}
 
-            <motion.button
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.18 }}
-              onClick={() => {
-                document.getElementById('home')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-              }}
-              className="w-11 h-11 rounded-2xl border border-primary/20 bg-primary/10 flex items-center justify-center hover:shadow-[0_0_24px_rgba(59,130,246,0.18)] transition-shadow"
+            <button
+              onClick={() => scrollTo('home')}
+              className="w-9 h-9 rounded-lg border border-border bg-card/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
               aria-label="Back to top"
             >
-              <ChevronUp className="w-5 h-5 text-primary" />
-            </motion.button>
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-mono text-center sm:text-left">
+          <div>
+            © {year} Surya Suresh. All rights reserved.
+          </div>
+          <div>
+            Handcrafted with React, TypeScript & Tailwind CSS
           </div>
         </div>
       </div>
     </footer>
   );
 }
-

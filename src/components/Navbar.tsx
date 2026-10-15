@@ -7,7 +7,7 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
-  { name: 'Timeline', href: '#timeline' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -18,9 +18,8 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
 
-      // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -48,15 +47,14 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass py-3'
+          ? 'bg-card/90 backdrop-blur-md border-b border-border py-3 shadow-sm'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a
             href="#home"
             onClick={(e) => {
@@ -65,17 +63,14 @@ export const Navbar = () => {
             }}
             className="flex items-center gap-2 group"
           >
-            <div className="relative">
-              <Code2 className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-primary/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="w-9 h-9 rounded-xl bg-card border border-border flex items-center justify-center text-primary font-display font-bold">
+              S
             </div>
-            <span className="font-display text-xl font-bold tracking-wider">
-              <span className="text-foreground">SURYA</span>
-              <span className="neon-text">.</span>
+            <span className="font-display text-lg font-bold tracking-tight text-foreground">
+              SURYA SURESH
             </span>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -85,55 +80,38 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`relative px-4 py-2 font-body text-sm font-medium tracking-wide transition-all duration-300 group ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeSection === link.href.substring(1)
-                    ? 'text-primary'
+                    ? 'text-primary bg-primary/10 font-semibold'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {link.name}
-                <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 ${
-                    activeSection === link.href.substring(1)
-                      ? 'w-full'
-                      : 'w-0 group-hover:w-1/2'
-                  }`}
-                />
-                {activeSection === link.href.substring(1) && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-primary blur-sm" />
-                )}
               </a>
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
           <div className="hidden md:block">
             <Button
-              variant="neon"
+              variant="default"
               size="sm"
               onClick={() => handleNavClick('#contact')}
             >
-              Hire Me
+              Get in Touch
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 rounded-lg border border-border text-foreground hover:bg-secondary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
-          }`}
-        >
-          <div className="glass-strong rounded-xl p-4 space-y-2">
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-3 p-4 rounded-xl border border-border bg-card/95 backdrop-blur-xl space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -142,24 +120,24 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`block px-4 py-3 rounded-lg font-body font-medium transition-all duration-300 ${
+                className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   activeSection === link.href.substring(1)
-                    ? 'bg-primary/20 text-primary'
-                    : 'text-muted-foreground hover:bg-white/5 hover:text-foreground'
+                    ? 'bg-primary text-white font-semibold'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                 }`}
               >
                 {link.name}
               </a>
             ))}
             <Button
-              variant="neon"
-              className="w-full mt-4"
+              variant="default"
+              className="w-full mt-2"
               onClick={() => handleNavClick('#contact')}
             >
-              Hire Me
+              Get in Touch
             </Button>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

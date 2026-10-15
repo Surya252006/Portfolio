@@ -1,48 +1,50 @@
-import { useEffect, useMemo, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'framer-motion';
 
-type AnimatedCounterProps = {
+export function AnimatedCounter({
+  value,
+  suffix = '',
+  duration = 1.6,
+}: {
   value: number;
   suffix?: string;
-  durationMs?: number;
-};
-
-export function AnimatedCounter({ value, suffix = '', durationMs = 900 }: AnimatedCounterProps) {
-  const reduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
-
-  const end = useMemo(() => Math.max(0, value), [value]);
+  duration?: number;
+}) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   useEffect(() => {
-    if (reduceMotion) {
-      setDisplay(end);
-      return;
-    }
+    if (!isInView) return;
 
-    let raf = 0;
-    const start = performance.now();
+    const end = value;
+    const totalFrames = Math.round(duration * 60);
+    let frame = 0;
 
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / durationMs);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setDisplay(Math.round(eased * end));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      // Smooth ease-out quad
+      const current = Math.round(end * (1 - Math.pow(1 - progress, 2)));
 
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [end, durationMs, reduceMotion]);
+      if (frame >= totalFrames) {
+        setCount(end);
+        clearInterval(counter);
+      } else {
+        setCount(current);
+      }
+    }, 1000 / 60);
+
+    return () => clearInterval(counter);
+  }, [isInView, value, duration]);
 
   return (
-    <motion.span
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-      className="font-display text-4xl sm:text-5xl font-bold neon-text"
+    <span
+      ref={ref}
+      className="font-display text-3xl sm:text-4xl font-bold text-primary tracking-tight"
     >
-      {display}
+      {count}
       {suffix}
-    </motion.span>
+    </span>
   );
 }
-

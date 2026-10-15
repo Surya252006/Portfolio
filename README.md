@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# Surya Suresh — Artificial Intelligence Engineer & ML Developer Portfolio
 
-## Project info
+A high-performance personal developer portfolio showcasing applied machine learning systems, AI clinical triage engines, IoT telemetry, scalable REST APIs, and production platforms.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Live Deployment**: [https://surya-s-portfolio-e8625.web.app/](https://surya-s-portfolio-e8625.web.app/)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack & Architecture
 
-**Use Lovable**
+- **Artificial Intelligence & ML**: Python, TensorFlow, Scikit-Learn, Pandas, NumPy, FastAPI
+- **Frontend & Interaction**: React 18, TypeScript, Tailwind CSS, Framer Motion, Custom Cursor Telemetry
+- **Backend & Cloud**: Node.js, Express.js, Firebase Cloud Firestore, Firebase Hosting
+- **Architecture**: Modern Slate Palette, SEO structured metadata (JSON-LD), accessible interfaces
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Key Projects & Repositories
 
-**Use your preferred IDE**
+1. **MedPulse AI ([GitHub](https://github.com/Surya252006/medplus-ai))**: Rural healthcare triage assistant classifying symptom urgency and routing emergency resources.
+2. **Smart Precision Soil Telemetry ([GitHub](https://github.com/Surya252006/smartathon26dsu))**: Machine Learning model ingesting IoT sensor data (NPK, moisture, pH) achieving 91.4% crop variety prediction.
+3. **Personal Finance AI Assistant ([GitHub](https://github.com/Surya252006/Personal-Finance-chat-bot))**: Conversational budgeting assistant with automated expense categorization.
+4. **PosterKadai E-Commerce ([Live](https://posterkadai-e364b.web.app/) / [GitHub](https://github.com/Surya252006/Posterkadai))**: Production wall art store with instant mockups, Firestore indexing, and WhatsApp checkout.
+5. **KisanConnect AgriTech Platform ([GitHub](https://github.com/Surya252006/kisanconnect))**: Agricultural marketplace eliminating middlemen with transparent mandi rates.
+6. **Cognifyz Engineering Suite ([GitHub](https://github.com/Surya252006/cognifyz-fullstack-internship))**: Full-stack modules with REST APIs and dynamic rendering.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 💻 Local Development Setup
 
-Follow these steps:
+Clone the repository and install dependencies:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Clone repository
+git clone https://github.com/Surya252006/surya-portfolio.git
+cd surya-portfolio
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install packages
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server (runs on port 8080 by default)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Production Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Compile and bundle for production
+npm run build
 
-**Use GitHub Codespaces**
+# Preview production build locally
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🌐 Deployment
 
-This project is built with:
+Deployed via Firebase Hosting:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+firebase deploy --only hosting
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📬 Contact & Connect
 
-## Can I connect a custom domain to my Lovable project?
+- **Email**: [surya25suresh2006@gmail.com](mailto:surya25suresh2006@gmail.com)
+- **GitHub**: [github.com/Surya252006](https://github.com/Surya252006)
+- **LinkedIn**: [linkedin.com/in/surya-suresh-755937267](https://www.linkedin.com/in/surya-suresh-755937267/)
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*Designed & Engineered by Surya Suresh.*

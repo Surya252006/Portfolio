@@ -1,8 +1,7 @@
 import type { Project } from '@/lib/portfolioData';
-import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export function ProjectCard({
   project,
@@ -11,123 +10,131 @@ export function ProjectCard({
   project: Project;
   onSelect: (project: Project) => void;
 }) {
+  const Icon = project.icon;
+
+  const statusColor = {
+    'Live Production': 'bg-emerald-950/80 border-emerald-500/40 text-emerald-300',
+    'Completed': 'bg-blue-950/80 border-blue-500/40 text-blue-300',
+    'Open Source': 'bg-purple-950/80 border-purple-500/40 text-purple-300',
+  }[project.status];
+
   return (
-    <motion.div
-      role="button"
-      tabIndex={0}
-      aria-label={`Open details for ${project.title}`}
+    <div
+      role="article"
+      className="group h-full flex flex-col rounded-2xl border border-border bg-card/80 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
       onClick={() => onSelect(project)}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onSelect(project);
-        }
-      }}
-      className="group relative rounded-2xl border border-border bg-card overflow-hidden focus:outline-none"
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.18, ease: 'easeOut' }}
     >
-      {/* Focus ring for keyboard navigation */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-primary/60 transition-[box-shadow] group-focus-within:ring-2" />
+      {/* Media & Header Container */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 border-b border-border/80">
+        <img
+          src={project.imageSrc}
+          alt={project.title}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
-      <div className="relative overflow-hidden">
-        <div className="aspect-[16/9] w-full bg-card">
-          <img
-            src={project.imageSrc}
-            alt={project.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
+        {/* Status & Category Badge */}
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+          <span
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium border backdrop-blur-md ${statusColor}`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-current" />
+            {project.status}
+          </span>
 
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          {project.featured ? (
-            <Badge variant="outline" className="border-primary/40 text-primary bg-primary/10">
-              <Sparkles className="w-3.5 h-3.5 mr-1" /> Featured
-            </Badge>
-          ) : null}
-          <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 border border-primary/20">
-            <project.icon className="w-5 h-5 text-primary" />
+          <div className="w-8 h-8 rounded-lg bg-slate-900/80 border border-border/80 backdrop-blur-md flex items-center justify-center text-primary">
+            <Icon className="w-4 h-4" />
           </div>
+        </div>
+
+        {/* Project Title overlay on hover/preview */}
+        <div className="absolute bottom-3 left-3 right-3">
+          <div className="text-xs font-mono text-primary font-medium tracking-wide">
+            {project.category}
+          </div>
+          <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-primary transition-colors tracking-tight leading-snug">
+            {project.title}
+          </h3>
         </div>
       </div>
 
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
-            <p className="mt-2 text-text-secondary text-sm leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
+      {/* Card Body */}
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-3">
+          <p className="text-xs sm:text-sm text-muted-foreground font-body leading-relaxed line-clamp-2">
+            {project.description}
+          </p>
+
+          {/* Key Impact Metric Box */}
+          <div className="p-3 rounded-xl bg-secondary/30 border border-border/70 text-xs text-foreground/90 flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+            <div>
+              <span className="font-semibold text-foreground">Impact: </span>
+              <span className="text-muted-foreground">{project.impactMetric}</span>
+            </div>
           </div>
         </div>
 
-        {/* Recruiter-friendly impact line */}
-        <div className="mt-4 rounded-xl border border-border bg-background/40 p-3">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-            <p className="text-sm text-foreground/90 font-body leading-snug">
-              <span className="font-semibold text-primary">Outcome:</span>{' '}
-              {project.longDescription}
-            </p>
+        {/* Tech Stack Pills */}
+        <div className="space-y-4 pt-2">
+          <div className="flex flex-wrap gap-1.5">
+            {project.tags.slice(0, 4).map((tag) => (
+              <span
+                key={tag}
+                className="px-2.5 py-0.5 rounded-md text-[11px] font-medium font-mono border border-border/80 bg-secondary/50 text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+            {project.tags.length > 4 && (
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-mono text-muted-foreground">
+                +{project.tags.length - 4} more
+              </span>
+            )}
           </div>
-        </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags.slice(0, 4).map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs font-body font-medium border border-primary/15 bg-primary/10 text-primary/95"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-5 flex flex-col sm:flex-row gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full sm:w-auto"
-            onClick={(e) => {
-              e.stopPropagation();
-              onSelect(project);
-            }}
-          >
-            View Details
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full sm:w-auto border-primary/30 hover:border-primary/50"
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-            }}
-          >
-            <Github className="w-4 h-4" />
-            GitHub
-          </Button>
-          {project.liveUrl ? (
+          {/* Action Button Links */}
+          <div className="pt-2 border-t border-border/70 flex items-center gap-2">
             <Button
               variant="default"
               size="sm"
-              className="w-full sm:w-auto"
+              className="flex-1 text-xs font-medium"
               onClick={(e) => {
                 e.stopPropagation();
-                window.open(project.liveUrl!, '_blank', 'noopener,noreferrer');
+                onSelect(project);
               }}
             >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
+              Overview & Architecture
+              <ArrowRight className="w-3.5 h-3.5 ml-1" />
             </Button>
-          ) : null}
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+              }}
+              aria-label={`View ${project.title} on GitHub`}
+              className="p-2 rounded-lg border border-border bg-card hover:bg-secondary hover:text-primary transition-colors"
+            >
+              <Github className="w-4 h-4" />
+            </button>
+
+            {project.liveUrl && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+                }}
+                aria-label={`View live demo for ${project.title}`}
+                className="p-2 rounded-lg border border-border bg-card hover:bg-secondary hover:text-primary transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </button>
+            )}
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
-

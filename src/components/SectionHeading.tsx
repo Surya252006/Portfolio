@@ -12,13 +12,13 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="text-center mb-16">
-      <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-border bg-secondary/40 backdrop-blur">
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
         <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-        <span className="text-xs font-body tracking-widest uppercase text-text-secondary">{kicker}</span>
+        <span>{kicker}</span>
       </div>
 
-      <h2 className="mt-5 font-display font-bold text-[40px] leading-tight sm:text-[48px] text-foreground">
+      <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
         {title}{' '}
         {highlight ? (
           <span className="text-primary">{highlight}</span>
@@ -26,11 +26,10 @@ export function SectionHeading({
       </h2>
 
       {description ? (
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto text-[16px] leading-relaxed font-body">
+        <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
           {description}
         </p>
       ) : null}
     </div>
   );
 }
-

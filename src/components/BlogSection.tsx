@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Clock, Tag } from 'lucide-react';
+import { Clock, Tag, ArrowUpRight, BookOpen } from 'lucide-react';
 import { Button } from './ui/button';
 
 import img1 from '@/assets/images/1.jpeg';
@@ -8,122 +7,115 @@ import img3 from '@/assets/images/3.jpeg';
 
 const posts = [
   {
-    title: 'Building KisanConnect: Empowering Farmers Through Technology',
+    title: 'Architecting MedPulse AI: Healthcare Triage & Severity Classification',
     description:
-      'A deep dive into architecture, APIs, and the product decisions behind smart agriculture.',
-    readingTime: '8 min read',
-    tags: ['Agriculture', 'Full Stack', 'APIs'],
-    image: img1,
-    href: '#',
-  },
-  {
-    title: 'My Journey into Artificial Intelligence',
-    description:
-      'How I learned, what I built, and why AI matters in real-world applications.',
-    readingTime: '6 min read',
-    tags: ['AI/ML', 'Prompt Engineering', 'Projects'],
-    image: img2,
-    href: '#',
-  },
-  {
-    title: 'How I Started PosterKadai',
-    description:
-      'From idea to e-commerce: building a scalable workflow with a focus on user value.',
+      'Designing Python feature vectorization pipelines and clinical decision trees to calculate patient urgency scores and route emergency resources in rural areas.',
     readingTime: '5 min read',
-    tags: ['Startup', 'E-commerce', 'Design'],
+    tags: ['Artificial Intelligence', 'Python', 'Healthcare AI', 'FastAPI'],
+    image: img2,
+    href: 'https://github.com/Surya252006/medplus-ai',
+  },
+  {
+    title: 'Engineering Machine Learning Telemetry for Soil Health & Crop Yields',
+    description:
+      'How we ingested real-time IoT sensor telemetry (NPK, moisture, pH) through Scikit-Learn multi-parameter models to hit 91.4% predictive crop recommendations.',
+    readingTime: '6 min read',
+    tags: ['Machine Learning', 'IoT Telemetry', 'Python', 'TensorFlow'],
+    image: img1,
+    href: 'https://github.com/Surya252006/smartathon26dsu',
+  },
+  {
+    title: 'Deploying PosterKadai: E-Commerce Architecture on Firebase & WhatsApp',
+    description:
+      'From design to active production launch: optimizing client-side render loops, Firestore real-time catalogs, and direct WhatsApp checkout integration.',
+    readingTime: '4 min read',
+    tags: ['Production Web', 'Firebase', 'React', 'Live Platform'],
     image: img3,
-    href: '#',
+    href: 'https://posterkadai-e364b.web.app/',
   },
 ];
 
 export const BlogSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.12 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="blog" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-15" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+    <section id="blog" className="relative py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.05),transparent_60%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <span className="inline-block px-4 py-1 rounded-full glass text-primary text-sm font-body tracking-widest uppercase mb-4">
-            Blog
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
-            Featured <span className="neon-text">Articles</span>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Engineering Insights
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
+            Technical <span className="text-primary">Articles</span> & Case Studies
           </h2>
+          <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
+            Written case studies, architectural breakdowns, and takeaways from building real software systems.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {posts.map((p, idx) => (
-            <div
+        {/* 3-Column Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {posts.map((p) => (
+            <article
               key={p.title}
-              className={`glass rounded-2xl overflow-hidden transition-all duration-700 hover:neon-border ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{ transitionDelay: `${idx * 100}ms` }}
+              className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm overflow-hidden flex flex-col justify-between hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-md group"
             >
-              <div className="relative h-44 overflow-hidden">
-                <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
+              <div>
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 text-xs font-mono text-slate-300 bg-slate-950/80 px-2.5 py-1 rounded-md backdrop-blur-md border border-border/80">
+                    <Clock className="w-3.5 h-3.5 text-primary" />
+                    <span>{p.readingTime}</span>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6 space-y-3">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {p.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground font-body leading-relaxed line-clamp-3">
+                    {p.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[11px] font-mono rounded-md bg-secondary/50 text-slate-300 border border-border/80"
+                      >
+                        <Tag className="w-3 h-3 text-primary" />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                  <Clock className="w-4 h-4" />
-                  <span>{p.readingTime}</span>
-                </div>
-
-                <h3 className="font-display text-lg font-bold text-foreground mb-3 leading-snug">
-                  {p.title}
-                </h3>
-                <p className="font-body text-muted-foreground leading-relaxed text-sm mb-4 line-clamp-3">
-                  {p.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center gap-1 px-3 py-1 text-xs font-body font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
-                    >
-                      <Tag className="w-3.5 h-3.5" />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <Button
-                  variant="outline"
-                  className="w-full flex items-center justify-center gap-2"
-                  onClick={() => window.open(p.href, '_blank')}
+              <div className="p-5 sm:p-6 pt-0">
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl border border-border bg-secondary/40 text-xs font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition-colors"
                 >
-                  Read More
-                  <ExternalLink className="w-4 h-4" />
-                </Button>
+                  <BookOpen className="w-3.5 h-3.5 text-primary" />
+                  Read Case Study
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
 };
-

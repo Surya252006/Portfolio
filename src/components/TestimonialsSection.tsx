@@ -1,115 +1,101 @@
-import { useEffect, useRef, useState } from 'react';
-import { Quote } from 'lucide-react';
+import { useState } from 'react';
+import { Quote, ChevronLeft, ChevronRight, UserCheck } from 'lucide-react';
 import { Button } from './ui/button';
 
 const testimonials = [
   {
     quote:
-      'Surya demonstrated exceptional leadership and technical skills while mentoring our team.',
-    name: 'Team Mentor Feedback',
-    role: 'Design & Engineering Intern Team',
+      'Surya demonstrated outstanding technical initiative and ownership. His ability to translate complex product requirements into clean, responsive web applications made a significant difference to our delivery timeline.',
+    name: 'Academic Project Lead',
+    role: 'Engineering Faculty & Project Evaluator',
+    tag: 'Technical Excellence',
   },
   {
     quote:
-      'His ability to combine creativity with technology is outstanding. He consistently delivered thoughtful solutions.',
-    name: 'Project Partner',
-    role: 'Startup Collaboration',
+      'Surya brought great clarity to our day-to-day digital operations. He automated tracking workflows and built tools that our team uses reliably every day. Highly dependable and proactive.',
+    name: 'Business Operations Director',
+    role: 'Enterprise Operations Management',
+    tag: 'Systems & Operations',
   },
   {
     quote:
-      'Surya is proactive, detail-oriented, and reliable. His AI and full-stack work impressed us from day one.',
-    name: 'Technical Lead',
-    role: 'Engineering Review',
+      'Working alongside Surya on full-stack web and ML projects has been fantastic. He writes clean, organized code, solves tough technical bugs quickly, and always prioritizes the end-user experience.',
+    name: 'Peer Software Developer',
+    role: 'Collaborator & Co-Developer',
+    tag: 'Collaboration',
   },
 ];
 
 export const TestimonialsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
   const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.15 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-    const t = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => window.clearInterval(t);
-  }, [isVisible]);
-
-  const t = testimonials[index];
+  const current = testimonials[index];
 
   return (
-    <section id="testimonials" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+    <section id="testimonials" className="relative py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.05),transparent_60%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <span className="inline-block px-4 py-1 rounded-full glass text-primary text-sm font-body tracking-widest uppercase mb-4">
-            Testimonials
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
-            What Recruiters & <span className="neon-text">Partners</span> Say
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Endorsements
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
+            Peer & Mentor <span className="text-primary">Recommendations</span>
           </h2>
+          <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
+            Feedback from team members, project leads, and colleagues on collaboration and code quality.
+          </p>
         </div>
 
+        {/* Testimonial Showcase Card */}
         <div className="max-w-3xl mx-auto">
-          <div className="glass-strong rounded-2xl p-6 md:p-8">
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <div className="inline-flex items-center gap-3 px-3 py-2 rounded-xl bg-primary/10">
-                  <Quote className="w-5 h-5 text-primary" />
-                  <span className="font-body text-sm text-primary">Verified feedback</span>
-                </div>
-                <p className="font-body text-muted-foreground leading-relaxed text-lg md:text-xl mt-5">
-                  “{t.quote}”
-                </p>
-              </div>
+          <div className="rounded-2xl border border-border bg-card/90 backdrop-blur-sm p-6 sm:p-10 shadow-lg relative">
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-primary/10 border border-primary/20 text-primary">
+                <UserCheck className="w-3.5 h-3.5" />
+                {current.tag}
+              </span>
 
-              <div className="hidden sm:block">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 grid place-items-center">
-                  <Quote className="w-6 h-6 text-primary opacity-90" />
-                </div>
+              <div className="p-2 rounded-xl bg-secondary/50 text-muted-foreground">
+                <Quote className="w-5 h-5" />
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p className="font-body text-foreground/90 text-base sm:text-lg lg:text-xl leading-relaxed italic mb-8">
+              “{current.quote}”
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-border/70">
               <div>
-                <div className="font-display text-base font-bold text-foreground">{t.name}</div>
-                <div className="font-body text-sm text-muted-foreground">{t.role}</div>
+                <h3 className="font-display text-base sm:text-lg font-bold text-foreground">
+                  {current.name}
+                </h3>
+                <div className="text-xs sm:text-sm text-muted-foreground font-mono mt-0.5">
+                  {current.role}
+                </div>
               </div>
 
-              <div className="flex gap-3">
-                <Button
-                  variant="outline"
-                  size="sm"
+              {/* Navigation Arrows */}
+              <div className="flex items-center gap-2">
+                <button
                   onClick={() => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="p-2.5 rounded-xl border border-border bg-secondary/40 text-foreground hover:bg-secondary hover:border-primary/40 transition-colors"
+                  aria-label="Previous testimonial"
                 >
-                  Prev
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-mono text-muted-foreground px-2">
+                  {index + 1} / {testimonials.length}
+                </span>
+                <button
                   onClick={() => setIndex((prev) => (prev + 1) % testimonials.length)}
+                  className="p-2.5 rounded-xl border border-border bg-secondary/40 text-foreground hover:bg-secondary hover:border-primary/40 transition-colors"
+                  aria-label="Next testimonial"
                 >
-                  Next
-                </Button>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>
@@ -118,4 +104,3 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
-
