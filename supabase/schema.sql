@@ -48,14 +48,24 @@ create index if not exists idx_contact_submissions_created_at
 
 alter table public.contact_submissions enable row level security;
 
--- Policy: Allow anonymous users to submit contact messages
-create policy "Allow anonymous inserts to contact_submissions"
+-- Policy: Allow any visitor (anon / public) to submit contact messages
+drop policy if exists "Allow anonymous inserts to contact_submissions" on public.contact_submissions;
+drop policy if exists "Allow public inserts to contact_submissions" on public.contact_submissions;
+create policy "Allow public inserts to contact_submissions"
     on public.contact_submissions for insert
-    to anon
+    to public
     with check (true);
 
--- Policy: Restrict reading contact messages to authenticated owner
+-- Policy: Allow viewing submissions from authenticated dashboard or service role
+drop policy if exists "Allow service_role full access to contact_submissions" on public.contact_submissions;
+drop policy if exists "Allow authenticated select to contact_submissions" on public.contact_submissions;
 create policy "Allow service_role full access to contact_submissions"
     on public.contact_submissions for all
     to service_role
     using (true);
+
+create policy "Allow authenticated select to contact_submissions"
+    on public.contact_submissions for select
+    to authenticated
+    using (true);
+
