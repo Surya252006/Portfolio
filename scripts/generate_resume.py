@@ -235,10 +235,10 @@ def build_resume(output_path: str, role_title="SOFTWARE ENGINEER & FULL-STACK DE
 
     # Project 2: KisanConnect
     story.append(make_header_row(
-        "<b>KisanConnect — AgriTech Direct Marketplace Platform</b><br/><i>Technologies: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting</i>",
+        "<b>KisanConnect — AgriTech Marketplace Platform (1st Place Winner)</b><br/><i>Technologies: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting</i>",
         "<a href='https://kisanconnect-2267e.web.app' color='#0284c7'><u>Live Deployment</u></a>, 2024 – Present"
     ))
-    story.append(Paragraph("• Developed a full-stack agricultural marketplace platform eliminating intermediary markups, created as part of the MongoDB Tech-Odyssey initiative.", bullet_style))
+    story.append(Paragraph("• Won 1st Place at the MongoDB Tech Odyssey 24-Hour Hackathon (DSCE Coimbatore &times; SmartBridge). Engineered an agricultural trade platform eliminating exploitative intermediary markups.", bullet_style))
     story.append(Paragraph("• Implemented real-time APMC Mandi market price comparison indicators (UP, DOWN, STABLE) allowing growers to benchmark transparent produce valuations.", bullet_style))
     story.append(Paragraph("• Designed race-condition-free inventory decrementing utilizing MongoDB atomic operators ($gte, $inc) across Farmer, Consumer, Retailer, and Admin tiers.", bullet_style))
     story.append(Spacer(1, 2))
@@ -344,9 +344,9 @@ def build_resume(output_path: str, role_title="SOFTWARE ENGINEER & FULL-STACK DE
     # Competitions, Exhibitions & Achievements
     story.append(Paragraph("HACKATHONS, EXHIBITIONS &amp; CERTIFICATIONS", section_heading))
     story.append(HRFlowable(width="100%", thickness=0.5, color=c_line_accent, spaceBefore=1, spaceAfter=2.5))
+    story.append(Paragraph("• <b>MongoDB Tech Odyssey 24-Hour Hackathon Winner (1st Place):</b> Secured 1st place among collegiate engineering teams at DSCE Coimbatore (in partnership with SmartBridge), engineering a high-performance database-backed application within a strict 24-hour sprint (<a href='https://lnkd.in/p/dpyH5Zya' color='#0284c7'><u>Verification Link</u></a>).", bullet_style))
     story.append(Paragraph("• <b>Smartathon '26 (DSU &times; ONEYES Hackathon):</b> Participant (9–10 September 2026) — Built <i>TN Scheme AI</i> government scholarship and welfare discovery platform.", bullet_style))
     story.append(Paragraph("• <b>Barnstromz 2K26 Project Expo:</b> Exhibitor (11 September 2026) — Demonstrated the <i>Smart Precision Fertilization System</i> integrating IoT soil sensors and predictive analysis.", bullet_style))
-    story.append(Paragraph("• <b>MongoDB Tech-Odyssey:</b> Developed full-stack agricultural direct trade platform <i>KisanConnect</i> utilizing MongoDB Atlas atomic operators.", bullet_style))
     story.append(Paragraph("• <b>IIT Guwahati AI &amp; ML Coursework Qualification:</b> Qualified and completed machine learning foundations under IIT Guwahati E&amp;ICT Academy.", bullet_style))
     story.append(Paragraph("• <b>Full-Stack Development Certification:</b> Verified internship completion certificate from Cognifyz Technologies.", bullet_style))
     story.append(Paragraph("• <b>Open-Source Code Contributions:</b> 450+ verified Git commits across 9 active technical repositories on GitHub (<a href='https://github.com/Surya252006' color='#0284c7'><u>github.com/Surya252006</u></a>).", bullet_style))

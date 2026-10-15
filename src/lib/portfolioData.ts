@@ -204,7 +204,7 @@ export const projects: Project[] = [
   {
     id: 'kisanconnect',
     title: 'KisanConnect — AgriTech Direct Farmer-to-Buyer Marketplace',
-    tagline: 'Direct agricultural trade platform with transparent APMC Mandi price benchmarking.',
+    tagline: '1st Place Winner at MongoDB Tech Odyssey 24-Hr Hackathon — Direct agricultural trade platform with APMC Mandi price benchmarking.',
     description:
       'A full-stack agricultural marketplace platform built during MongoDB Tech-Odyssey to eliminate middlemen, giving farmers direct access to retail consumers, retailers, and bulk buyers.',
     problemStatement:
@@ -212,14 +212,14 @@ export const projects: Project[] = [
     contribution:
       'Engineered the full-stack architecture using React and Node.js/Express, designed atomic inventory operations with MongoDB Atlas, and integrated APMC mandi price trend benchmarking.',
     longDescription:
-      'KisanConnect is a production agricultural platform engineered to eliminate exploitative intermediary markups. Features Role-Based Access Control (Farmer, Consumer, Retailer, Wholesaler, Admin), real-time Mandi price comparison, atomic inventory reduction with MongoDB atomic operators ($gte, $inc), end-to-end logistics tracking, and verified producer badges. Live in production on Firebase Hosting.',
+      'KisanConnect is a production agricultural platform engineered to eliminate exploitative intermediary markups. Features Role-Based Access Control (Farmer, Consumer, Retailer, Wholesaler, Admin), real-time Mandi price comparison, atomic inventory reduction with MongoDB atomic operators ($gte, $inc), end-to-end logistics tracking, and verified producer badges. Won 1st Place at the MongoDB Tech Odyssey 24-Hour Hackathon at DSCE Coimbatore with SmartBridge. Live in production on Firebase Hosting.',
     architecture: [
       'React 18 single-page application with responsive Tailwind CSS components',
       'Node.js & Express.js REST API with JWT authentication and multi-tier RBAC permissions',
       'MongoDB Atlas with compound indexes and race-condition-free atomic inventory pipelines',
       'Mandi price benchmarking with trend indicators (UP, DOWN, STABLE) and Firebase Hosting deployment',
     ],
-    impactMetric: 'Full-stack platform with atomic inventory processing across 5 distinct user access tiers',
+    impactMetric: '1st Place Winner at MongoDB Tech Odyssey 24-Hour Hackathon (DSCE Coimbatore × SmartBridge)',
     imageSrc: kisanconnectImg,
     featured: true,
     status: 'Live Production',
@@ -472,9 +472,22 @@ export type AchievementItem = {
   description: string;
   impact: string;
   icon: LucideIcon;
+  credentialUrl?: string;
+  highlight?: boolean;
 };
 
 export const achievements: AchievementItem[] = [
+  {
+    id: 'mongodb-tech-odyssey-winner',
+    title: 'MongoDB Tech Odyssey 24-Hour Hackathon Winner (1st Place)',
+    issuer: 'DSCE Coimbatore × SmartBridge',
+    description:
+      'Secured 1st place at DSCE Coimbatore (in partnership with SmartBridge), engineering a high-performance database-backed application within a strict 24-hour development window.',
+    impact: '1st Place Winner — 24-Hour Competitive Engineering Sprint',
+    icon: Trophy,
+    credentialUrl: 'https://lnkd.in/p/dpyH5Zya',
+    highlight: true,
+  },
   {
     id: 'smartathon',
     title: 'Smartathon \'26 Hackathon Participant & Developer',
@@ -492,15 +505,6 @@ export const achievements: AchievementItem[] = [
       'Exhibited the Smart Precision Fertilization System on 11 September 2026, showcasing hardware IoT telemetry with ESP32 soil NPK sensors and predictive analysis.',
     impact: 'Demonstrated real-time hardware-to-software telemetry processing and targeted fertilizer dosage logic.',
     icon: Cpu,
-  },
-  {
-    id: 'mongodb-tech-odyssey',
-    title: 'MongoDB Tech-Odyssey AgriTech Development',
-    issuer: 'MongoDB Developer Community Initiative',
-    description:
-      'Engineered KisanConnect agricultural direct-trade platform, implementing race-condition-free inventory decrementing using MongoDB atomic operators ($gte, $inc).',
-    impact: 'Deployed live on Firebase Hosting (kisanconnect-2267e.web.app) with APMC mandi price benchmarks.',
-    icon: Rocket,
   },
   {
     id: 'cognifyz-cert',

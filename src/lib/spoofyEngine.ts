@@ -76,11 +76,23 @@ export function getSpoofyResponse(userQuery: string): {
     };
   }
 
-  // 4. KisanConnect Queries
-  if (q.includes('kisan') || q.includes('kissan') || q.includes('farm') || q.includes('agri') || q.includes('market') || q.includes('mandi')) {
+  // 4. KisanConnect & MongoDB Tech Odyssey Queries
+  if (
+    q.includes('kisan') ||
+    q.includes('kissan') ||
+    q.includes('farm') ||
+    q.includes('agri') ||
+    q.includes('market') ||
+    q.includes('mandi') ||
+    q.includes('mongodb') ||
+    q.includes('odyssey') ||
+    q.includes('smartbridge') ||
+    q.includes('hackathon winner')
+  ) {
     return {
-      text: "🌾 **KisanConnect AgriTech Marketplace** (Live Production)\n\n• **Impact**: Full-stack agricultural trading platform developed during MongoDB Tech-Odyssey to eliminate exploitative intermediaries, connecting farmers directly with retail consumers and wholesale buyers.\n• **Key Features**: Real-time APMC Mandi market price benchmarking with trend indicators (UP/DOWN/STABLE) and race-condition-free inventory decrementing via MongoDB atomic operators (`$gte`, `$inc`).\n• **Tech Stack**: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting, JWT RBAC.\n• **Live Deployment**: Active at `kisanconnect-2267e.web.app`.",
+      text: "🏆 **MongoDB Tech Odyssey 24-Hour Hackathon WINNER (1st Place)**\n\n• **Achievement**: Secured **1st place** at DSCE Coimbatore (in partnership with SmartBridge), engineering a high-performance database-backed application within a strict 24-hour development sprint.\n• **Project**: **KisanConnect** — a full-stack agricultural marketplace platform eliminating exploitative intermediaries.\n• **Key Features**: Real-time APMC Mandi market price benchmarking with trend indicators (UP/DOWN/STABLE) and race-condition-free inventory decrementing via MongoDB atomic operators (`$gte`, `$inc`).\n• **Tech Stack**: React 18, Node.js, Express.js, MongoDB Atlas, Firebase Hosting, JWT RBAC.\n• **Verification**: [View LinkedIn Post Announcement](https://lnkd.in/p/dpyH5Zya).",
       actions: [
+        { label: 'View 1st Place Post', actionType: 'link', url: 'https://lnkd.in/p/dpyH5Zya' },
         { label: 'Open KisanConnect Live App', actionType: 'link', url: 'https://kisanconnect-2267e.web.app' },
         { label: 'View GitHub Code', actionType: 'link', url: 'https://github.com/Surya252006/kissanconnect' },
       ],
