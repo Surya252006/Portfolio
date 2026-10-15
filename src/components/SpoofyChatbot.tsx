@@ -40,11 +40,11 @@ export function SpoofyChatbot() {
     {
       id: 'welcome-1',
       sender: 'spoofy',
-      text: "👋 **Hello!** I am Surya's interactive portfolio assistant.\n\nI can answer questions regarding his **software engineering experience**, **live production platforms** (PosterKadai, KisanConnect, TN Scheme AI), **technical skill set**, or provide his **verified resume**.\n\nWhat would you like to explore?",
+      text: "👋 **Hello! I'm Spoofy**, Surya's interactive assistant.\n\nI can answer questions regarding his **AI engineering experience**, **live production platforms** (PosterKadai, KisanConnect, TN Scheme AI), **technical skill set**, or provide his **verified AI Engineer resume**.\n\nWhat would you like to explore?",
       timestamp: 'Just now',
       actions: [
         { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
-        { label: 'Download ATS Resume', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
+        { label: 'Download AI Engineer Resume', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
         { label: 'What is his Tech Stack?', actionType: 'scroll', targetId: 'skills' },
       ],
     },
@@ -225,7 +225,7 @@ export function SpoofyChatbot() {
             onClick={() => setIsOpen(true)}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Chat with <strong>Portfolio Assistant</strong></span>
+            <span>Chat with <strong>Spoofy</strong></span>
           </motion.div>
         )}
 
@@ -234,7 +234,7 @@ export function SpoofyChatbot() {
           onClick={() => setIsOpen((prev) => !prev)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          aria-label={isOpen ? 'Close Chat' : 'Open Portfolio Assistant'}
+          aria-label={isOpen ? 'Close Spoofy Chat' : 'Open Spoofy Chat'}
           className="relative flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 border border-primary/20 transition-all"
         >
           <AnimatePresence mode="wait">
@@ -284,14 +284,14 @@ export function SpoofyChatbot() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="font-display font-bold text-sm text-foreground">
-                      Portfolio Assistant
+                      Spoofy
                     </h3>
                     <span className="px-1.5 py-0.2 rounded text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                       Online
                     </span>
                   </div>
                   <p className="text-[11px] text-muted-foreground font-mono">
-                    Surya's Interactive Showcase
+                    Surya's Interactive Assistant
                   </p>
                 </div>
               </div>
@@ -341,7 +341,7 @@ export function SpoofyChatbot() {
                     {msg.sender === 'spoofy' && (
                       <div className="flex items-center gap-1.5 text-[10px] font-mono text-primary font-semibold mb-1">
                         <MessageSquare className="w-3 h-3" />
-                        Assistant
+                        Spoofy
                       </div>
                     )}
 
@@ -426,7 +426,7 @@ export function SpoofyChatbot() {
                 autoComplete="off"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask about projects, engineering skills, resume..."
+                placeholder="Ask Spoofy about AI projects, tech stack, resume..."
                 className="flex-1 bg-secondary/50 border border-border/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:bg-secondary/80 transition-all font-body"
               />
               <Button

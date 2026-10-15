@@ -285,7 +285,7 @@ export function LiveTelemetryDashboard() {
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-mono text-xs gap-1.5 h-9 sm:h-8 shadow-sm justify-center active:scale-95 transition-transform"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              Ask About Systems
+              Ask Spoofy About Systems
             </Button>
           </div>
         </div>

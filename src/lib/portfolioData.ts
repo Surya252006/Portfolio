@@ -47,20 +47,20 @@ export const navItems: NavItem[] = [
 export type HeroRole = { title: string };
 
 export const heroRoles: HeroRole[] = [
-  { title: 'Software Engineer' },
-  { title: 'Full-Stack Developer' },
+  { title: 'AI Engineer' },
+  { title: 'Applied Machine Learning Builder' },
+  { title: 'Full-Stack & Applied AI Developer' },
   { title: 'Computer Science Engineering Student' },
-  { title: 'UI/UX & Product Builder' },
 ];
 
 export const heroTechBadges = [
-  { label: 'Java', value: 'Java' },
   { label: 'Python', value: 'Python' },
+  { label: 'PyTorch & Scikit-Learn', value: 'ML' },
+  { label: 'FastAPI', value: 'FastAPI' },
   { label: 'React 18', value: 'React' },
   { label: 'Node.js & Express', value: 'Node' },
   { label: 'MongoDB Atlas', value: 'MongoDB' },
-  { label: 'Tailwind CSS', value: 'Tailwind' },
-  { label: 'REST APIs', value: 'API' },
+  { label: 'Java (OOP)', value: 'Java' },
   { label: 'Firebase', value: 'Firebase' },
 ];
 
@@ -83,6 +83,17 @@ export type SkillCategory = {
 };
 
 export const skillsCategories: SkillCategory[] = [
+  {
+    title: 'AI & Machine Learning Engineering',
+    icon: Cpu,
+    items: [
+      { name: 'Python (NumPy, Pandas, Data Engineering)', level: 'Advanced' },
+      { name: 'Scikit-Learn (Classification, Regression, Pipelines)', level: 'Advanced' },
+      { name: 'PyTorch & TensorFlow Foundations', level: 'Proficient' },
+      { name: 'FastAPI Asynchronous Model Serving & Inference', level: 'Advanced' },
+      { name: 'NLP & Large Language Model (LLM) Integration', level: 'Proficient' },
+    ],
+  },
   {
     title: 'Programming Languages',
     icon: Code2,
@@ -202,18 +213,18 @@ export const projects: Project[] = [
   },
   {
     id: 'kisanconnect',
-    title: 'KisanConnect — AgriTech Direct Farmer-to-Buyer Marketplace',
+    title: 'KisanConnect — AgriTech Farmer Marketplace (Hackathon Winner)',
     tagline: '1st Place Winner at MongoDB Tech Odyssey 24-Hr Hackathon — Direct agricultural trade platform with APMC Mandi price benchmarking.',
     description:
-      'A full-stack agricultural marketplace platform built during MongoDB Tech-Odyssey to eliminate middlemen, giving farmers direct access to retail consumers, retailers, and bulk buyers.',
+      'A 24-hour hackathon-winning agricultural platform built during MongoDB Tech-Odyssey to eliminate middlemen, giving farmers direct access to retail consumers, retailers, and bulk buyers.',
     problemStatement:
       'Smallholder farmers frequently lose significant profit margins to exploitative intermediaries due to lack of direct market access and real-time mandi rate transparency.',
     contribution:
-      'Engineered the full-stack architecture using React and Node.js/Express, designed atomic inventory operations with MongoDB Atlas, and integrated APMC mandi price trend benchmarking.',
+      'Engineered the full-stack architecture in 24 hours using React and Node.js/Express, designed atomic inventory operations with MongoDB Atlas, and integrated APMC mandi price trend benchmarking.',
     longDescription:
-      'KisanConnect is a production agricultural platform engineered to eliminate exploitative intermediary markups. Features Role-Based Access Control (Farmer, Consumer, Retailer, Wholesaler, Admin), real-time Mandi price comparison, atomic inventory reduction with MongoDB atomic operators ($gte, $inc), end-to-end logistics tracking, and verified producer badges. Won 1st Place at the MongoDB Tech Odyssey 24-Hour Hackathon at DSCE Coimbatore with SmartBridge. Live in production on Firebase Hosting.',
+      'KisanConnect is a production agricultural platform engineered and built during the MongoDB Tech Odyssey 24-Hour Hackathon at DSCE Coimbatore (in partnership with SmartBridge), where it won 1st Place. Designed to eliminate exploitative intermediary markups, the platform features Role-Based Access Control (Farmer, Consumer, Retailer, Wholesaler, Admin), real-time Mandi price comparison, atomic inventory reduction with MongoDB atomic operators ($gte, $inc), end-to-end logistics tracking, and verified producer badges. Live in production on Firebase Hosting.',
     architecture: [
-      'React 18 single-page application with responsive Tailwind CSS components',
+      'Built in 24-hr Hackathon: React 18 single-page application with responsive Tailwind CSS components',
       'Node.js & Express.js REST API with JWT authentication and multi-tier RBAC permissions',
       'MongoDB Atlas with compound indexes and race-condition-free atomic inventory pipelines',
       'Mandi price benchmarking with trend indicators (UP, DOWN, STABLE) and Firebase Hosting deployment',
@@ -221,12 +232,12 @@ export const projects: Project[] = [
     impactMetric: '1st Place Winner at MongoDB Tech Odyssey 24-Hour Hackathon (DSCE Coimbatore × SmartBridge)',
     imageSrc: kisanconnectImg,
     featured: true,
-    status: 'Live Production',
+    status: 'Hackathon Project',
     category: 'Full Stack & Web',
-    tags: ['React 18', 'Node.js', 'Express', 'MongoDB Atlas', 'Firebase Hosting', 'JWT'],
+    tags: ['MongoDB Hackathon Winner', '1st Place', 'React 18', 'Node.js', 'Express', 'MongoDB Atlas', 'Firebase Hosting', 'JWT'],
     githubUrl: 'https://github.com/Surya252006/kissanconnect',
     liveUrl: 'https://kisanconnect-2267e.web.app',
-    icon: Leaf,
+    icon: Trophy,
   },
   {
     id: 'smartathon26dsu',

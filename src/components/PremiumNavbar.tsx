@@ -89,7 +89,7 @@ export function PremiumNavbar() {
                 Surya S.
               </span>
               <span className="text-[11px] text-primary/90 font-mono tracking-wider mt-0.5">
-                Software Developer
+                AI Engineer
               </span>
             </div>
           </a>
@@ -118,8 +118,8 @@ export function PremiumNavbar() {
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
             <a
-              href="/resume/Surya_S_Software_Developer_Resume.pdf"
-              download="Surya_S_Software_Developer_Resume.pdf"
+              href="/resume/Surya_S_AI_Engineer_Resume.pdf"
+              download="Surya_S_AI_Engineer_Resume.pdf"
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-lg border border-border bg-card/60 hover:bg-secondary text-foreground transition-colors shadow-sm"
             >
               <Download className="w-3.5 h-3.5 text-muted-foreground" />
@@ -196,8 +196,8 @@ export function PremiumNavbar() {
             <div className="pt-6 mt-6 border-t border-border space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <a
-                  href="/resume/Surya_S_Software_Developer_Resume.pdf"
-                  download="Surya_S_Software_Developer_Resume.pdf"
+                  href="/resume/Surya_S_AI_Engineer_Resume.pdf"
+                  download="Surya_S_AI_Engineer_Resume.pdf"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-border bg-card text-foreground text-sm font-medium hover:bg-secondary transition-colors"
                 >
                   <Download className="w-4 h-4" />

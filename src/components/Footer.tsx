@@ -24,7 +24,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-muted-foreground font-body max-w-sm">
-              Software Developer & Full-Stack Engineer • Dhanalakshmi Srinivasan College of Engineering, Coimbatore.
+              AI Engineer &amp; Applied Systems Developer • Dhanalakshmi Srinivasan College of Engineering, Coimbatore.
             </p>
           </div>
 

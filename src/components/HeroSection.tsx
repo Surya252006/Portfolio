@@ -81,13 +81,12 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Authentic Headline & Bio */}
             <div className="space-y-2 max-w-3xl">
               <p className="text-base sm:text-lg text-foreground font-display font-semibold text-slate-100">
-                Building useful software. Turning ideas into real products.
+                Engineering Applied AI &amp; Scalable Intelligent Systems.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
-                I'm Surya S., a Computer Science Engineering student passionate about software development, product building, and creating practical digital experiences with clean architecture, verifiable code, and real-world utility.
+                I'm Surya S., a Computer Science Engineering student and passionate AI Engineer focused on applied machine learning, neural triage systems, and building intelligent digital products with clean architecture and real-world utility.
               </p>
             </div>
 
@@ -118,12 +117,12 @@ export function HeroSection() {
               </Button>
 
               <a
-                href="/resume/Surya_S_Software_Developer_Resume.pdf"
-                download="Surya_S_Software_Developer_Resume.pdf"
+                href="/resume/Surya_S_AI_Engineer_Resume.pdf"
+                download="Surya_S_AI_Engineer_Resume.pdf"
                 className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition-colors shadow-sm"
               >
                 <Download className="w-4 h-4 text-muted-foreground" />
-                Download Resume
+                Download AI Resume
               </a>
 
               <a
@@ -175,7 +174,7 @@ export function HeroSection() {
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
                 <img
                   src={profileAvatar}
-                  alt="Surya S. - Software Developer & Full-Stack Engineer"
+                  alt="Surya S. - AI Engineer & Applied Systems Builder"
                   className="w-full h-full object-cover object-top"
                   loading="eager"
                   decoding="async"
@@ -197,7 +196,10 @@ export function HeroSection() {
                     <h3 className="font-display font-bold text-xl text-foreground">
                       Surya S.
                     </h3>
-                    <p className="text-xs text-muted-foreground font-mono">
+                    <p className="text-xs text-primary font-mono font-semibold">
+                      AI Engineer &amp; Systems Developer
+                    </p>
+                    <p className="text-[11px] text-muted-foreground font-mono">
                       B.E. Computer Science &amp; Engineering
                     </p>
                   </div>

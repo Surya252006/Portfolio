@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
-import { MapPin, Rocket, GraduationCap, Code2, Layers, CheckCircle2, Award, Terminal } from 'lucide-react';
+import { MapPin, Rocket, GraduationCap, Code2, Layers, CheckCircle2, Award, Terminal, Cpu } from 'lucide-react';
 import profileAvatar from '@/assets/profile-avatar.png';
 import { AnimatedCounter } from './AnimatedCounter';
 import { aboutStats } from '@/lib/portfolioData';
 
 const corePrinciples = [
+  {
+    icon: Cpu,
+    title: 'Applied AI & Machine Learning',
+    desc: 'Developing predictive pipelines, neural triage classifiers, and LLM integrations using Python, PyTorch, Scikit-Learn, and FastAPI.',
+  },
   {
     icon: Code2,
     title: 'Full-Stack Web Architecture',
@@ -13,17 +18,12 @@ const corePrinciples = [
   {
     icon: Terminal,
     title: 'Clean Code & OOP Foundations',
-    desc: 'Applying strict Object-Oriented principles, modular design, and robust data structures across Java, Python, and TypeScript.',
+    desc: 'Applying strict Object-Oriented principles, modular software design, and robust data structures across Python, Java, and TypeScript.',
   },
   {
     icon: Rocket,
-    title: 'Production Product Delivery',
-    desc: 'Architecting and deploying end-to-end commercial solutions like PosterKadai and KisanConnect with active transaction capabilities.',
-  },
-  {
-    icon: Layers,
-    title: 'IoT & Systems Engineering',
-    desc: 'Interfacing microcontrollers (ESP32) and environmental sensors with backend API services for automated telemetry ingestion.',
+    title: 'Hackathon-Tested Delivery',
+    desc: 'Engineering high-performance solutions under pressure—like 1st Place Winner KisanConnect at MongoDB Tech Odyssey and commercial platform PosterKadai.',
   },
 ];
 
@@ -40,10 +40,10 @@ export function AboutSection() {
             Background & Engineering Focus
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground tracking-tight">
-            Building Useful Software. <span className="text-primary">Turning Ideas</span> into Products.
+            Engineering Applied AI. <span className="text-primary">Turning Ideas</span> into Reality.
           </h2>
           <p className="mt-3 text-muted-foreground text-sm sm:text-base font-body leading-relaxed">
-            Strong theoretical computer science foundations paired with hands-on development in full-stack web platforms and practical software systems.
+            Strong theoretical computer science foundations paired with hands-on development in applied machine learning, intelligent web platforms, and practical software systems.
           </p>
         </div>
 
@@ -66,20 +66,20 @@ export function AboutSection() {
                     Surya S.
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground font-mono flex items-center gap-1.5 mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-primary" /> Coimbatore, Tamil Nadu • Software Developer & Engineer
+                    <MapPin className="w-3.5 h-3.5 text-primary" /> Coimbatore, Tamil Nadu • AI Engineer &amp; Full-Stack Developer
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
                 <p>
-                  I'm a <strong className="text-foreground">Third-Year Computer Science and Engineering student</strong> at <strong className="text-foreground">Dhanalakshmi Srinivasan College of Engineering, Coimbatore</strong> (Anna University affiliated). I am passionate about software engineering, full-stack development, and creating practical digital experiences that solve real-world problems.
+                  I'm a <strong className="text-foreground">Third-Year Computer Science and Engineering student</strong> at <strong className="text-foreground">Dhanalakshmi Srinivasan College of Engineering, Coimbatore</strong> (Anna University affiliated). I am an <strong className="text-foreground">AI Engineer</strong> passionate about applied machine learning, neural triage pipelines, and building intelligent digital experiences that solve real-world problems.
                 </p>
                 <p>
-                  My engineering journey is driven by practical execution. I have independently architected and shipped <strong className="text-foreground">PosterKadai</strong> (a live commercial e-commerce platform with automated WhatsApp checkout) and developed <strong className="text-foreground">KisanConnect</strong> (a full-stack farmer-to-buyer agricultural marketplace with APMC mandi pricing during MongoDB Tech-Odyssey).
+                  My engineering journey is driven by practical execution. I have independently architected and shipped <strong className="text-foreground">PosterKadai</strong> (a live commercial e-commerce platform with automated WhatsApp checkout) and engineered <strong className="text-foreground">KisanConnect</strong>, which won <strong className="text-foreground">1st Place at the MongoDB Tech Odyssey 24-Hour Hackathon</strong> (in partnership with SmartBridge).
                 </p>
                 <p>
-                  Whether writing clean Object-Oriented code in Java, developing modular REST APIs in Node.js and FastAPI, or designing intuitive user interfaces in React and Tailwind CSS, I focus on writing reliable, maintainable, and recruiter-ready software.
+                  Whether designing applied ML models in Python and PyTorch, serving asynchronous REST endpoints in FastAPI and Node.js, or building responsive interfaces in React and Tailwind CSS, I focus on writing reliable, high-performance, and verifiable code.
                 </p>
               </div>
 

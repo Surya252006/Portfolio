@@ -40,10 +40,10 @@ export function getSpoofyResponse(userQuery: string): {
     q === 'suryabot'
   ) {
     return {
-      text: "👋 **Hello there! I am Spoofy**, Surya S.'s 24/7 interactive portfolio representative.\n\nI can tell you all about Surya's **software engineering projects** (PosterKadai, KisanConnect, TN Scheme AI), **technical stack**, **internships at Skypark ITech and Cognifyz**, **education at Dhanalakshmi Srinivasan College of Engineering**, or provide his **official ATS resume**.\n\nWhat would you like to explore?",
+      text: "👋 **Hello there! I am Spoofy**, Surya S.'s 24/7 interactive portfolio representative.\n\nI can tell you all about Surya's **AI engineering projects** (KisanConnect — 1st Place Hackathon Winner, PosterKadai, TN Scheme AI), **machine learning and full-stack tech stack**, **internships at Skypark ITech and Cognifyz**, **education at Dhanalakshmi Srinivasan College of Engineering**, or provide his **verified AI Engineer resume**.\n\nWhat would you like to explore?",
       actions: [
         { label: 'View Featured Projects', actionType: 'scroll', targetId: 'projects' },
-        { label: 'Download Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
+        { label: 'Download AI Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
         { label: 'Contact Surya', actionType: 'scroll', targetId: 'contact' },
       ],
     };
@@ -57,9 +57,9 @@ export function getSpoofyResponse(userQuery: string): {
     q.includes('biodata')
   ) {
     return {
-      text: "📄 **Surya S.'s ATS-Compliant Resume** is ready for download!\n\nIt features his credentials as a **Software Developer & Full-Stack Engineer** (Third-Year CSE at Dhanalakshmi Srinivasan College of Engineering, Coimbatore), detailing **Java, Python, React, Node.js, Express, MongoDB Atlas, Firebase**, verified internships, and production projects.",
+      text: "📄 **Surya S.'s ATS-Compliant Resume** is ready for download!\n\nIt features his credentials as an **AI Engineer & Applied Systems Developer** (Third-Year CSE at Dhanalakshmi Srinivasan College of Engineering, Coimbatore), detailing **Python, PyTorch, Scikit-Learn, FastAPI, React, Node.js, Express, MongoDB Atlas, Firebase**, verified internships, and hackathon-winning production projects.",
       actions: [
-        { label: 'Download Developer Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_Software_Developer_Resume.pdf' },
+        { label: 'Download AI Engineer Resume (PDF)', actionType: 'download', url: '/resume/Surya_S_AI_Engineer_Resume.pdf' },
         { label: 'View GitHub Repositories', actionType: 'link', url: 'https://github.com/Surya252006' },
       ],
     };
