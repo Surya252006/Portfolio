@@ -9,7 +9,8 @@ export const SUPABASE_URL =
   import.meta.env.VITE_SUPABASE_URL || 'https://pjwqkljtwkijxutxxaem.supabase.co';
 
 export const SUPABASE_ANON_KEY = 
-  import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqd3FrbGp0d2tpanh1dHh4YWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNDg4MzgsImV4cCI6MjEwNzYyNDgzOH0.IAaJHkCRWKGy0GoA3kjyvhgsAIQ8qoTytk4-QuTkDCM';
 
 export interface ChatLogEntry {
   id?: string;
