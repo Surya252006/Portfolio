@@ -142,9 +142,9 @@ export function SystemArchitectureVisualizer() {
     <section id="architecture" className="relative py-20 md:py-28 overflow-hidden bg-slate-950/60">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(6,182,212,0.06),transparent_60%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">
             <Layers className="h-3.5 w-3.5" />
             End-to-End System Blueprint
@@ -157,8 +157,8 @@ export function SystemArchitectureVisualizer() {
           </p>
         </div>
 
-        {/* Interactive Architecture Flow Ribbon */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 max-w-6xl mx-auto mb-8">
+        {/* Interactive Architecture Flow Ribbon (Horizontal Swipe on Mobile, Expansive Grid on PC) */}
+        <div className="flex lg:grid lg:grid-cols-5 gap-3 w-full max-w-7xl 2xl:max-w-[1700px] mx-auto mb-8 overflow-x-auto pb-3 lg:pb-0 scrollbar-none snap-x px-1">
           {architectureNodes.map((node) => {
             const Icon = node.icon;
             const isSelected = selectedNodeId === node.id;
@@ -166,16 +166,16 @@ export function SystemArchitectureVisualizer() {
               <button
                 key={node.id}
                 onClick={() => setSelectedNodeId(node.id)}
-                className={`group relative p-4 rounded-2xl border text-left transition-all ${
+                className={`group relative p-4 rounded-2xl border text-left transition-all shrink-0 w-[240px] sm:w-[260px] lg:w-auto snap-start active:scale-95 ${
                   isSelected
-                    ? 'border-cyan-400 bg-cyan-950/20 shadow-lg shadow-cyan-500/10'
+                    ? 'border-cyan-400 bg-cyan-950/40 shadow-lg shadow-cyan-500/15'
                     : 'border-border/80 bg-card/60 hover:border-cyan-500/40 hover:bg-card/90'
                 }`}
               >
                 {/* Step indicator */}
                 <div className="flex items-center justify-between mb-2">
                   <span
-                    className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${
+                    className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                       isSelected
                         ? 'bg-cyan-500 text-slate-950'
                         : 'bg-secondary text-muted-foreground'
@@ -201,8 +201,8 @@ export function SystemArchitectureVisualizer() {
           })}
         </div>
 
-        {/* Deep-Dive Inspection Card */}
-        <div className="max-w-6xl mx-auto rounded-3xl border border-border bg-card/90 backdrop-blur-xl shadow-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
+        {/* Deep-Dive Inspection Card (Expanded for PC Displays) */}
+        <div className="w-full max-w-7xl 2xl:max-w-[1700px] mx-auto rounded-3xl border border-border bg-card/90 backdrop-blur-xl shadow-2xl p-5 sm:p-8 lg:p-10 relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeNode.id}

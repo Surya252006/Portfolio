@@ -287,7 +287,7 @@ export function SpoofyChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 25, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed bottom-20 sm:bottom-24 right-3 sm:right-6 z-50 w-[calc(100vw-24px)] sm:w-[410px] h-[550px] max-h-[82vh] rounded-3xl border border-border/80 bg-slate-950/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden font-body"
+            className="fixed inset-x-2 sm:inset-x-auto bottom-20 sm:bottom-24 sm:right-6 z-50 sm:w-[420px] h-[580px] max-h-[calc(100dvh-95px)] rounded-2xl sm:rounded-3xl border border-border/80 bg-slate-950/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden font-body"
           >
             {/* Window Header */}
             <div className="px-4 py-3.5 bg-slate-900/80 border-b border-border/70 flex items-center justify-between shrink-0">
@@ -422,7 +422,7 @@ export function SpoofyChatbot() {
                   key={sIdx}
                   onClick={() => handleSend(sug)}
                   disabled={isTyping}
-                  className="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-mono border border-border/80 bg-slate-950/80 text-slate-300 hover:border-primary/50 hover:bg-secondary transition-all disabled:opacity-50"
+                  className="shrink-0 px-3 py-1.5 rounded-full text-[11px] font-mono border border-border/80 bg-slate-950/80 text-slate-300 hover:border-primary/50 hover:bg-secondary active:scale-95 transition-all disabled:opacity-50"
                 >
                   {sug}
                 </button>
@@ -440,10 +440,12 @@ export function SpoofyChatbot() {
               <input
                 ref={inputRef}
                 type="text"
+                enterKeyHint="send"
+                autoComplete="off"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask Spoofy about AI projects, resume..."
-                className="flex-1 bg-secondary/50 border border-border/80 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:bg-secondary/80 transition-all font-body"
+                className="flex-1 bg-secondary/50 border border-border/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:bg-secondary/80 transition-all font-body"
               />
               <Button
                 type="submit"

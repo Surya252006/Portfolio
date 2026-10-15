@@ -19,9 +19,9 @@ export function ProjectsSection() {
     <section id="projects" className="relative py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-4xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             GitHub Repositories & Deployments
@@ -34,8 +34,8 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        {/* Filter Pills with Mobile Touch Swipe */}
+        <div className="flex items-center gap-2 mb-12 overflow-x-auto pb-3 sm:pb-0 scrollbar-none justify-start sm:justify-center px-1">
           {categories.map((c) => {
             const isActive = category === c;
             const count = c === 'All' ? projects.length : projects.filter((p) => p.category === c).length;
@@ -43,9 +43,9 @@ export function ProjectsSection() {
               <button
                 key={c}
                 onClick={() => setCategory(c)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+                className={`shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 active:scale-95 ${
                   isActive
-                    ? 'bg-primary text-white shadow-sm'
+                    ? 'bg-primary text-white shadow-md shadow-primary/25'
                     : 'bg-card/70 border border-border text-muted-foreground hover:text-foreground hover:bg-secondary/60'
                 }`}
                 aria-pressed={isActive}

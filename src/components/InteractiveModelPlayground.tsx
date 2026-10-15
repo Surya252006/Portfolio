@@ -176,9 +176,9 @@ export function InteractiveModelPlayground() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(2,132,199,0.08),transparent_60%)] pointer-events-none" />
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <Zap className="h-3.5 w-3.5" />
             Live Client-Side Demo Sandboxes
@@ -190,11 +190,11 @@ export function InteractiveModelPlayground() {
             Test Surya's applied machine learning pipelines directly in your browser. Experiment with parameters, inspect inference latency, and verify real-time classification metrics.
           </p>
 
-          {/* Model Switcher Tabs */}
-          <div className="inline-flex items-center p-1.5 rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md mt-6 shadow-md">
+          {/* Model Switcher Tabs (Mobile Optimized) */}
+          <div className="flex flex-col sm:inline-flex sm:flex-row items-center p-1.5 rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md mt-6 shadow-md w-full sm:w-auto gap-1 sm:gap-0">
             <button
               onClick={() => setActiveTab('medpulse')}
-              className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-medium transition-all ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-5 py-3 sm:py-2.5 rounded-xl text-xs sm:text-sm font-display font-medium transition-all active:scale-95 ${
                 activeTab === 'medpulse'
                   ? 'bg-primary text-white shadow-lg shadow-primary/25'
                   : 'text-muted-foreground hover:text-foreground'
@@ -206,7 +206,7 @@ export function InteractiveModelPlayground() {
 
             <button
               onClick={() => setActiveTab('soil')}
-              className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-display font-medium transition-all ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-5 py-3 sm:py-2.5 rounded-xl text-xs sm:text-sm font-display font-medium transition-all active:scale-95 ${
                 activeTab === 'soil'
                   ? 'bg-primary text-white shadow-lg shadow-primary/25'
                   : 'text-muted-foreground hover:text-foreground'
@@ -218,8 +218,8 @@ export function InteractiveModelPlayground() {
           </div>
         </div>
 
-        {/* Playground Container Card */}
-        <div className="max-w-5xl mx-auto rounded-3xl border border-border/90 bg-card/90 backdrop-blur-xl shadow-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
+        {/* Playground Container Card (Expanded for PC Displays) */}
+        <div className="w-full max-w-7xl 2xl:max-w-[1700px] mx-auto rounded-3xl border border-border/90 bg-card/90 backdrop-blur-xl shadow-2xl p-5 sm:p-8 lg:p-10 relative overflow-hidden">
           {/* Cyber HUD accents */}
           <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary pointer-events-none" />
           <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-cyan-400 pointer-events-none" />
@@ -283,7 +283,7 @@ export function InteractiveModelPlayground() {
                             key={symptom}
                             type="button"
                             onClick={() => handleToggleSymptom(symptom)}
-                            className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-mono text-left transition-all border ${
+                            className={`flex items-center gap-2.5 p-3 rounded-xl text-xs font-mono text-left transition-all border min-h-[44px] active:scale-95 ${
                               isSelected
                                 ? 'bg-primary/15 border-primary text-foreground shadow-sm'
                                 : 'bg-secondary/40 border-border/80 text-muted-foreground hover:border-primary/40 hover:text-foreground'

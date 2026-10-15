@@ -108,9 +108,9 @@ export function ContactSection() {
     <section id="contact" className="relative py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.06),transparent_60%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             Get In Touch
@@ -123,7 +123,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-7xl 2xl:max-w-[1700px] mx-auto items-start">
           {/* Left Column: Direct Info & Communication Cards */}
           <motion.div
             initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}

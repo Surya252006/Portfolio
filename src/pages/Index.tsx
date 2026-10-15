@@ -17,10 +17,10 @@ import { SpoofyChatbot } from '@/components/SpoofyChatbot';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative selection:bg-primary/30 selection:text-white">
+    <div className="min-h-screen bg-background relative selection:bg-primary/30 selection:text-white overflow-x-hidden">
       <MouseTracker />
       <PremiumNavbar />
-      <main>
+      <main className="w-full overflow-x-hidden">
         <HeroSection />
         <LiveTelemetryDashboard />
         <AboutSection />

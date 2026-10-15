@@ -9,9 +9,9 @@ export function AchievementsSection() {
     <section id="achievements" className="relative py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(59,130,246,0.05),transparent_55%)] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             Milestones & Honors
@@ -24,8 +24,8 @@ export function AchievementsSection() {
           </p>
         </div>
 
-        {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {/* Responsive Grid (Expansive 4-column layout on PC) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl 2xl:max-w-[1700px] mx-auto">
           {achievements.map((item, idx) => {
             const Icon = item.icon;
             return (

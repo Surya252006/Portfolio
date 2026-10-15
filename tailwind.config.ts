@@ -11,13 +11,24 @@ export default {
       padding: {
         DEFAULT: "1rem",
         sm: "1.5rem",
-        lg: "2rem",
+        md: "2rem",
+        lg: "2.5rem",
+        xl: "3rem",
+        "2xl": "3.5rem",
       },
       screens: {
-        "2xl": "1320px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+        "3xl": "1780px",
       },
     },
     extend: {
+      screens: {
+        "3xl": "1780px",
+      },
       fontFamily: {
         display: ['Space Grotesk', 'sans-serif'],
         body: ['Inter', 'sans-serif'],

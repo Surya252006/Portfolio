@@ -70,7 +70,7 @@ export function LiveTelemetryDashboard() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.06),transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
         {/* Top Header Strip */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800/80">
           <div>
@@ -257,37 +257,37 @@ export function LiveTelemetryDashboard() {
         </div>
 
         {/* Action Command Bar */}
-        <div className="mt-6 p-3 rounded-xl bg-slate-900/90 border border-cyan-900/40 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-slate-400 font-mono">
-            <Server className="w-4 h-4 text-cyan-400" />
-            <span>Telemetry Pipeline: Edge CDN &rarr; Supabase Realtime &rarr; Local In-Memory Cache</span>
+        <div className="mt-6 p-3.5 rounded-xl bg-slate-900/90 border border-cyan-900/40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-slate-400 font-mono text-[11px] sm:text-xs">
+            <Server className="w-4 h-4 text-cyan-400 shrink-0" />
+            <span className="truncate">Telemetry Pipeline: Edge CDN &rarr; Supabase Realtime &rarr; In-Memory Cache</span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollTo('system-architecture')}
-              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-8"
+              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
             >
               <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-              Architecture Blueprint
+              Architecture
             </Button>
 
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollTo('model-playground')}
-              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-8"
+              className="text-slate-300 hover:text-white hover:bg-slate-800 font-mono text-xs gap-1 h-9 sm:h-8 flex-1 sm:flex-none justify-center"
             >
               <Zap className="w-3.5 h-3.5 text-amber-400" />
-              Interactive AI Sandbox
+              AI Sandbox
             </Button>
 
             <Button
               size="sm"
               onClick={() => openSpoofyWithQuery('Tell me about your system performance, model benchmarks, and production reliability.')}
-              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs gap-1.5 h-8 shadow-sm"
+              className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs gap-1.5 h-9 sm:h-8 shadow-sm justify-center active:scale-95 transition-transform"
             >
               <Bot className="w-3.5 h-3.5" />
               Verify with Spoofy AI

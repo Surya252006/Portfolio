@@ -43,14 +43,14 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.1),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(15,23,42,0.7),transparent_60%)] pointer-events-none" />
       <div className="absolute inset-0 grid-pattern opacity-15 pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column: Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 space-y-6 text-left"
+            className="lg:col-span-7 xl:col-span-7 space-y-6 text-left"
           >
             {/* Status Pill */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-border/80 bg-card/80 backdrop-blur-md shadow-sm">
@@ -194,7 +194,7 @@ export function HeroSection() {
             <motion.div
               animate={reduceMotion ? {} : { y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-              className="relative w-full max-w-[380px] sm:max-w-[420px]"
+              className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[460px] 2xl:max-w-[500px]"
             >
               {/* Outer Cyber Card Frame with Glow Gradient */}
               <div className="relative rounded-3xl p-1 bg-gradient-to-b from-primary/50 via-cyan-500/30 to-emerald-500/40 shadow-2xl overflow-hidden group">
