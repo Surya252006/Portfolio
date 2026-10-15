@@ -66,6 +66,21 @@ export function SpoofyChatbot() {
     }
   }, [isOpen, messages, isTyping]);
 
+  useEffect(() => {
+    const handleOpenChat = (e: Event) => {
+      setIsOpen(true);
+      const customEvent = e as CustomEvent<{ query?: string }>;
+      if (customEvent.detail?.query) {
+        // Small delay to ensure chatbot open animation has begun
+        setTimeout(() => {
+          handleSend(customEvent.detail?.query);
+        }, 200);
+      }
+    };
+    window.addEventListener('open-spoofy-chat', handleOpenChat);
+    return () => window.removeEventListener('open-spoofy-chat', handleOpenChat);
+  }, []);
+
   const handleSend = (textToSend?: string) => {
     const text = (textToSend || inputValue).trim();
     if (!text || isTyping) return;

@@ -112,11 +112,27 @@ export function HeroSection() {
                 variant="default"
                 size="lg"
                 onClick={() => scrollTo('projects')}
-                className="font-medium text-xs sm:text-sm"
+                className="font-medium text-xs sm:text-sm shadow-md shadow-primary/20"
               >
                 <Bot className="w-4 h-4 mr-1.5" />
-                Explore AI Projects
+                Explore Projects
                 <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => {
+                  window.dispatchEvent(
+                    new CustomEvent('open-spoofy-chat', {
+                      detail: { query: "Hi Spoofy, give me a quick executive summary of Surya's engineering background and top achievements." },
+                    })
+                  );
+                }}
+                className="font-medium text-xs sm:text-sm border-cyan-700/60 bg-cyan-950/40 text-cyan-300 hover:bg-cyan-900/50 hover:text-white transition-all shadow-sm"
+              >
+                <Sparkles className="w-4 h-4 mr-1.5 text-cyan-400" />
+                Talk to Spoofy AI
               </Button>
 
               <a
@@ -125,14 +141,14 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/80 px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-foreground hover:bg-secondary hover:border-primary/40 transition-colors shadow-sm"
               >
                 <Download className="w-4 h-4 text-muted-foreground" />
-                Download CV
+                Download Resume
               </a>
 
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
                 onClick={() => scrollTo('contact')}
-                className="font-medium text-xs sm:text-sm"
+                className="font-medium text-xs sm:text-sm text-slate-400 hover:text-white"
               >
                 Get in Touch
               </Button>

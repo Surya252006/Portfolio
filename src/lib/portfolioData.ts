@@ -38,6 +38,8 @@ export const navItems: NavItem[] = [
   { label: 'About', href: '#about', sectionId: 'about' },
   { label: 'Experience', href: '#experience', sectionId: 'experience' },
   { label: 'Projects', href: '#projects', sectionId: 'projects' },
+  { label: 'AI Sandbox', href: '#model-playground', sectionId: 'model-playground' },
+  { label: 'Architecture', href: '#system-architecture', sectionId: 'system-architecture' },
   { label: 'Skills', href: '#skills', sectionId: 'skills' },
   { label: 'Articles', href: '#blog', sectionId: 'blog' },
   { label: 'Contact', href: '#contact', sectionId: 'contact' },
