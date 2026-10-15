@@ -39,14 +39,14 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none" />
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20 items-center w-full">
           {/* Left Column: Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-4.5 text-left"
+            className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-5 text-left"
           >
             {/* Status Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/80 backdrop-blur-md shadow-sm">
@@ -81,7 +81,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="space-y-2 max-w-3xl">
+            <div className="space-y-2 max-w-4xl 2xl:max-w-5xl">
               <p className="text-base sm:text-lg text-foreground font-display font-semibold text-slate-100">
                 Engineering Applied AI &amp; Scalable Intelligent Systems.
               </p>
@@ -167,9 +167,9 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-5 flex justify-center"
+            className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[380px] sm:max-w-[420px] rounded-2xl border border-border bg-card shadow-xl overflow-hidden">
+            <div className="w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[440px] xl:max-w-[480px] 2xl:max-w-[520px] rounded-2xl border border-border bg-card shadow-xl overflow-hidden">
               {/* High-Definition Clear Portrait Frame */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-900">
                 <img

@@ -71,7 +71,7 @@ export function PremiumNavbar() {
             : 'bg-transparent py-3 sm:py-3.5'
         )}
       >
-        <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 flex items-center justify-between">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex items-center justify-between">
           {/* Brand Logo */}
           <a
             href="#home"

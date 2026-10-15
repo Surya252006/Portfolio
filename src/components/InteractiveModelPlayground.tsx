@@ -175,9 +175,9 @@ export function InteractiveModelPlayground() {
       {/* Background subtle pattern */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-5xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <Zap className="h-3.5 w-3.5" />
             Live Client-Side Demo Sandboxes
@@ -217,7 +217,7 @@ export function InteractiveModelPlayground() {
           </div>
         </div>
 
-        <div className="w-full max-w-7xl 2xl:max-w-[1700px] mx-auto rounded-3xl border border-border/90 bg-card/90 backdrop-blur-xl shadow-2xl p-5 sm:p-8 lg:p-10 relative overflow-hidden">
+        <div className="w-full mx-auto rounded-3xl border border-border/90 bg-card/90 backdrop-blur-xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 relative overflow-hidden">
 
           <AnimatePresence mode="wait">
             {/* ===================== TAB 1: MEDPULSE AI ===================== */}

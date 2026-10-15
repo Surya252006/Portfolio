@@ -141,9 +141,9 @@ export function SystemArchitectureVisualizer() {
     <section id="architecture" className="relative py-20 md:py-28 overflow-hidden bg-slate-950/60">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.04),transparent_60%)] pointer-events-none" />
 
-      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
+        <div className="text-center max-w-5xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-xs font-mono uppercase tracking-widest text-primary mb-4">
             <Layers className="h-3.5 w-3.5" />
             End-to-End System Blueprint
@@ -157,7 +157,7 @@ export function SystemArchitectureVisualizer() {
         </div>
 
         {/* Interactive Architecture Flow Ribbon (Horizontal Swipe on Mobile, Expansive Grid on PC) */}
-        <div className="flex lg:grid lg:grid-cols-5 gap-3 w-full max-w-7xl 2xl:max-w-[1700px] mx-auto mb-8 overflow-x-auto pb-3 lg:pb-0 scrollbar-none snap-x px-1">
+        <div className="flex lg:grid lg:grid-cols-5 gap-3.5 w-full mx-auto mb-8 overflow-x-auto pb-3 lg:pb-0 scrollbar-none snap-x px-1">
           {architectureNodes.map((node) => {
             const Icon = node.icon;
             const isSelected = selectedNodeId === node.id;
@@ -200,8 +200,8 @@ export function SystemArchitectureVisualizer() {
           })}
         </div>
 
-        {/* Deep-Dive Inspection Card (Expanded for PC Displays) */}
-        <div className="w-full max-w-7xl 2xl:max-w-[1700px] mx-auto rounded-3xl border border-border bg-card/90 backdrop-blur-xl shadow-2xl p-5 sm:p-8 lg:p-10 relative overflow-hidden">
+        {/* Deep-Dive Inspection Card (Expansive Stretched Showcase on PC Displays) */}
+        <div className="w-full mx-auto rounded-3xl border border-border bg-card/90 backdrop-blur-xl shadow-2xl p-6 sm:p-8 lg:p-10 xl:p-12 relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeNode.id}
@@ -209,7 +209,7 @@ export function SystemArchitectureVisualizer() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
-              className="grid lg:grid-cols-12 gap-8 items-start text-left"
+              className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-start text-left w-full"
             >
               {/* Left Column: Architectural Rationale */}
               <div className="lg:col-span-7 space-y-5">

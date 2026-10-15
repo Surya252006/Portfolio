@@ -68,7 +68,7 @@ export function LiveTelemetryDashboard() {
     <section id="telemetry" className="relative py-12 bg-slate-950/60 border-y border-border overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
-      <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Top Header Strip */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-border/80">
           <div>
