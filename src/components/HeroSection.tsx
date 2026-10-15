@@ -34,22 +34,22 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <section id="home" className="relative pt-20 pb-12 sm:pt-20 md:pt-24 md:pb-16 overflow-hidden">
       {/* Background subtle grid */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none" />
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
       <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column: Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="lg:col-span-7 xl:col-span-7 space-y-6 text-left"
+            className="lg:col-span-7 xl:col-span-7 space-y-4 sm:space-y-4.5 text-left"
           >
             {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/80 backdrop-blur-md shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/80 backdrop-blur-md shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span className="text-xs font-mono font-medium text-slate-300">
                 Third-Year CSE • Dhanalakshmi Srinivasan College of Engineering
@@ -57,7 +57,7 @@ export function HeroSection() {
             </div>
 
             {/* Main Greeting & Headline */}
-            <div className="space-y-3">
+            <div className="space-y-1.5 sm:space-y-2">
               <p className="text-xs sm:text-sm font-mono text-primary font-semibold tracking-wider uppercase">
                 Hello, I am
               </p>

@@ -67,8 +67,8 @@ export function PremiumNavbar() {
         className={clsx(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-[#090D16]/90 backdrop-blur-md border-b border-border/80 shadow-md py-3'
-            : 'bg-transparent py-5'
+            ? 'bg-[#090D16]/90 backdrop-blur-md border-b border-border/80 shadow-md py-2.5 sm:py-3'
+            : 'bg-transparent py-3 sm:py-3.5'
         )}
       >
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 flex items-center justify-between">
